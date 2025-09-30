@@ -3,11 +3,11 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: Name
+first_name: Egor
+middle_name: ""
+last_name: Cherepanov
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  ""
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
@@ -16,7 +16,7 @@ footer_text: >
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 💀 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: "https://avanturist322.github.io" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -188,6 +188,22 @@ exclude:
   - package.json
   - package-lock.json
   - _pages/about_einstein.md
+  # Keep only the about page; exclude all other pages and content sections
+  - _pages/404.md
+  - _pages/blog.md
+  - _pages/books.md
+  - _pages/cv.md
+  - _pages/dropdown.md
+  - _pages/news.md
+  - _pages/profiles.md
+  - _pages/projects.md
+  - _pages/publications.md
+  - _pages/repositories.md
+  - _pages/teaching.md
+  - _posts/
+  - _news/
+  - _projects/
+  - _books/
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -385,7 +401,7 @@ enable_bing_verification: false # enables bing site verification
 enable_masonry: true # enables automatic project cards arrangement
 enable_math: true # enables math typesetting (uses MathJax)
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
-enable_darkmode: true # enables switching between light/dark modes
+enable_darkmode: false # disables dark mode; forces light (white) theme
 enable_navbar_social: false # enables displaying social links in the navbar on the about page
 enable_project_categories: true # enables categorization of projects into multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
