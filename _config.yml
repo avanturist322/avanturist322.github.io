@@ -8,7 +8,8 @@ middle_name: ""
 last_name: Cherepanov
 contact_note: >-
   "cherepanovegor2018@gmail.com"
-description: >- # the ">" symbol means to ignore newlines until "footer_text:"
+# the ">" symbol means to ignore newlines until "footer_text:"
+description: >
   ""
 # <i class="fas fa-envelope"></i> [Email](mailto:cherepanovegor2018@gmail.com)  
 # <i class="ai ai-google-scholar"></i> [Google Scholar](https://scholar.google.com/...)  
