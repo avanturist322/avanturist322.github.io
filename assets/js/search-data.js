@@ -32,18 +32,18 @@ ninja.data = [{
           
         },
       },{
-        id: 'social-email',
-        title: 'email',
+        id: 'social-github',
+        title: 'GitHub',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%63%68%65%72%65%70%61%6E%6F%76%65%67%6F%72%32%30%31%38@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+          window.open("https://github.com/avanturist322", "_blank");
         },
       },{
-        id: 'social-rss',
-        title: 'RSS Feed',
+        id: 'social-linkedin',
+        title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("/feed.xml", "_blank");
+          window.open("https://www.linkedin.com/in/egor-cherepanov-95a70931a", "_blank");
         },
       },{
         id: 'social-scholar',
@@ -51,5 +51,12 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://scholar.google.com/citations?user=Jh8ZdwUAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-x',
+        title: 'X',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://twitter.com/hirasava_ui", "_blank");
         },
       },];
