@@ -16,6 +16,7 @@ profile:
   #   <p>Your City, State 12345</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
+move_social_buttons: true # includes social icons right after the subtitle
 social: false # includes social icons at the bottom of the page
 
 announcements:
@@ -30,6 +31,7 @@ latest_posts:
 ---
 
 Hello! I love Evangelion.
+
 
 <br>
 <br>
@@ -48,6 +50,8 @@ Hello! I love Evangelion.
 {% tabs content %}
 
 {% tab content Research %}
+
+
 
 <div class="publications">
 {% bibliography %}

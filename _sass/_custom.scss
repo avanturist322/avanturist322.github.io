@@ -1,0 +1,70 @@
+/* Custom overrides */
+
+.post-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* align left */
+  }
+  
+  /* --- socials positioning --- */
+  .post-title-wrap .subtitle-social .social.social-top {
+    order: -1;          /* move above description */
+    margin-bottom: 0.3rem; /* small spacing below socials */
+    margin-top: 0;        /* remove top margin */
+  }
+  
+  /* top-level socials (if outside subtitle) */
+  .social-top {
+    margin-top: 0;        /* remove excess space */
+    margin-bottom: 0.35rem;
+  }
+  
+  /* icon spacing */
+  .social-top .contact-icons a {
+    margin-right: 0.6rem;
+  }
+  
+  .social-top .contact-icons i,
+  .social-top .contact-icons svg {
+    font-size: 2.2rem;
+    line-height: 1;
+    vertical-align: middle;
+  }
+  
+  .post-header .post-title { 
+    margin-bottom: .25rem; 
+  }
+  
+  .desc { 
+    margin-top: .35rem; 
+  }
+  
+  .post-title {
+    font-weight: 700;
+  }
+  
+/* socials row right under subtitle */
+.post-title-wrap .subtitle-social .social.social-top {
+    order: 2;             /* directly after subtitle */
+    margin-top: 0.1rem;   /* almost glued to subtitle */
+    margin-bottom: 0.2rem; /* less space before description */
+  }
+  
+  /* subtitle text */
+  .post-title-wrap .subtitle-social .desc {
+    order: 1;              /* keep subtitle above socials */
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  /* icons row styling */
+  .post-title-wrap .subtitle-social .social.social-top .contact-icons a {
+    margin-right: 0.4rem;
+  }
+  
+  .post-title-wrap .subtitle-social .social.social-top .contact-icons i,
+  .post-title-wrap .subtitle-social .social.social-top .contact-icons svg {
+    font-size: 1.4rem;  /* visually aligned with text */
+    vertical-align: middle;
+  }
+  

@@ -3,16 +3,28 @@ layout: default
 ---
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+    <div class="post-title-wrap">
+      <h1 class="post-title">
+        {% if site.title == 'blank' %}
+          <strong>{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}</strong>
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+
+      <!-- SUBTITLE FIRST -->
+      <p class="desc">{{ page.subtitle }}</p>
+
+      <!-- THEN SOCIAL ICONS -->
+      {% if page.move_social_buttons %}
+      <div class="social social-top">
+        <div class="contact-icons">{% include social.liquid %}</div>
+      </div>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+    </div>
   </header>
+
+
 
   <article>
     {% if page.profile %}

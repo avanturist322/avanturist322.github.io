@@ -209,7 +209,7 @@ ul.task-list input[type="checkbox"] {
 
 .profile.float-right {
   margin-left: 1rem;
-  margin-top: -80px; /* Move profile picture higher */
+  margin-top: -200px; /* Move profile picture higher */
 }
 
 .profile.float-left {
@@ -1425,3 +1425,4 @@ figure.cover {
   }
 }
 
+@import "custom";
