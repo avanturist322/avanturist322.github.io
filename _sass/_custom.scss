@@ -42,6 +42,33 @@
   .post-title {
     font-weight: 700;
   }
+
+  .email-contact {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.9rem;
+  }
+
+  .email-link {
+    color: var(--global-theme-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .email-link:hover {
+    color: var(--global-text-color);
+    text-decoration: underline;
+  }
+
+  /* Email protection - make it harder for simple bots to parse */
+  .email-text {
+    font-family: monospace;
+    letter-spacing: 0.1em;
+  }
+
+  /* Hide email from very basic scrapers */
+  .email-link::before {
+    content: "";
+  }
   
 /* socials row right under subtitle */
 .post-title-wrap .subtitle-social .social.social-top {
@@ -66,5 +93,139 @@
   .post-title-wrap .subtitle-social .social.social-top .contact-icons svg {
     font-size: 1.4rem;  /* visually aligned with text */
     vertical-align: middle;
+  }
+  
+/* Align socials flush-left with the paragraph edge */
+.post .social-inline {
+    display: flex;
+    justify-content: flex-start;  /* left align */
+    align-items: center;
+    text-align: left;              /* override any center text-align */
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+  }
+  
+  /* Make the icons row a left-aligned flex row with gaps */
+  .post .social-inline .contact-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;                   /* space between icons */
+  }
+  
+  /* Icon sizing and spacing */
+  .post .social-inline .contact-icons a { margin: 0; }
+  .post .social-inline .contact-icons i,
+  .post .social-inline .contact-icons svg {
+    font-size: 1.4rem;
+    vertical-align: middle;
+  }
+  
+  /* Social icons just under intro text */
+.post .social-inline {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+  
+    margin-top: -0.2rem;   /* pulls icons closer to the paragraph above */
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Flex row for icons */
+  .post .social-inline .contact-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem; /* spacing between icons */
+  }
+  
+  /* Icon sizing */
+  .post .social-inline .contact-icons i,
+  .post .social-inline .contact-icons svg {
+    font-size: 1.8rem;  /* larger than before (try 2rem if you want even bigger) */
+    vertical-align: top;
+    line-height: 1;
+  }
+  
+  .email-contact {
+    margin: 0.25rem 0 0 0;
+  }
+
+  .email-reveal {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--global-bg-color);
+    border: 1px dashed var(--global-theme-color);
+    border-radius: 0.25rem;
+    color: var(--global-theme-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .email-reveal:hover {
+    background-color: var(--global-theme-color);
+    color: var(--global-bg-color);
+    border-color: var(--global-text-color);
+  }
+
+  .email-reveal.revealed {
+    background-color: transparent;
+    border: none;
+    color: var(--global-theme-color);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  .email-reveal.revealed:hover {
+    text-decoration: underline;
+  }
+
+  /* Copy feedback animation */
+  @keyframes copyFeedback {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    15% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+    85% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  /* Bottom copyright - positioned at very bottom without black line */
+  .bottom-copyright {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--global-bg-color);
+    border-top: none; /* Remove any top border */
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    text-align: center;
+    z-index: 10; /* Low z-index, above background but below content */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .bottom-copyright:hover {
+    opacity: 1;
+  }
+
+  /* Ensure content doesn't get hidden behind the copyright */
+  body {
+    margin-bottom: 3rem; /* Space for the copyright bar */
   }
   

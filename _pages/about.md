@@ -16,7 +16,7 @@ profile:
   #   <p>Your City, State 12345</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
-move_social_buttons: true # includes social icons right after the subtitle
+move_social_buttons: false # includes social icons right after the subtitle
 social: false # includes social icons at the bottom of the page
 
 announcements:
@@ -30,22 +30,15 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I love Evangelion.
+Hello! I am researching memory in Reinforcement Learning and Robotics (specifically as it applies to transformer architectures). I am currently pursuing a PhD in this field.
 
+<div class="social social-inline">
+  <div class="contact-icons">{% include social.liquid %}</div>
+</div>
 
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 {% tabs content %}
 
