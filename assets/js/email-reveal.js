@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".email-text").forEach((function(t){var e=t.getAttribute("data-user"),n=t.getAttribute("data-domain");e&&n&&(t.textContent=e+"@"+n)}))}));
