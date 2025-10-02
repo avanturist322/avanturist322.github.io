@@ -4,6 +4,7 @@ title: about
 permalink: /
 # subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 subtitle: Research Scientist (RL, Robotics)
+tabs: true
 
 profile:
   align: right
@@ -28,4 +29,49 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Test
+Hello! I love Evangelion.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% tabs content %}
+
+{% tab content Research %}
+
+<div class="publications">
+{% bibliography %}
+</div>
+
+{% endtab %}
+
+{% tab content Media %}
+
+## Talks & Media Appearances
+TBD
+
+<!-- Most of the talks and sources are in my native language - Russian.
+
+**2025** - [Talk](#) at AIRI summer school about Latent Action Models and their limitations, based on my ICML 2025 paper.
+
+**2024** - [Short talk](#) at AIRI about XLand-MiniGrid, which was accepted to NeurIPS 2024.
+
+**2024** - [Blog](#) post about XLand-100B dataset, largest to date in in-context RL.
+
+**2024** - Short Forbes [interview](#), about my story and the research for which I won the Yandex ML Prize ([video in russian](#)).
+
+**2023** - Democratizing Meta-RL Research talk presenting XLand-MiniGrid library ([video in russian](#)) -->
+
+{% endtab %}
+
+{% endtabs %}

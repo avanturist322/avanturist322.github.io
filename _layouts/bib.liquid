@@ -48,7 +48,26 @@
   <!-- Entry bib key -->
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    {%- assign paper_url = null -%}
+    {%- if entry.url -%}
+      {%- assign paper_url = entry.url -%}
+    {%- elsif entry.html -%}
+      {%- if entry.html contains '://' -%}
+        {%- assign paper_url = entry.html -%}
+      {%- else -%}
+        {%- assign paper_url = entry.html | prepend: '/assets/html/' | relative_url -%}
+      {%- endif -%}
+    {%- elsif entry.arxiv -%}
+      {%- assign paper_url = 'http://arxiv.org/abs/' | append: entry.arxiv -%}
+    {%- elsif entry.doi -%}
+      {%- assign paper_url = 'https://doi.org/' | append: entry.doi -%}
+    {%- endif -%}
+    
+    {%- if paper_url -%}
+      <div class="title"><a href="{{ paper_url }}" class="publication-title-link">{{ entry.title }}</a></div>
+    {%- else -%}
+      <div class="title">{{ entry.title }}</div>
+    {%- endif -%}
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}

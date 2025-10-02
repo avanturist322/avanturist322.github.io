@@ -209,6 +209,7 @@ ul.task-list input[type="checkbox"] {
 
 .profile.float-right {
   margin-left: 1rem;
+  margin-top: -80px; /* Move profile picture higher */
 }
 
 .profile.float-left {
@@ -1423,3 +1424,4 @@ figure.cover {
     color: #23212d !important;
   }
 }
+
