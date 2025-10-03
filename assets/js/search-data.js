@@ -9,7 +9,26 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{
+  },{id: "nav-publications",
+          title: "publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications";
+          },
+        },{id: "nav-news",
+          title: "news",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
+          },
+        },{id: "news-attending-corl-2025",
+          title: 'Attending CoRL-2025',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_1/";
+            },},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
