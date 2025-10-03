@@ -326,3 +326,66 @@
 {% if site.newsletter.enabled %}
   <script defer src="{{ '/assets/js/newsletter.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
+
+<!-- Highlight Egor Cherepanov in author lists -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Highlight Egor Cherepanov in d-byline (Distill publications)
+  const bylineElements = document.querySelectorAll('d-byline');
+  bylineElements.forEach(function(byline) {
+    const walker = document.createTreeWalker(
+      byline,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function(node) {
+          return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      }
+    );
+
+    const textNodes = [];
+    let node;
+    while (node = walker.nextNode()) {
+      textNodes.push(node);
+    }
+
+    textNodes.forEach(function(textNode) {
+      const text = textNode.textContent;
+      if (text.includes('Egor') && text.includes('Cherepanov')) {
+        const strong = document.createElement('strong');
+        strong.textContent = text;
+        textNode.parentNode.replaceChild(strong, textNode);
+      }
+    });
+  });
+
+  // Also highlight in regular publication author lists
+  const authorElements = document.querySelectorAll('.author');
+  authorElements.forEach(function(authorDiv) {
+    const walker = document.createTreeWalker(
+      authorDiv,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function(node) {
+          return node.textContent.trim() && !node.parentNode.tagName?.match(/^(SUP|EM|STRONG)$/);
+        }
+      }
+    );
+
+    const textNodes = [];
+    let node;
+    while (node = walker.nextNode()) {
+      textNodes.push(node);
+    }
+
+    textNodes.forEach(function(textNode) {
+      const text = textNode.textContent;
+      if (text.includes('Egor') && text.includes('Cherepanov')) {
+        const strong = document.createElement('strong');
+        strong.textContent = text;
+        textNode.parentNode.replaceChild(strong, textNode);
+      }
+    });
+  });
+});
+</script>

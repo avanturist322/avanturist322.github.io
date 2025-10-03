@@ -204,28 +204,17 @@
     }
   }
 
-  /* Bottom copyright - positioned at very bottom without black line */
+  /* Bottom copyright - positioned at very bottom of page content */
   .bottom-copyright {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background: var(--global-bg-color);
-    border-top: none; /* Remove any top border */
-    padding: 0.5rem 0;
+    border-top: 1px solid var(--global-divider-color);
+    padding: 1rem 0;
     font-size: 0.8rem;
     text-align: center;
-    z-index: 10; /* Low z-index, above background but below content */
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    margin-top: 2rem;
   }
 
   .bottom-copyright:hover {
     opacity: 1;
-  }
-
-  /* Ensure content doesn't get hidden behind the copyright */
-  body {
-    margin-bottom: 3rem; /* Space for the copyright bar */
   }
   

@@ -811,6 +811,14 @@ footer.sticky-bottom {
         }
         a.award.btn {
           border-color: var(--global-highlight-color);
+          background-color: #d4edda;
+          color: #155724;
+        }
+
+        .award-text {
+          color: #28a745;
+          font-weight: bold;
+          margin: 0.5rem 0;
         }
       }
 
@@ -874,6 +882,14 @@ footer.sticky-bottom {
     }
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    div.award.hidden p {
+      color: #28a745;
+      font-weight: bold;
+      margin: 0;
     }
   }
 }
