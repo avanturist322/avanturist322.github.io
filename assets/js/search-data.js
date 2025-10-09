@@ -27,8 +27,11 @@ ninja.data = [{
           title: 'Attending CoRL-2025',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/news/announcement_1/";
-            },},{
+              window.location.href = "/news/announcement_20251001/";
+            },},{id: "news-the-preprint-of-our-paper-elmur-is-now-available-on-arxiv",
+          title: 'The preprint of our paper “ELMUR” is now available on arXiv.',
+          description: "",
+          section: "News",},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
