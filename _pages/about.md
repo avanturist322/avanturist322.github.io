@@ -88,7 +88,36 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 
 {% tab content News %}
 
-<p>View the latest news and updates in the section above, or visit the <a href="/news/">full news page</a> for complete details.</p>
+<div class="news-section-full">
+  {% if site.news != blank %}
+    {% assign news = site.news | reverse %}
+    {% for item in news %}
+      <div class="news-item-full" style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e9ecef;">
+        <div class="news-date-full" style="font-size: 0.9rem; color: #6c757d; font-weight: 500; margin-bottom: 0.75rem;">
+          {% if item.start_date and item.end_date %}
+            {% assign start_date = item.start_date | date: '%b %d' %}
+            {% assign end_date = item.end_date | date: '%b %d, %Y' %}
+            {{ start_date }} - {{ end_date }}
+          {% else %}
+            {{ item.date | date: '%b %d, %Y' }}
+          {% endif %}
+        </div>
+        <div class="news-content-full" style="font-size: 0.95rem; line-height: 1.5;">
+          {% if item.inline %}
+            {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+          {% else %}
+            <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: #007bff; font-weight: 500;">{{ item.title }}</a>
+          {% endif %}
+          {% if item.location %}
+            <br><small class="text-muted" style="font-size: 0.85rem;">{{ item.location }}</small>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p style="font-size: 0.95rem; color: #6c757d; font-style: italic;">No news updates yet...</p>
+  {% endif %}
+</div>
 
 {% endtab %}
 

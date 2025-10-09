@@ -24,10 +24,13 @@ nav_order: 3
               {% endif %}
             </th>
             <td>
-              {% if item.inline %}
-                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-              {% else %}
+              {% if item.title and item.inline == false %}
                 <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              {% elsif item.title %}
+                <strong>{{ item.title }}</strong>
+              {% endif %}
+              {% if item.content %}
+                <br>{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
               {% endif %}
               {% if item.location %}
                 <br><small class="text-muted">{{ item.location }}</small>
