@@ -28,8 +28,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20251001/";
-            },},{id: "news-the-preprint-of-our-paper-elmur-is-now-available-on-arxiv",
-          title: 'The preprint of our paper “ELMUR” is now available on arXiv.',
+            },},{id: "news-the-preprint-of-our-paper-elmur-external-layer-memory-with-update-rewrite-for-long-horizon-rl-is-now-available-on-arxiv",
+          title: 'The preprint of our paper “ELMUR: External Layer Memory with Update/Rewrite for Long-Horizon...',
+          description: "",
+          section: "News",},{id: "news-the-preprint-of-our-paper-a-new-perspective-on-transformers-in-online-reinforcement-learning-for-continuous-control-is-now-available-on-arxiv",
+          title: 'The preprint of our paper “A New Perspective on Transformers in Online Reinforcement...',
           description: "",
           section: "News",},{
         id: 'social-github',
