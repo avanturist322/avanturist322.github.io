@@ -34,7 +34,12 @@ ninja.data = [{
           section: "News",},{id: "news-the-preprint-of-our-paper-a-new-perspective-on-transformers-in-online-reinforcement-learning-for-continuous-control-is-now-available-on-arxiv",
           title: 'The preprint of our paper “A New Perspective on Transformers in Online Reinforcement...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "news-attending-fall-into-ml-2025",
+          title: 'Attending Fall into ML 2025',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20251024/";
+            },},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
