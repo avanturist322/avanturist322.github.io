@@ -37,14 +37,14 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 </div>
 
 <!-- Mini News Section -->
-<div class="mini-news-section" style="margin: -3rem 0 2rem 0; padding: 1.5rem; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #007bff; max-width: 600px;">
-  <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">📰 Latest Updates</h3>
+<div class="mini-news-section" style="margin: -3rem 0 2rem 0; padding: 1.5rem; background-color: var(--global-news-bg-color); border-radius: 8px; border-left: 4px solid var(--global-news-border-color); max-width: 600px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="margin-top: 0; color: var(--global-text-color); font-size: 1.2rem;">📰 Latest Updates</h3>
   <div class="mini-news-container" style="max-height: 150px; overflow-y: auto;">
     {% if site.news != blank %}
       {% assign news = site.news | reverse %}
       {% for item in news %}
-        <div class="mini-news-item" style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e9ecef;">
-          <div class="mini-news-date" style="font-size: 0.85rem; color: #6c757d; font-weight: 500; margin-bottom: 0.5rem;">
+        <div class="mini-news-item" style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--global-divider-color);">
+          <div class="mini-news-date" style="font-size: 0.85rem; color: var(--global-text-color-light); font-weight: 500; margin-bottom: 0.5rem;">
             {% if item.start_date and item.end_date %}
               {% assign start_date = item.start_date | date: '%b %d' %}
               {% assign end_date = item.end_date | date: '%b %d, %Y' %}
@@ -53,24 +53,24 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
               {{ item.date | date: '%b %d, %Y' }}
             {% endif %}
           </div>
-          <div class="mini-news-content" style="font-size: 0.9rem; line-height: 1.4;">
+          <div class="mini-news-content" style="font-size: 0.9rem; line-height: 1.4; color: var(--global-text-color);">
             {% if item.inline %}
               {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
             {% else %}
-              <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: #007bff;">{{ item.title }}</a>
+              <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: var(--global-theme-color);">{{ item.title }}</a>
             {% endif %}
             {% if item.location %}
-              <br><small style="color: #6c757d; font-size: 0.75rem;">{{ item.location }}</small>
+              <br><small style="color: var(--global-text-color-light); font-size: 0.75rem;">{{ item.location }}</small>
             {% endif %}
           </div>
         </div>
       {% endfor %}
     {% else %}
-      <p style="font-size: 0.9rem; color: #6c757d; font-style: italic;">No news updates yet...</p>
+      <p style="font-size: 0.9rem; color: var(--global-text-color-light); font-style: italic;">No news updates yet...</p>
     {% endif %}
   </div>
   <div style="margin-top: 1rem; text-align: right;">
-    <a href="/news/" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">View all news →</a>
+    <a href="/news/" style="font-size: 0.85rem; color: var(--global-theme-color); text-decoration: none;">View all news →</a>
   </div>
 </div>
 
@@ -92,8 +92,8 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
   {% if site.news != blank %}
     {% assign news = site.news | reverse %}
     {% for item in news %}
-      <div class="news-item-full" style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e9ecef;">
-        <div class="news-date-full" style="font-size: 0.9rem; color: #6c757d; font-weight: 500; margin-bottom: 0.75rem;">
+      <div class="news-item-full" style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--global-divider-color);">
+        <div class="news-date-full" style="font-size: 0.9rem; color: var(--global-text-color-light); font-weight: 500; margin-bottom: 0.75rem;">
           {% if item.start_date and item.end_date %}
             {% assign start_date = item.start_date | date: '%b %d' %}
             {% assign end_date = item.end_date | date: '%b %d, %Y' %}
@@ -102,20 +102,20 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
             {{ item.date | date: '%b %d, %Y' }}
           {% endif %}
         </div>
-        <div class="news-content-full" style="font-size: 0.95rem; line-height: 1.5;">
+        <div class="news-content-full" style="font-size: 0.95rem; line-height: 1.5; color: var(--global-text-color);">
           {% if item.inline %}
             {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
           {% else %}
-            <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: #007bff; font-weight: 500;">{{ item.title }}</a>
+            <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ item.title }}</a>
           {% endif %}
           {% if item.location %}
-            <br><small class="text-muted" style="font-size: 0.85rem;">{{ item.location }}</small>
+            <br><small style="color: var(--global-text-color-light); font-size: 0.85rem;">{{ item.location }}</small>
           {% endif %}
         </div>
       </div>
     {% endfor %}
   {% else %}
-    <p style="font-size: 0.95rem; color: #6c757d; font-style: italic;">No news updates yet...</p>
+    <p style="font-size: 0.95rem; color: var(--global-text-color-light); font-style: italic;">No news updates yet...</p>
   {% endif %}
 </div>
 
