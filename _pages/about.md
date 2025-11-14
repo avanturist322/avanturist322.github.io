@@ -124,19 +124,12 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 {% tab content Media %}
 
 ## Talks & Media Appearances
-TBD
 
-<!-- Most of the talks and sources are in my native language - Russian.
+| Date | Language | Venue | Title | Link |
+|------|----------|-------|-------|------|
+| 13.11.2024 | Russian | Online | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning" | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
 
-**2025** - [Talk](#) at AIRI summer school about Latent Action Models and their limitations, based on my ICML 2025 paper.
 
-**2024** - [Short talk](#) at AIRI about XLand-MiniGrid, which was accepted to NeurIPS 2024.
-
-**2024** - [Blog](#) post about XLand-100B dataset, largest to date in in-context RL.
-
-**2024** - Short Forbes [interview](#), about my story and the research for which I won the Yandex ML Prize ([video in russian](#)).
-
-**2023** - Democratizing Meta-RL Research talk presenting XLand-MiniGrid library ([video in russian](#)) -->
 
 {% endtab %}
 
