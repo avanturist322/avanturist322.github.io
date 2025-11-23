@@ -39,6 +39,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20251024/";
+            },},{id: "news-attending-aij-2025",
+          title: 'Attending AIJ 2025',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20251120/";
             },},{
         id: 'social-github',
         title: 'GitHub',
