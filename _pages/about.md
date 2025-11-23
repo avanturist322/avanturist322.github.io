@@ -127,7 +127,9 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 
 | Date | Language | Venue | Title | Link |
 |------|----------|-------|-------|------|
-| 13.11.2024 | Russian | Online | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning" | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
+| 21.11.2025 | Russian | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots" | | 
+| 13.11.2025 | Russian | Online | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning" | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
+
 
 
 
