@@ -44,6 +44,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20251120/";
+            },},{id: "news-announcing-awesome-memory-vla",
+          title: 'Announcing Awesome Memory VLA',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20251203/";
             },},{
         id: 'social-github',
         title: 'GitHub',
