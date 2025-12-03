@@ -2,8 +2,6 @@
 layout: post
 title: Announcing Awesome Memory VLA
 date: 2025-12-03
-start_date: 2025-12-03
-end_date: 2025-12-03
 location: Online
 inline: false
 related_posts: false
