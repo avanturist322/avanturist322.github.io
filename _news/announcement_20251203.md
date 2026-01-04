@@ -12,5 +12,3 @@ We are releasing **[Awesome Memory VLA](https://github.com/avanturist322/awesome
 The repository tracks papers, benchmarks, datasets, and other resources relevant to building VLA systems that integrate memory for robust generalization and long-term reasoning.
 
 Community contributions are welcome. If you have a relevant paper or resource, feel free to submit a pull request.
-
-

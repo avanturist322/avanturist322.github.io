@@ -22,17 +22,17 @@
 
     <!-- Snowflakes Effect -->
     {% if site.enable_snowflakes %}
-    <div class="snowflake-area">
-      {% for i in (1..250) %}
-        <div class="snowflake _{{ i }}">❄️</div>
-      {% endfor %}
-      {% for i in (1..50) %}
-        <div class="snowflake _md _md-{{ i }}">❄️</div>
-      {% endfor %}
-      {% for i in (1..50) %}
-        <div class="snowflake _lg _lg-{{ i }}">❄️</div>
-      {% endfor %}
-    </div>
+      <div class="snowflake-area">
+        {% for i in (1..250) %}
+          <div class="snowflake _{{ i }}">❄️</div>
+        {% endfor %}
+        {% for i in (1..50) %}
+          <div class="snowflake _md _md-{{ i }}">❄️</div>
+        {% endfor %}
+        {% for i in (1..50) %}
+          <div class="snowflake _lg _lg-{{ i }}">❄️</div>
+        {% endfor %}
+      </div>
     {% endif %}
 
     <!-- Content -->
@@ -87,11 +87,8 @@
     <!-- Page View Counter -->
     <div class="bottom-view-counter">
       <div class="container">
-        <span style="white-space: nowrap;">
-          Views:&nbsp;<span id="busuanzi_value_page_pv">Loading</span>
-        </span>
+        <span style="white-space: nowrap;"> Views:&nbsp;<span id="busuanzi_value_page_pv">Loading</span> </span>
       </div>
     </div>
   </body>
 </html>
-

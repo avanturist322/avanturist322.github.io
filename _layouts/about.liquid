@@ -6,16 +6,22 @@ layout: default
     <div class="post-title-wrap">
       <h1 class="post-title">
         {% if site.title == 'blank' %}
-          <strong>{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}</strong>
+          <strong>
+            {{- site.first_name -}}
+            {%- if site.middle_name %} {{ site.middle_name }}{% endif %}
+            {{ site.last_name -}}
+          </strong>
         {% else %}
           {{ site.title }}
         {% endif %}
       </h1>
 
-
       <p class="email-contact">
-        <span class="email-text email-reveal"
-              onclick="revealEmail(this)">Click to reveal email</span>
+        <span
+          class="email-text email-reveal"
+          onclick="revealEmail(this)"
+          >Click to reveal email</span
+        >
       </p>
 
       <!-- SUBTITLE FIRST -->
@@ -23,13 +29,12 @@ layout: default
 
       <!-- THEN SOCIAL ICONS -->
       {% if page.move_social_buttons %}
-      <div class="social social-top">
-        <div class="contact-icons">{% include social.liquid %}</div>
-      </div>
+        <div class="social social-top">
+          <div class="contact-icons">{% include social.liquid %}</div>
+        </div>
       {% endif %}
     </div>
   </header>
-
 
   <article>
     {% if page.profile %}

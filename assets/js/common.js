@@ -58,15 +58,15 @@ $(document).ready(function () {
   });
 
   // Email protection function
-  window.constructEmail = function(element) {
-    const email = element.getAttribute('data-email');
-    const domain = element.getAttribute('data-domain');
-    const fullEmail = email + '@' + domain;
-    window.location.href = 'mailto:' + fullEmail;
+  window.constructEmail = function (element) {
+    const email = element.getAttribute("data-email");
+    const domain = element.getAttribute("data-domain");
+    const fullEmail = email + "@" + domain;
+    window.location.href = "mailto:" + fullEmail;
   };
 
   // Email reveal-on-click functionality (Base64 encoded for security)
-  window.revealEmail = function(element) {
+  window.revealEmail = function (element) {
     // Base64 encoded email: "cherepanovegor2018@gmail.com"
     const encodedEmail = "Y2hlcmVwYW5vdmVnb3IyMDE4QGdtYWlsLmNvbQ==";
     const fullEmail = atob(encodedEmail);
@@ -75,27 +75,30 @@ $(document).ready(function () {
     element.textContent = fullEmail;
 
     // Add revealed class for styling
-    element.classList.add('revealed');
+    element.classList.add("revealed");
 
     // Make it clickable for copying email
-    element.onclick = function() {
+    element.onclick = function () {
       copyToClipboard(fullEmail);
     };
 
     // Update title
-    element.title = 'Click to copy email address';
+    element.title = "Click to copy email address";
   };
 
   // Copy text to clipboard
   function copyToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {
       // Use modern Clipboard API
-      navigator.clipboard.writeText(text).then(function() {
-        showCopyFeedback();
-      }).catch(function(err) {
-        console.error('Failed to copy: ', err);
-        fallbackCopyTextToClipboard(text);
-      });
+      navigator.clipboard
+        .writeText(text)
+        .then(function () {
+          showCopyFeedback();
+        })
+        .catch(function (err) {
+          console.error("Failed to copy: ", err);
+          fallbackCopyTextToClipboard(text);
+        });
     } else {
       // Fallback for older browsers or non-HTTPS
       fallbackCopyTextToClipboard(text);
@@ -116,14 +119,14 @@ $(document).ready(function () {
     textArea.select();
 
     try {
-      const successful = document.execCommand('copy');
+      const successful = document.execCommand("copy");
       if (successful) {
         showCopyFeedback();
       } else {
-        console.error('Fallback: Unable to copy');
+        console.error("Fallback: Unable to copy");
       }
     } catch (err) {
-      console.error('Fallback: Unable to copy', err);
+      console.error("Fallback: Unable to copy", err);
     }
 
     document.body.removeChild(textArea);
@@ -132,15 +135,15 @@ $(document).ready(function () {
   // Show visual feedback when email is copied
   function showCopyFeedback() {
     // Remove any existing feedback first
-    const existingFeedback = document.querySelector('.copy-feedback');
+    const existingFeedback = document.querySelector(".copy-feedback");
     if (existingFeedback) {
       existingFeedback.remove();
     }
 
     // Create temporary feedback element
-    const feedback = document.createElement('div');
-    feedback.className = 'copy-feedback';
-    feedback.textContent = '📧 Email copied!';
+    const feedback = document.createElement("div");
+    feedback.className = "copy-feedback";
+    feedback.textContent = "📧 Email copied!";
     feedback.style.cssText = `
       position: fixed;
       top: 50%;

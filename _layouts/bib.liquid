@@ -62,9 +62,11 @@
     {%- elsif entry.doi -%}
       {%- assign paper_url = 'https://doi.org/' | append: entry.doi -%}
     {%- endif -%}
-    
+
     {%- if paper_url -%}
-      <div class="title"><a href="{{ paper_url }}" class="publication-title-link">{{ entry.title }}</a></div>
+      <div class="title">
+        <a href="{{ paper_url }}" class="publication-title-link">{{ entry.title }}</a>
+      </div>
     {%- else -%}
       <div class="title">{{ entry.title }}</div>
     {%- endif -%}
@@ -218,9 +220,7 @@
       {% for i in (1..10) %}
         {% capture award_field %}award_name{{ i }}{% endcapture %}
         {% if entry[award_field] %}
-          <div class="award-text">
-            ★ {{ entry[award_field] }} ★
-          </div>
+          <div class="award-text">★ {{ entry[award_field] }} ★</div>
         {% endif %}
       {% endfor %}
       {% if entry.abstract %}
@@ -243,7 +243,13 @@
         {% if entry.openreview contains '://' %}
           <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #8c1b13; color: white;">OpenReview</a>
         {% else %}
-          <a href="{{ entry.openreview | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #8c1b13; color: white;">OpenReview</a>
+          <a
+            href="{{ entry.openreview | prepend: '/assets/pdf/' | relative_url }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+            style="background-color: #8c1b13; color: white;"
+            >OpenReview</a
+          >
         {% endif %}
       {% endif %}
       {% if entry.supp %}

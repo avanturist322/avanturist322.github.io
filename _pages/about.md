@@ -78,8 +78,6 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 
 {% tab content Research %}
 
-
-
 <div class="publications">
 {% bibliography %}
 </div>
@@ -125,15 +123,12 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 
 ## Talks & Media Appearances
 
-| Date | Language | Venue | Title | Link |
-|------|----------|-------|-------|------|
-| 26.12.2025 | Russian | Online | Embodied AI Reading Club talk on VLA models with memory | TBA |
-| 04.12.2025 | Russian | Online | AIRI "ИИшнница" talk on my papers, accepted to NeurIPS-2025: RATE and "Memory, Benchmark & Robots" | [YouTube](https://www.youtube.com/live/frxpTdPPucg) | 
-| 21.11.2025 | Russian | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots" | TBA | 
-| 13.11.2025 | Russian | Online | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning" | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
-
-
-
+| Date       | Language | Venue   | Title                                                                                              | Link                                                                    |
+| ---------- | -------- | ------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 26.12.2025 | Russian  | Online  | Embodied AI Reading Club talk on VLA models with memory                                            | TBA                                                                     |
+| 04.12.2025 | Russian  | Online  | AIRI "ИИшнница" talk on my papers, accepted to NeurIPS-2025: RATE and "Memory, Benchmark & Robots" | [YouTube](https://www.youtube.com/live/frxpTdPPucg)                     |
+| 21.11.2025 | Russian  | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots"                                     | TBA                                                                     |
+| 13.11.2025 | Russian  | Online  | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning"   | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
 
 {% endtab %}
 
