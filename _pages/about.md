@@ -39,11 +39,11 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 <!-- Mini News Section -->
 <div class="mini-news-section" style="margin: -3rem 0 2rem 0; padding: 1.5rem; background-color: var(--global-news-bg-color); border-radius: 8px; border-left: 4px solid var(--global-news-border-color); max-width: 600px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <h3 style="margin-top: 0; color: var(--global-text-color); font-size: 1.2rem;">📰 Latest Updates</h3>
-  <div class="mini-news-container" style="max-height: 150px; overflow-y: auto;">
+  <div class="mini-news-container" style="max-height: 250px; overflow-y: auto;">
     {% if site.news != blank %}
       {% assign news = site.news | reverse %}
       {% for item in news %}
-        <div class="mini-news-item" style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--global-divider-color);">
+        <div class="mini-news-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--global-divider-color);">
           <div class="mini-news-date" style="font-size: 0.85rem; color: var(--global-text-color-light); font-weight: 500; margin-bottom: 0.5rem;">
             {% if item.start_date and item.end_date %}
               {% assign start_date = item.start_date | date: '%b %d' %}
@@ -69,7 +69,7 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
       <p style="font-size: 0.9rem; color: var(--global-text-color-light); font-style: italic;">No news updates yet...</p>
     {% endif %}
   </div>
-  <div style="margin-top: 1rem; text-align: right;">
+  <div style="margin-top: 0.05rem; margin-bottom: -1rem; text-align: right;">
     <a href="/news/" style="font-size: 0.85rem; color: var(--global-theme-color); text-decoration: none;">View all news →</a>
   </div>
 </div>
@@ -127,7 +127,9 @@ Hello! I am researching memory in Reinforcement Learning and Robotics (specifica
 
 | Date | Language | Venue | Title | Link |
 |------|----------|-------|-------|------|
-| 21.11.2025 | Russian | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots" | | 
+| 26.12.2025 | Russian | Online | Embodied AI Reading Club talk on VLA models with memory | TBA |
+| 04.12.2025 | Russian | Online | AIRI "ИИшнница" talk on my papers, accepted to NeurIPS-2025: RATE and "Memory, Benchmark & Robots" | [YouTube](https://www.youtube.com/live/frxpTdPPucg) | 
+| 21.11.2025 | Russian | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots" | TBA | 
 | 13.11.2025 | Russian | Online | Seminar of the Center for Cognitive Modeling "Memory and Transformers in Reinforcement Learning" | [YouTube](https://www.youtube.com/live/DWp3072ZLDY?si=fkO9Os3fBXsylory) |
 
 

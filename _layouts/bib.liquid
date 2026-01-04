@@ -229,15 +229,6 @@
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
-      {% if entry.html %}
-        {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-        {% endif %}
-      {% elsif entry.arxiv %}
-        <a href="http://arxiv.org/pdf/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
-      {% endif %}
       {% if entry.webpage %}
         <a href="{{ entry.webpage }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #007bff; color: white;">Webpage</a>
       {% endif %}
@@ -246,6 +237,13 @@
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
         {% else %}
           <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+        {% endif %}
+      {% endif %}
+      {% if entry.openreview %}
+        {% if entry.openreview contains '://' %}
+          <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #8c1b13; color: white;">OpenReview</a>
+        {% else %}
+          <a href="{{ entry.openreview | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #8c1b13; color: white;">OpenReview</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}

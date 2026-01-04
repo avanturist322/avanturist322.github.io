@@ -16,9 +16,24 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %} {% if site.enable_snowflakes %}snowflakes-enabled{% endif %}">
     <!-- Header -->
     {% include header.liquid %}
+
+    <!-- Snowflakes Effect -->
+    {% if site.enable_snowflakes %}
+    <div class="snowflake-area">
+      {% for i in (1..250) %}
+        <div class="snowflake _{{ i }}">❄️</div>
+      {% endfor %}
+      {% for i in (1..50) %}
+        <div class="snowflake _md _md-{{ i }}">❄️</div>
+      {% endfor %}
+      {% for i in (1..50) %}
+        <div class="snowflake _lg _lg-{{ i }}">❄️</div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
     <!-- Content -->
     <div class="container mt-5" role="main">
@@ -66,6 +81,15 @@
         {% if site.last_updated %}
           Last updated: {{ 'now' | date: '%B %d, %Y' }}.
         {% endif %}
+      </div>
+    </div>
+
+    <!-- Page View Counter -->
+    <div class="bottom-view-counter">
+      <div class="container">
+        <span style="white-space: nowrap;">
+          Views:&nbsp;<span id="busuanzi_value_page_pv">Loading</span>
+        </span>
       </div>
     </div>
   </body>

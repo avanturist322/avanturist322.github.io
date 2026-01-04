@@ -217,4 +217,95 @@
   .bottom-copyright:hover {
     opacity: 1;
   }
-  
+
+  /* Bottom view counter - positioned below copyright */
+  .bottom-view-counter {
+    background: var(--global-bg-color);
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+/* -----------------------------------------------------------------
+ * Snowflakes effect
+ * ----------------------------------------------------------------- */
+
+$numberOfSnowflake: 250; // update together with html
+$numberOfSnowflakeMd: 50; // update together with html
+$numberOfSnowflakeLg: 50; // update together with html
+
+body.snowflakes-enabled {
+  user-select: none;
+}
+
+.snowflake-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -2vh;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  opacity: 0.8;
+
+  &._md {
+    font-size: 1.5em;
+  }
+
+  &._lg {
+    font-size: 2.25em;
+  }
+
+  @for $i from 1 through $numberOfSnowflake {
+    &._#{$i} {
+      left: random(120) - 20 + vw;
+      filter: blur((random(2)-1) + px);
+      animation: ((random(20) + 20)/10) + s flickr (random(20) / -10) + s infinite,
+        ((random(100) + 50)/5) + s fall (random(100) / -5) + s infinite;
+    }
+  }
+
+  @for $i from 1 through $numberOfSnowflakeMd {
+    &._md-#{$i} {
+      left: random(120) - 20 + vw;
+      filter: blur((random(2)-1) + px);
+      animation: ((random(20) + 20)/10) + s flickr (random(20) / -10) + s infinite,
+        ((random(100) + 50)/5) + s fall (random(100) / -5) + s infinite;
+    }
+  }
+
+  @for $i from 1 through $numberOfSnowflakeLg {
+    &._lg-#{$i} {
+      left: random(120) - 20 + vw;
+      animation: ((random(20) + 20)/10) + s flickr (random(20) / -10) + s infinite,
+        ((random(100) + 50)/5) + s fall (random(100) / -5) + s infinite;
+    }
+  }
+}
+
+@keyframes flickr {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(20vw, 110vh) rotate(360deg);
+  }
+}
