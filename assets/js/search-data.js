@@ -44,12 +44,18 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20251120/";
-            },},{id: "news-announcing-awesome-memory-vla",
+            },},{id: "news-the-paper-marl-gpt-foundation-model-for-multi-agent-reinforcement-learning-has-been-accepted-to-womapf-workshop-aaai-2026",
+          title: 'The paper “MARL-GPT: Foundation Model for Multi-Agent Reinforcement Learning” has been accepted to...',
+          description: "",
+          section: "News",},{id: "news-announcing-awesome-memory-vla",
           title: 'Announcing Awesome Memory VLA',
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20251203/";
-            },},{
+            },},{id: "news-the-paper-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-has-been-accepted-to-aamas-2026",
+          title: 'The paper “Memory Retention Is Not Enough to Master Memory Tasks in Reinforcement...',
+          description: "",
+          section: "News",},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
