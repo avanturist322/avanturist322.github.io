@@ -233,13 +233,9 @@
  * Snowflakes effect
  * ----------------------------------------------------------------- */
 
-$numberOfSnowflake: 50; // update together with html
-$numberOfSnowflakeMd: 10; // update together with html
-$numberOfSnowflakeLg: 10; // update together with html
-
-body.snowflakes-enabled {
-  user-select: none;
-}
+$numberOfSnowflake: 100; // update together with html
+$numberOfSnowflakeMd: 20; // update together with html
+$numberOfSnowflakeLg: 20; // update together with html
 
 .snowflake-area {
   position: fixed;
