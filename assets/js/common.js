@@ -67,7 +67,7 @@ $(document).ready(function () {
 
   // Email reveal-on-click functionality (Base64 encoded for security)
   window.revealEmail = function (element) {
-    // Base64 encoded email: "cherepanovegor2018@gmail.com"
+    // Base64 encoded email: "cherepanovegor2018[at]gmail.com"
     const encodedEmail = "Y2hlcmVwYW5vdmVnb3IyMDE4QGdtYWlsLmNvbQ==";
     const fullEmail = atob(encodedEmail);
 
