@@ -30,7 +30,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I am researching memory in Reinforcement Learning and Robotics (specifically as it applies to transformer architectures). I am currently pursuing a PhD in this field.
+Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
 
 <div class="social social-inline">
   <div class="contact-icons">{% include social.liquid %}</div>

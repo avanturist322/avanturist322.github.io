@@ -735,6 +735,7 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+      position: relative;
 
       .preview {
       }
@@ -767,7 +768,73 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
+      .bib-title-row {
+        display: block;
+        position: relative;
+      }
+
+      .bib-title-row .title {
+        padding-right: 180px; // reserve space for floated tags
+      }
+
+      .periodical-and-tags {
+        display: block;
+      }
+
+      .periodical-and-tags .periodical {
+        padding-right: 180px; // leave space for floated tags
+      }
+
+      .booktitle {
+        color: var(--global-text-color-light);
+        opacity: 0.8;
+      }
+
+      .paper-tags-slot {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-content: flex-start;
+        gap: 0.25rem;
+        text-align: right;
+        margin-left: 0.5rem;
+        min-width: 120px;
+        max-width: 160px;
+      }
+
+      .paper-tag {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        color: white;
+        padding: 0.15rem 0.4rem;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      @media (max-width: 576px) {
+        .paper-tags-slot {
+          position: static;
+          max-width: none;
+          justify-content: flex-start;
+          margin-top: 0.35rem;
+          margin-left: 0;
+        }
+        .bib-title-row .title {
+          padding-right: 0;
+        }
+        .periodical-and-tags .periodical {
+          padding-right: 0;
+        }
+      }
+
       .author {
+        padding-right: 150px; // reserve space for tags to avoid overlap
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
