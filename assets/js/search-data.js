@@ -55,6 +55,9 @@ ninja.data = [{
             },},{id: "news-the-paper-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-has-been-accepted-to-aamas-2026",
           title: 'The paper “Memory Retention Is Not Enough to Master Memory Tasks in Reinforcement...',
           description: "",
+          section: "News",},{id: "news-kage-bench-code-is-now-available-on-github-kage-bench-is-a-pure-jax-2d-platformer-rl-benchmark-for-visual-ood-generalization",
+          title: 'KAGE-Bench code is now available on GitHub! KAGE-Bench is a pure JAX 2D...',
+          description: "",
           section: "News",},{
         id: 'social-github',
         title: 'GitHub',
