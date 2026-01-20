@@ -32,6 +32,8 @@ latest_posts:
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
 
+Project pages: [KAGEBench](/KAGEBench/).
+
 <div class="social social-inline">
   <div class="contact-icons">{% include social.liquid %}</div>
 </div>
