@@ -1,1 +1,95 @@
-function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"})}function setMoreWorksOpen(e){const o=document.querySelector(".more-works-container"),t=document.getElementById("moreWorksDropdown"),n=document.querySelector(".more-works-btn");o&&t&&n&&(o.classList.toggle("is-open",e),t.classList.toggle("is-open",e),n.setAttribute("aria-expanded",String(e)))}function toggleMoreWorks(){const e=document.getElementById("moreWorksDropdown");e&&setMoreWorksOpen(!e.classList.contains("is-open"))}async function copyBibTeX(){const e=document.querySelector("#bibtex-code code"),o=document.querySelector(".copy-bibtex-btn"),t=document.querySelector(".copy-bibtex-btn .copy-text");if(!e)return;const n=e.textContent||"";try{await navigator.clipboard.writeText(n)}catch{const e=document.createElement("textarea");e.value=n,e.setAttribute("readonly",""),e.style.position="absolute",e.style.left="-9999px",document.body.appendChild(e),e.select(),document.execCommand("copy"),document.body.removeChild(e)}o&&o.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout((()=>{o&&o.classList.remove("is-copied"),t&&(t.textContent="Copy")}),1200)}function initScrollToTop(){const e=document.querySelector(".scroll-to-top");if(!e)return;const o=()=>{const o=window.scrollY>400;e.classList.toggle("is-visible",o)};window.addEventListener("scroll",o,{passive:!0}),o()}function initMoreWorksDismiss(){document.addEventListener("keydown",(e=>{"Escape"===e.key&&setMoreWorksOpen(!1)})),document.addEventListener("click",(e=>{const o=document.querySelector(".more-works-container"),t=document.getElementById("moreWorksDropdown");o&&t&&t.classList.contains("is-open")&&(o.contains(e.target)||setMoreWorksOpen(!1))}))}function initCarousels(){window.bulmaCarousel&&window.bulmaCarousel.attach(".carousel",{slidesToScroll:1,slidesToShow:1,infinite:!0,autoplay:!1})}document.addEventListener("DOMContentLoaded",(()=>{initScrollToTop(),initMoreWorksDismiss(),initCarousels()}));
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function setMoreWorksOpen(isOpen) {
+  const container = document.querySelector(".more-works-container");
+  const dropdown = document.getElementById("moreWorksDropdown");
+  const button = document.querySelector(".more-works-btn");
+
+  if (!container || !dropdown || !button) return;
+
+  container.classList.toggle("is-open", isOpen);
+  dropdown.classList.toggle("is-open", isOpen);
+  button.setAttribute("aria-expanded", String(isOpen));
+}
+
+function toggleMoreWorks() {
+  const dropdown = document.getElementById("moreWorksDropdown");
+  if (!dropdown) return;
+  setMoreWorksOpen(!dropdown.classList.contains("is-open"));
+}
+
+async function copyBibTeX() {
+  const code = document.querySelector("#bibtex-code code");
+  const button = document.querySelector(".copy-bibtex-btn");
+  const textSpan = document.querySelector(".copy-bibtex-btn .copy-text");
+  if (!code) return;
+
+  const text = code.textContent || "";
+
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "absolute";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+  }
+
+  if (button) button.classList.add("is-copied");
+  if (textSpan) textSpan.textContent = "Copied";
+  window.setTimeout(() => {
+    if (button) button.classList.remove("is-copied");
+    if (textSpan) textSpan.textContent = "Copy";
+  }, 1200);
+}
+
+function initScrollToTop() {
+  const button = document.querySelector(".scroll-to-top");
+  if (!button) return;
+
+  const onScroll = () => {
+    const shouldShow = window.scrollY > 400;
+    button.classList.toggle("is-visible", shouldShow);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+function initMoreWorksDismiss() {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMoreWorksOpen(false);
+  });
+
+  document.addEventListener("click", (event) => {
+    const container = document.querySelector(".more-works-container");
+    const dropdown = document.getElementById("moreWorksDropdown");
+    if (!container || !dropdown) return;
+    if (!dropdown.classList.contains("is-open")) return;
+    if (container.contains(event.target)) return;
+    setMoreWorksOpen(false);
+  });
+}
+
+function initCarousels() {
+  if (!window.bulmaCarousel) return;
+  window.bulmaCarousel.attach(".carousel", {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true,
+    autoplay: false
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initScrollToTop();
+  initMoreWorksDismiss();
+  initCarousels();
+});
+
