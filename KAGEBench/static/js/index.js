@@ -83,7 +83,7 @@ function initCarousels() {
     slidesToScroll: 1,
     slidesToShow: 1,
     infinite: true,
-    autoplay: false
+    autoplay: false,
   });
 }
 
@@ -92,4 +92,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initMoreWorksDismiss();
   initCarousels();
 });
-

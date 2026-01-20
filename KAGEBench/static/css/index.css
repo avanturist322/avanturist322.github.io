@@ -19,13 +19,19 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: var(--retro-green);
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 190, 0.8) 0 1px, transparent 2px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.5) 0 1px, transparent 2px),
-    radial-gradient(circle, rgba(255, 255, 190, 0.6) 0 1px, transparent 3px),
+  background-image: radial-gradient(circle, rgba(255, 255, 190, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 0 1px, transparent 2px), radial-gradient(circle, rgba(255, 255, 190, 0.6) 0 1px, transparent 3px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.08));
-  background-size: 140px 140px, 220px 220px, 160px 160px, 100% 100%;
-  background-position: 0 0, 80px 40px, 30px 100px, 0 0;
+  background-size:
+    140px 140px,
+    220px 220px,
+    160px 160px,
+    100% 100%;
+  background-position:
+    0 0,
+    80px 40px,
+    30px 100px,
+    0 0;
   color: var(--retro-yellow);
   text-shadow: 1px 1px 0 rgba(13, 59, 25, 0.4);
 }
@@ -187,7 +193,9 @@ h3 {
     inset 1px 1px 0 #cfe0ff,
     inset -1px -1px 0 #1c3f8f,
     3px 3px 0 var(--retro-dark);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
   text-decoration: none;
 }
 
@@ -262,7 +270,9 @@ pre {
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
-  transition: opacity 160ms ease, transform 160ms ease;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
 }
 
 .scroll-to-top.is-visible {
@@ -334,7 +344,9 @@ pre {
   padding: 0;
   cursor: pointer;
   border-radius: 0;
-  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #c07b7b;
+  box-shadow:
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #c07b7b;
 }
 
 .works-list {
