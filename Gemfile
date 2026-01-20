@@ -37,7 +37,5 @@ group :other_plugins do
     # gem 'webrick' -- should be already installed by jekyll
 end
 
-# Development dependencies
-group :development do
-    gem 'rubocop'
-end
+## Development dependencies
+# Keep this section empty unless the Gemfile.lock is updated accordingly.
