@@ -2,3 +2,5 @@ User-agent: *
 Disallow:
 
 Sitemap: https://avanturist322.github.io/sitemap.xml
+Sitemap: https://avanturist322.github.io/sitemap-papers.xml
+Sitemap: https://avanturist322.github.io/KAGEBench/sitemap.xml

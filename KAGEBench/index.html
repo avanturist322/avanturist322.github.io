@@ -74,7 +74,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
 
-    <!-- Custom JS to handle the independent counter -->
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- Custom JS for page interactions -->
     <script defer src="static/js/index.js"></script>
 
     <!-- Structured Data for Academic Papers -->
@@ -272,12 +274,9 @@
 
       <footer class="panel status-panel">
         <p>
-          <span>Views so far: </span>
-          <img id="kagebench_page_views" 
-               src="https://hits.dwyl.com/avanturist322/kagebench.svg?style=flat-square&show=unique" 
-               alt="Page views"
-               style="display: none;" />
-          <span id="kagebench_view_count">--</span>
+          <span id="busuanzi_container_page_pv">
+            Views so far: <span id="busuanzi_value_page_pv">--</span>
+          </span>
         </p>
       </footer>
     </main>
