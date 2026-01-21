@@ -71,13 +71,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
 
-    <!-- Configure busuanzi with explicit page path before loading -->
-    <script>
-      // Set explicit page path for busuanzi to ensure unique tracking
-      window.busuanzi_page_path = '/KAGEBench/';
-    </script>
-    <!-- Load busuanzi first, then custom scripts -->
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- Custom JS to handle the independent counter -->
     <script defer src="static/js/index.js"></script>
 
     <!-- Structured Data for Academic Papers -->
@@ -274,11 +268,7 @@
       </section>
 
       <footer class="panel status-panel">
-        <p>
-          <span id="busuanzi_container_page_pv">
-            Views so far: <span id="busuanzi_value_page_pv">--</span>
-          </span>
-        </p>
+        <p>Views so far: <span id="kagebench_page_views">--</span></p>
       </footer>
     </main>
   </body>

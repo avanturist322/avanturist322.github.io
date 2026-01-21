@@ -87,83 +87,43 @@ function initCarousels() {
   });
 }
 
-function initBusuanziCounter() {
-  // Enhanced busuanzi initialization with fallback
-  const pageViewElement = document.getElementById('busuanzi_value_page_pv');
-  const containerElement = document.getElementById('busuanzi_container_page_pv');
+function initPageViewCounter() {
+  // Use CountAPI for independent page view tracking
+  const pageViewElement = document.getElementById('kagebench_page_views');
   
   if (!pageViewElement) {
-    console.error('Busuanzi page view element not found');
+    console.error('Page view counter element not found');
     return;
   }
   
-  // Initially show loading state
   pageViewElement.textContent = 'Loading...';
-  if (containerElement) {
-    containerElement.style.display = '';
-  }
   
-  let attempts = 0;
-  const maxAttempts = 50; // 5 seconds timeout
+  // CountAPI endpoint - unique namespace and key for this page
+  const namespace = 'avanturist322';
+  const key = 'kagebench-page';
+  const apiUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
   
-  console.log('Initializing busuanzi counter for path:', window.busuanzi_page_path || window.location.pathname);
+  console.log('Fetching page view count from CountAPI...');
   
-  const checkBusuanzi = setInterval(() => {
-    attempts++;
-    
-    // Check if busuanzi has updated the value (it removes the "Loading" text)
-    const currentText = pageViewElement.textContent;
-    if (currentText && currentText !== 'Loading...' && currentText !== '--' && currentText.match(/^\d+$/)) {
-      clearInterval(checkBusuanzi);
-      console.log('Busuanzi loaded successfully. Page views:', currentText);
-      return;
-    }
-    
-    // If busuanzi hasn't loaded after max attempts, try manual fetch
-    if (attempts >= maxAttempts) {
-      clearInterval(checkBusuanzi);
-      console.warn('Busuanzi took too long to load, attempting manual fetch');
-      
-      // Try manual JSONP fetch as fallback
-      const callbackName = 'BusuanziCallback_' + Date.now();
-      window[callbackName] = function(data) {
-        console.log('Manual busuanzi fetch response:', data);
-        if (data && data.page_pv) {
-          pageViewElement.textContent = data.page_pv;
-          console.log('Manual fetch successful. Page views:', data.page_pv);
-        } else {
-          pageViewElement.textContent = '--';
-          console.warn('Manual fetch returned no data');
-        }
-        delete window[callbackName];
-      };
-      
-      const script = document.createElement('script');
-      script.src = `https://busuanzi.ibruce.info/busuanzi?jsonpCallback=${callbackName}`;
-      script.onerror = function() {
-        console.error('Failed to load busuanzi script');
-        pageViewElement.textContent = '--';
-        delete window[callbackName];
-      };
-      document.head.appendChild(script);
-      
-      // Timeout for manual fetch
-      setTimeout(() => {
-        if (pageViewElement.textContent === 'Loading...') {
-          console.error('Busuanzi failed to load after all attempts');
-          pageViewElement.textContent = '--';
-        }
-        if (window[callbackName]) {
-          delete window[callbackName];
-        }
-      }, 5000);
-    }
-  }, 100);
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data && data.value !== undefined) {
+        pageViewElement.textContent = data.value;
+        console.log('CountAPI loaded successfully. Page views:', data.value);
+      } else {
+        throw new Error('Invalid response from CountAPI');
+      }
+    })
+    .catch(error => {
+      console.error('Failed to load page view counter:', error);
+      pageViewElement.textContent = '--';
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   initScrollToTop();
   initMoreWorksDismiss();
   initCarousels();
-  initBusuanziCounter();
+  initPageViewCounter();
 });
