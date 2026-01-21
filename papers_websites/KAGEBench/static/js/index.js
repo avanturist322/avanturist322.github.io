@@ -88,24 +88,39 @@ function initCarousels() {
 }
 
 function initPageViewCounter() {
-  // JSONP callback will update the counter via updateKagebenchCounter()
-  // Set a timeout to show fallback if counter doesn't load
-  const pageViewElement = document.getElementById('kagebench_page_views');
+  const countElement = document.getElementById('kagebench_view_count');
   
-  if (!pageViewElement) {
-    console.error('Page view counter element not found');
+  if (!countElement) {
+    console.error('View count element not found');
     return;
   }
   
-  console.log('Waiting for counter service to load via JSONP...');
+  // Use hits.dwyl.com JSON endpoint
+  const apiUrl = 'https://hits.dwyl.com/avanturist322/kagebench.json';
   
-  // Wait 5 seconds, if still showing "Loading..." then show error
-  setTimeout(() => {
-    if (pageViewElement.textContent === 'Loading...') {
-      console.error('Counter service timed out');
-      pageViewElement.textContent = '--';
-    }
-  }, 5000);
+  console.log('Fetching page view count from hits.dwyl.com...');
+  
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Counter response:', data);
+      // hits.dwyl.com returns {total: X}
+      if (data && data.total !== undefined) {
+        countElement.textContent = data.total;
+        console.log('Counter loaded. Total views:', data.total);
+      } else {
+        throw new Error('Invalid response format');
+      }
+    })
+    .catch(error => {
+      console.error('Failed to load counter:', error);
+      countElement.textContent = '--';
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
