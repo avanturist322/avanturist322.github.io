@@ -91,16 +91,22 @@ function initVisitorCounter() {
   const counter = document.getElementById("kagebench_visitor_count");
   if (!counter) return;
 
-  fetch("https://api.countapi.xyz/hit/avanturist322-github-io/KAGEBench", { cache: "no-store" })
+  const namespace = "avanturist322-github-io";
+  const key = "kagebench";
+  const countUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
+
+  fetch(countUrl, { cache: "no-store" })
     .then((response) => response.json())
     .then((data) => {
-      if (data && typeof data.value === "number") {
-        counter.textContent = String(data.value);
+      const numericValue = Number(data?.value);
+      if (!Number.isNaN(numericValue)) {
+        counter.textContent = numericValue.toLocaleString();
       } else {
         counter.textContent = "N/A";
       }
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error("Visitor counter failed:", error);
       counter.textContent = "N/A";
     });
 }
