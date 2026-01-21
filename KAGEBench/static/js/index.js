@@ -91,7 +91,7 @@ function initVisitorCounter() {
   const counter = document.getElementById("kagebench_visitor_count");
   if (!counter) return;
 
-  fetch("https://api.countapi.xyz/hit/avanturist322.github.io/kagebench")
+  fetch("https://api.countapi.xyz/hit/avanturist322-github-io/KAGEBench", { cache: "no-store" })
     .then((response) => response.json())
     .then((data) => {
       if (data && typeof data.value === "number") {
