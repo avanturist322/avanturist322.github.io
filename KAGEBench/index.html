@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
+    <!-- Canonical URL - Treat as separate page -->
+    <link rel="canonical" href="https://avanturist322.github.io/KAGEBench/" />
+    
     <!-- Unique page identifier for view counter -->
     <meta property="page:id" content="kagebench-project-page" />
 
@@ -73,17 +76,6 @@
 
     <!-- Custom JS to handle the independent counter -->
     <script defer src="static/js/index.js"></script>
-    
-    <!-- Counter service with JSONP -->
-    <script>
-      function updateKagebenchCounter(data) {
-        const el = document.getElementById('kagebench_page_views');
-        if (el && data && data.value) {
-          el.textContent = data.value;
-        }
-      }
-    </script>
-    <script async src="https://api.countapi.xyz/hit/avanturist322.github.io/kagebench?callback=updateKagebenchCounter"></script>
 
     <!-- Structured Data for Academic Papers -->
     <script type="application/ld+json">
@@ -279,7 +271,14 @@
       </section>
 
       <footer class="panel status-panel">
-        <p>Views so far: <span id="kagebench_page_views">Loading...</span></p>
+        <p>
+          <span>Views so far: </span>
+          <img id="kagebench_page_views" 
+               src="https://hits.dwyl.com/avanturist322/kagebench.svg?style=flat-square&show=unique" 
+               alt="Page views"
+               style="display: none;" />
+          <span id="kagebench_view_count">--</span>
+        </p>
       </footer>
     </main>
   </body>
