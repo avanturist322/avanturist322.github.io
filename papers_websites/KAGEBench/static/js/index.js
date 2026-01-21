@@ -88,7 +88,8 @@ function initCarousels() {
 }
 
 function initPageViewCounter() {
-  // Use CountAPI for independent page view tracking
+  // JSONP callback will update the counter via updateKagebenchCounter()
+  // Set a timeout to show fallback if counter doesn't load
   const pageViewElement = document.getElementById('kagebench_page_views');
   
   if (!pageViewElement) {
@@ -96,29 +97,15 @@ function initPageViewCounter() {
     return;
   }
   
-  pageViewElement.textContent = 'Loading...';
+  console.log('Waiting for counter service to load via JSONP...');
   
-  // CountAPI endpoint - unique namespace and key for this page
-  const namespace = 'avanturist322';
-  const key = 'kagebench-page';
-  const apiUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
-  
-  console.log('Fetching page view count from CountAPI...');
-  
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data && data.value !== undefined) {
-        pageViewElement.textContent = data.value;
-        console.log('CountAPI loaded successfully. Page views:', data.value);
-      } else {
-        throw new Error('Invalid response from CountAPI');
-      }
-    })
-    .catch(error => {
-      console.error('Failed to load page view counter:', error);
+  // Wait 5 seconds, if still showing "Loading..." then show error
+  setTimeout(() => {
+    if (pageViewElement.textContent === 'Loading...') {
+      console.error('Counter service timed out');
       pageViewElement.textContent = '--';
-    });
+    }
+  }, 5000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
