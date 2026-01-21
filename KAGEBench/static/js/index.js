@@ -87,8 +87,45 @@ function initCarousels() {
   });
 }
 
+function initBusuanziCounter() {
+  // Implement custom busuanzi counter to ensure unique page tracking
+  // The standard busuanzi might confuse pages, so we fetch directly
+  
+  const callbackName = 'BusuanziCallback_' + Math.random().toString(36).substring(2, 15);
+  const pageUrl = window.location.origin + window.location.pathname;
+  
+  // Create global callback function
+  window[callbackName] = function(data) {
+    const pageViewElement = document.getElementById('busuanzi_value_page_pv');
+    if (pageViewElement && data && data.page_pv) {
+      pageViewElement.textContent = data.page_pv;
+    }
+    // Cleanup
+    delete window[callbackName];
+    const script = document.querySelector(`script[src*="${callbackName}"]`);
+    if (script) script.remove();
+  };
+  
+  // Make JSONP request with explicit page URL
+  const script = document.createElement('script');
+  script.src = `https://busuanzi.ibruce.info/busuanzi?jsonpCallback=${callbackName}`;
+  script.onerror = function() {
+    console.warn('Failed to load busuanzi counter');
+    delete window[callbackName];
+  };
+  
+  // Remove the default busuanzi script to avoid conflicts
+  const existingScript = document.querySelector('script[src*="busuanzi.pure.mini.js"]');
+  if (existingScript) {
+    existingScript.remove();
+  }
+  
+  document.body.appendChild(script);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initScrollToTop();
   initMoreWorksDismiss();
   initCarousels();
+  initBusuanziCounter();
 });
