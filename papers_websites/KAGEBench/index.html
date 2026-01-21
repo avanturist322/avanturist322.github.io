@@ -73,6 +73,17 @@
 
     <!-- Custom JS to handle the independent counter -->
     <script defer src="static/js/index.js"></script>
+    
+    <!-- Counter service with JSONP -->
+    <script>
+      function updateKagebenchCounter(data) {
+        const el = document.getElementById('kagebench_page_views');
+        if (el && data && data.value) {
+          el.textContent = data.value;
+        }
+      }
+    </script>
+    <script async src="https://api.countapi.xyz/hit/avanturist322.github.io/kagebench?callback=updateKagebenchCounter"></script>
 
     <!-- Structured Data for Academic Papers -->
     <script type="application/ld+json">
@@ -268,7 +279,7 @@
       </section>
 
       <footer class="panel status-panel">
-        <p>Views so far: <span id="kagebench_page_views">--</span></p>
+        <p>Views so far: <span id="kagebench_page_views">Loading...</span></p>
       </footer>
     </main>
   </body>
