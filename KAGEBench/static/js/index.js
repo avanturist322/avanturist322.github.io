@@ -88,39 +88,77 @@ function initCarousels() {
 }
 
 function initBusuanziCounter() {
-  // Implement custom busuanzi counter to ensure unique page tracking
-  // The standard busuanzi might confuse pages, so we fetch directly
+  // Enhanced busuanzi initialization with fallback
+  const pageViewElement = document.getElementById('busuanzi_value_page_pv');
+  const containerElement = document.getElementById('busuanzi_container_page_pv');
   
-  const callbackName = 'BusuanziCallback_' + Math.random().toString(36).substring(2, 15);
-  const pageUrl = window.location.origin + window.location.pathname;
-  
-  // Create global callback function
-  window[callbackName] = function(data) {
-    const pageViewElement = document.getElementById('busuanzi_value_page_pv');
-    if (pageViewElement && data && data.page_pv) {
-      pageViewElement.textContent = data.page_pv;
-    }
-    // Cleanup
-    delete window[callbackName];
-    const script = document.querySelector(`script[src*="${callbackName}"]`);
-    if (script) script.remove();
-  };
-  
-  // Make JSONP request with explicit page URL
-  const script = document.createElement('script');
-  script.src = `https://busuanzi.ibruce.info/busuanzi?jsonpCallback=${callbackName}`;
-  script.onerror = function() {
-    console.warn('Failed to load busuanzi counter');
-    delete window[callbackName];
-  };
-  
-  // Remove the default busuanzi script to avoid conflicts
-  const existingScript = document.querySelector('script[src*="busuanzi.pure.mini.js"]');
-  if (existingScript) {
-    existingScript.remove();
+  if (!pageViewElement) {
+    console.error('Busuanzi page view element not found');
+    return;
   }
   
-  document.body.appendChild(script);
+  // Initially show loading state
+  pageViewElement.textContent = 'Loading...';
+  if (containerElement) {
+    containerElement.style.display = '';
+  }
+  
+  let attempts = 0;
+  const maxAttempts = 50; // 5 seconds timeout
+  
+  console.log('Initializing busuanzi counter for path:', window.busuanzi_page_path || window.location.pathname);
+  
+  const checkBusuanzi = setInterval(() => {
+    attempts++;
+    
+    // Check if busuanzi has updated the value (it removes the "Loading" text)
+    const currentText = pageViewElement.textContent;
+    if (currentText && currentText !== 'Loading...' && currentText !== '--' && currentText.match(/^\d+$/)) {
+      clearInterval(checkBusuanzi);
+      console.log('Busuanzi loaded successfully. Page views:', currentText);
+      return;
+    }
+    
+    // If busuanzi hasn't loaded after max attempts, try manual fetch
+    if (attempts >= maxAttempts) {
+      clearInterval(checkBusuanzi);
+      console.warn('Busuanzi took too long to load, attempting manual fetch');
+      
+      // Try manual JSONP fetch as fallback
+      const callbackName = 'BusuanziCallback_' + Date.now();
+      window[callbackName] = function(data) {
+        console.log('Manual busuanzi fetch response:', data);
+        if (data && data.page_pv) {
+          pageViewElement.textContent = data.page_pv;
+          console.log('Manual fetch successful. Page views:', data.page_pv);
+        } else {
+          pageViewElement.textContent = '--';
+          console.warn('Manual fetch returned no data');
+        }
+        delete window[callbackName];
+      };
+      
+      const script = document.createElement('script');
+      script.src = `https://busuanzi.ibruce.info/busuanzi?jsonpCallback=${callbackName}`;
+      script.onerror = function() {
+        console.error('Failed to load busuanzi script');
+        pageViewElement.textContent = '--';
+        delete window[callbackName];
+      };
+      document.head.appendChild(script);
+      
+      // Timeout for manual fetch
+      setTimeout(() => {
+        if (pageViewElement.textContent === 'Loading...') {
+          console.error('Busuanzi failed to load after all attempts');
+          pageViewElement.textContent = '--';
+        }
+        if (window[callbackName]) {
+          delete window[callbackName];
+        }
+      }, 5000);
+    }
+  }, 100);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
