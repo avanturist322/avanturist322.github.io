@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    
+
     <!-- Canonical URL - Treat as separate page -->
     <link rel="canonical" href="https://avanturist322.github.io/KAGEBench/" />
-    
+
     <!-- Unique page identifier for view counter -->
     <meta property="page:id" content="kagebench-project-page" />
 
@@ -43,7 +43,10 @@
     <!-- TODO: Replace with first author's Twitter handle -->
     <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE" />
     <meta name="twitter:title" content="KAGE-Bench: Fast Known-Axis Visual Generalization Evaluation for Reinforcement Learning" />
-    <meta name="twitter:description" content="KAGE-Bench is a fast JAX RL benchmark that isolates known-axis visual shifts to probe pixel-RL generalization" />
+    <meta
+      name="twitter:description"
+      content="KAGE-Bench is a fast JAX RL benchmark that isolates known-axis visual shifts to probe pixel-RL generalization"
+    />
     <meta name="twitter:image" content="https://avanturist322.github.io/KAGEBench/static/images/social_preview.svg" />
     <meta name="twitter:image:alt" content="KAGEBench - Research Preview" />
 
@@ -199,8 +202,8 @@
             <a href="https://github.com/CognitiveAISystems/kage-bench" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
             <a href="#BibTeX"><i class="fas fa-quote-right"></i> BibTeX</a>
           </div>
-      </div>
-    </header>
+        </div>
+      </header>
 
       <section class="panel" id="Demos">
         <h2>Demos (only part of what is in the benchmark!)</h2>
@@ -259,39 +262,36 @@
       <section class="panel" id="Introduction">
         <h2>Introduction</h2>
         <p>
-          Pixel-based reinforcement learning agents often fail under purely visual distribution shifts, even when underlying dynamics and
-          rewards remain unchanged. Existing benchmarks typically entangle multiple sources of variation, making it difficult to attribute
-          failures to specific visual factors.
+          Pixel-based reinforcement learning agents often fail under purely visual distribution shifts, even when underlying dynamics and rewards
+          remain unchanged. Existing benchmarks typically entangle multiple sources of variation, making it difficult to attribute failures to
+          specific visual factors.
         </p>
         <p>
-          This work introduces a controlled, high-throughput framework that isolates visual shifts by construction, enabling precise and
-          scalable analysis of visual generalization in reinforcement learning.
+          This work introduces a controlled, high-throughput framework that isolates visual shifts by construction, enabling precise and scalable
+          analysis of visual generalization in reinforcement learning.
         </p>
       </section>
 
       <section class="panel" id="intro-visuals">
         <h2>Visual Configurations</h2>
-        <div
-          class="image-row"
-          style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;justify-content:center;"
-        >
+        <div class="image-row" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: stretch; justify-content: center">
           <img
             src="assets/images/distractors_config_1_success_once.png"
             alt="Distractors config 1 success"
-            style="width:calc((100% - 32px) / 3);object-fit:contain;border-radius:8px;"
+            style="width: calc((100% - 32px) / 3); object-fit: contain; border-radius: 8px"
           />
           <img
             src="assets/images/distractors_config_3_success_once.png"
             alt="Distractors config 3 success"
-            style="width:calc((100% - 32px) / 3);object-fit:contain;border-radius:8px;"
+            style="width: calc((100% - 32px) / 3); object-fit: contain; border-radius: 8px"
           />
           <img
             src="assets/images/distractors_config_5_success_once.png"
             alt="Distractors config 5 success"
-            style="width:calc((100% - 32px) / 3);object-fit:contain;border-radius:8px;"
+            style="width: calc((100% - 32px) / 3); object-fit: contain; border-radius: 8px"
           />
         </div>
-        <p style="margin-top:16px;text-align:center;font-size:0.9em;">
+        <p style="margin-top: 16px; text-align: center; font-size: 0.9em">
           <strong>Examples of visual generalization gaps.</strong>
           Success rate for three train–evaluation pairs showing (left) negligible, (middle) moderate, and (right) severe generalization gaps.
         </p>
@@ -300,9 +300,9 @@
       <section class="panel" id="KAGEEnv">
         <h2>KAGE-Env</h2>
         <p>
-          KAGE-Env is a JAX-native 2D platformer environment in which the latent control problem is fixed while the observation process is
-          factorized into independently controllable visual axes. Visual variation affects only the renderer, not dynamics or rewards, ensuring
-          that performance changes arise solely from pixel-level perception.
+          KAGE-Env is a JAX-native 2D platformer environment in which the latent control problem is fixed while the observation process is factorized
+          into independently controllable visual axes. Visual variation affects only the renderer, not dynamics or rewards, ensuring that performance
+          changes arise solely from pixel-level perception.
         </p>
         <p>
           The environment is fully vectorized and JIT-compiled, supports configuration via a single YAML file, and achieves up to 33 million
@@ -312,68 +312,48 @@
 
       <section class="panel" id="KAGEEnv-code">
         <h2>Implementation Snapshots</h2>
-        <div
-          class="image-row"
-          style="display:flex;gap:16px;flex-wrap:nowrap;align-items:stretch;justify-content:center;"
-        >
-          <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
-            <img
-              src="assets/images/code_1.png"
-              alt="KAGE-Env code snippet 1"
-              style="width:100%;object-fit:contain;border-radius:8px;"
-            />
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
-              <strong>Python (JAX) usage.</strong> The environment is configured from a <code>.yaml</code> file (e.g., <code>custom_config.yaml</code>); the code shows JAX-<code>vmap</code>/<code>jit</code> batched <code>reset</code>/<code>step</code> over 2<sup>16</sup> parallel envs.
+        <div class="image-row" style="display: flex; gap: 16px; flex-wrap: nowrap; align-items: stretch; justify-content: center">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+            <img src="assets/images/code_1.png" alt="KAGE-Env code snippet 1" style="width: 100%; object-fit: contain; border-radius: 8px" />
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
+              <strong>Python (JAX) usage.</strong> The environment is configured from a <code>.yaml</code> file (e.g.,
+              <code>custom_config.yaml</code>); the code shows JAX-<code>vmap</code>/<code>jit</code> batched <code>reset</code>/<code>step</code>
+              over 2<sup>16</sup> parallel envs.
             </p>
           </div>
-          <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
-            <img
-              src="assets/images/code_2.png"
-              alt="KAGE-Env code snippet 2"
-              style="width:100%;object-fit:contain;border-radius:8px;"
-            />
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
-              <strong>YAML configuration.</strong> KAGE-Env is configured via a single <code>.yaml</code> file; shown is a small excerpt of <code>custom_config.yaml</code>. We show only a small part of all configuration parameters; for details, see section on YAML configuration details.
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+            <img src="assets/images/code_2.png" alt="KAGE-Env code snippet 2" style="width: 100%; object-fit: contain; border-radius: 8px" />
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
+              <strong>YAML configuration.</strong> KAGE-Env is configured via a single <code>.yaml</code> file; shown is a small excerpt of
+              <code>custom_config.yaml</code>. We show only a small part of all configuration parameters; for details, see section on YAML
+              configuration details.
             </p>
           </div>
         </div>
       </section>
       <section class="panel" id="env-visuals">
         <h2>Performance Visuals</h2>
-        <div
-          class="image-row"
-          style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;justify-content:center;"
-        >
-          <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
-            <img
-              src="assets/images/kage-bench.png"
-              alt="KAGE-Bench overview"
-              style="width:100%;object-fit:contain;border-radius:8px;"
-            />
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
+        <div class="image-row" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: stretch; justify-content: center">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+            <img src="assets/images/kage-bench.png" alt="KAGE-Bench overview" style="width: 100%; object-fit: contain; border-radius: 8px" />
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
               <strong>KAGE-Bench: Motivation.</strong>
-              Existing generalization benchmarks entangle multiple sources of visual shift between training and evaluation, making failures difficult to attribute.
-              KAGE-Bench factorizes observations into independently controllable axes and constructs train–evaluation splits that vary one (or a selected set) of axes at a time, enabling precise diagnosis of which visual factors drive generalization gaps.
-              The observation vector notation |ψ⟩ is used for intuition only.
+              Existing generalization benchmarks entangle multiple sources of visual shift between training and evaluation, making failures difficult
+              to attribute. KAGE-Bench factorizes observations into independently controllable axes and constructs train–evaluation splits that vary
+              one (or a selected set) of axes at a time, enabling precise diagnosis of which visual factors drive generalization gaps. The observation
+              vector notation |ψ⟩ is used for intuition only.
             </p>
           </div>
-          <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
-            <div style="display:flex;gap:8px;width:100%;">
-              <img
-                src="assets/images/throughput_easy.png"
-                alt="Throughput easy"
-                style="width:100%;object-fit:contain;border-radius:8px;"
-              />
-              <img
-                src="assets/images/throughput_hard.png"
-                alt="Throughput hard"
-                style="width:100%;object-fit:contain;border-radius:8px;"
-              />
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+            <div style="display: flex; gap: 8px; width: 100%">
+              <img src="assets/images/throughput_easy.png" alt="Throughput easy" style="width: 100%; object-fit: contain; border-radius: 8px" />
+              <img src="assets/images/throughput_hard.png" alt="Throughput hard" style="width: 100%; object-fit: contain; border-radius: 8px" />
             </div>
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
               <strong>Environment stepping throughput vs. parallelism.</strong>
-              Environment stepping throughput (steps per second, higher is better) as a function of the number of parallel environments <em>n</em><sub>envs</sub> for KAGE-Env across heterogeneous hardware backends.
-              GPU results are shown for NVIDIA H100 (80 GB), A100 (80 GB), V100 (32 GB), and T4 (15 GB, Google Colab), with CPU-only results on an Apple M3 Pro laptop.
+              Environment stepping throughput (steps per second, higher is better) as a function of the number of parallel environments <em>n</em
+              ><sub>envs</sub> for KAGE-Env across heterogeneous hardware backends. GPU results are shown for NVIDIA H100 (80 GB), A100 (80 GB), V100
+              (32 GB), and T4 (15 GB, Google Colab), with CPU-only results on an Apple M3 Pro laptop.
               <strong>(a) Easy configuration:</strong> lightweight setup with all visual generalization parameters disabled.
               <strong>(b) Hard configuration:</strong> most demanding setup with all visual generalization parameters enabled at maximum values.
             </p>
@@ -384,48 +364,40 @@
       <section class="panel" id="KAGEBench">
         <h2>KAGE-Bench</h2>
         <p>
-          KAGE-Bench is a benchmark protocol built on KAGE-Env that evaluates known-axis visual generalization using paired train and
-          evaluation configurations. It defines six visual-axis suites with 34 configuration pairs, each varying only one visual factor such
-          as background, agent appearance, distractors, filters, effects, or layout.
+          KAGE-Bench is a benchmark protocol built on KAGE-Env that evaluates known-axis visual generalization using paired train and evaluation
+          configurations. It defines six visual-axis suites with 34 configuration pairs, each varying only one visual factor such as background, agent
+          appearance, distractors, filters, effects, or layout.
         </p>
         <p>
-          This design enables unambiguous attribution of generalization gaps and supports evaluation using both return and trajectory-level
-          metrics such as distance, progress, and task success.
+          This design enables unambiguous attribution of generalization gaps and supports evaluation using both return and trajectory-level metrics
+          such as distance, progress, and task success.
         </p>
-        <div
-          class="image-row"
-          style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;justify-content:center;margin-top:16px;"
-        >
-          <div style="width:200%;display:flex;flex-direction:column;align-items:center;">
-            <img
-              src="assets/images/tab_1.png"
-              alt="KAGE-Bench tab 1"
-              style="width:100%;object-fit:contain;border-radius:8px;"
-            />
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
+        <div class="image-row" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: stretch; justify-content: center; margin-top: 16px">
+          <div style="width: 200%; display: flex; flex-direction: column; align-items: center">
+            <img src="assets/images/tab_1.png" alt="KAGE-Bench tab 1" style="width: 100%; object-fit: contain; border-radius: 8px" />
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
               <strong>Axis-level summary of KAGE-Bench results (mean±SEM).</strong>
-              During training of each run, we record the maximum value attained by each metric.
-              For each configuration, these per-run maxima are averaged across 10 random seeds, and the resulting per-configuration values are then averaged across all configurations within each generalization-axis suite.
-              We report Distance, Progress, Success Rate (SR), and Return for train and eval configurations, along with the corresponding generalization gaps (mean±SEM).
-              Generalization gaps are color-coded: <span style="background-color:#4CAF50;color:black;padding:1px;">green</span> indicates smaller gaps (better generalization), while <span style="background-color:#F44336;color:black;padding:1px;">red</span> indicates larger gaps (worse generalization).
+              During training of each run, we record the maximum value attained by each metric. For each configuration, these per-run maxima are
+              averaged across 10 random seeds, and the resulting per-configuration values are then averaged across all configurations within each
+              generalization-axis suite. We report Distance, Progress, Success Rate (SR), and Return for train and eval configurations, along with the
+              corresponding generalization gaps (mean±SEM). Generalization gaps are color-coded:
+              <span style="background-color: #4caf50; color: black; padding: 1px">green</span> indicates smaller gaps (better generalization), while
+              <span style="background-color: #f44336; color: black; padding: 1px">red</span> indicates larger gaps (worse generalization).
               ΔDist.=(Dist.<sup>train</sup>-Dist.<sup>eval</sup>)/Dist.<sup>train</sup>×100%,
               ΔProg.=(Progress<sup>train</sup>-Progress<sup>eval</sup>)/Progress<sup>train</sup>×100%,
-              ΔSR=(SR<sup>train</sup>-SR<sup>eval</sup>)/SR<sup>train</sup>×100%,
-              ΔRet.=|Ret.<sup>train</sup>-Ret.<sup>eval</sup>|.
+              ΔSR=(SR<sup>train</sup>-SR<sup>eval</sup>)/SR<sup>train</sup>×100%, ΔRet.=|Ret.<sup>train</sup>-Ret.<sup>eval</sup>|.
             </p>
           </div>
-          <div style="width:200%;display:flex;flex-direction:column;align-items:center;">
-            <img
-              src="assets/images/tab_2.png"
-              alt="KAGE-Bench tab 2"
-              style="width:100%;object-fit:contain;border-radius:8px;"
-            />
-            <p style="margin-top:8px;text-align:center;font-size:0.9em;">
-              <strong>Per-configuration results for KAGE-Bench (mean±SEM).</strong> Each row corresponds to a train-evaluation configuration pair within a known-axis suite.
-              For each run, we record the maximum value attained by each metric during training; these maxima are then averaged across 10 random seeds.
-              We report Distance, Progress, Success Rate (SR), and Return for both train and eval configurations, together with the resulting generalization gaps.
-              Abbreviations: <code>bg</code> = background, <code>ag</code> = agent, <code>dist</code> = distractor, <code>skelet</code> = skeleton.
-              Generalization gaps are color-coded: <span style="background-color:#4CAF50;color:black;padding:1px;">green</span> indicates smaller gaps (better generalization), while <span style="background-color:#F44336;color:black;padding:1px;">red</span> indicates larger gaps (worse generalization).
+          <div style="width: 200%; display: flex; flex-direction: column; align-items: center">
+            <img src="assets/images/tab_2.png" alt="KAGE-Bench tab 2" style="width: 100%; object-fit: contain; border-radius: 8px" />
+            <p style="margin-top: 8px; text-align: center; font-size: 0.9em">
+              <strong>Per-configuration results for KAGE-Bench (mean±SEM).</strong> Each row corresponds to a train-evaluation configuration pair
+              within a known-axis suite. For each run, we record the maximum value attained by each metric during training; these maxima are then
+              averaged across 10 random seeds. We report Distance, Progress, Success Rate (SR), and Return for both train and eval configurations,
+              together with the resulting generalization gaps. Abbreviations: <code>bg</code> = background, <code>ag</code> = agent,
+              <code>dist</code> = distractor, <code>skelet</code> = skeleton. Generalization gaps are color-coded:
+              <span style="background-color: #4caf50; color: black; padding: 1px">green</span> indicates smaller gaps (better generalization), while
+              <span style="background-color: #f44336; color: black; padding: 1px">red</span> indicates larger gaps (worse generalization).
             </p>
           </div>
         </div>
@@ -433,11 +405,9 @@
 
       <section class="notice-banner" id="Notice">
         <p>
-          <span style="color: red;">IMPORTANT!!!</span>
+          <span style="color: red">IMPORTANT!!!</span>
         </p>
-        <p>
-          🚀✨We have a lot of really interesting visual content in this paper 😅, please check it out if you're interested!🥺👉👈     
-        </p>
+        <p>🚀✨We have a lot of really interesting visual content in this paper 😅, please check it out if you're interested!🥺👉👈</p>
       </section>
 
       <!-- BibTex citation -->
