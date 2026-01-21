@@ -87,33 +87,8 @@ function initCarousels() {
   });
 }
 
-function initVisitorCounter() {
-  const counter = document.getElementById("kagebench_visitor_count");
-  if (!counter) return;
-
-  const namespace = "avanturist322-github-io";
-  const key = "kagebench";
-  const countUrl = `https://api.countapi.xyz/hit/${namespace}/${key}`;
-
-  fetch(countUrl, { cache: "no-store" })
-    .then((response) => response.json())
-    .then((data) => {
-      const numericValue = Number(data?.value);
-      if (!Number.isNaN(numericValue)) {
-        counter.textContent = numericValue.toLocaleString();
-      } else {
-        counter.textContent = "N/A";
-      }
-    })
-    .catch((error) => {
-      console.error("Visitor counter failed:", error);
-      counter.textContent = "N/A";
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initScrollToTop();
   initMoreWorksDismiss();
   initCarousels();
-  initVisitorCounter();
 });
