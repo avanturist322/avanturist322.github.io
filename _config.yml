@@ -208,6 +208,7 @@ exclude:
   - _posts/
   - _projects/
   - _books/
+  - papers_websites/
   - purgecss.config.js
   - README.md
   - readme_preview/

@@ -87,45 +87,8 @@ function initCarousels() {
   });
 }
 
-function initPageViewCounter() {
-  const countElement = document.getElementById('kagebench_view_count');
-  
-  if (!countElement) {
-    console.error('View count element not found');
-    return;
-  }
-  
-  // Use hits.dwyl.com JSON endpoint
-  const apiUrl = 'https://hits.dwyl.com/avanturist322/kagebench.json';
-  
-  console.log('Fetching page view count from hits.dwyl.com...');
-  
-  fetch(apiUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Counter response:', data);
-      // hits.dwyl.com returns {total: X}
-      if (data && data.total !== undefined) {
-        countElement.textContent = data.total;
-        console.log('Counter loaded. Total views:', data.total);
-      } else {
-        throw new Error('Invalid response format');
-      }
-    })
-    .catch(error => {
-      console.error('Failed to load counter:', error);
-      countElement.textContent = '--';
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initScrollToTop();
   initMoreWorksDismiss();
   initCarousels();
-  initPageViewCounter();
 });
