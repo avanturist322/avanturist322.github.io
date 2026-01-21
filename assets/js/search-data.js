@@ -58,7 +58,12 @@ ninja.data = [{
           section: "News",},{id: "news-kage-bench-code-is-now-available-on-github-kage-bench-is-a-pure-jax-2d-platformer-rl-benchmark-for-visual-ood-generalization",
           title: 'KAGE-Bench code is now available on GitHub! KAGE-Bench is a pure JAX 2D...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "news-kage-bench-preprint-published",
+          title: 'KAGE-Bench preprint published',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260121/";
+            },},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
