@@ -11,4 +11,4 @@ related_posts: false
 Link to visualizations (there are many more in the paper): https://avanturist322.github.io/KAGEBench/
 Paper: https://arxiv.org/abs/2601.14232
 Code: https://github.com/CognitiveAISystems/kage-bench
-Hugging Face:  https://huggingface.co/papers/2601.14232
+Hugging Face: https://huggingface.co/papers/2601.14232

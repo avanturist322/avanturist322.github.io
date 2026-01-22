@@ -198,7 +198,6 @@ exclude:
   - _pages/404.md
   - _pages/blog.md
   - _pages/books.md
-  - _pages/cv.md
   - _pages/dropdown.md
   - _pages/profiles.md
   - _pages/projects.md
