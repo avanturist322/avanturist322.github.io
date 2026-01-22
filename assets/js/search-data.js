@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/news/";
           },
+        },{id: "nav-cv",
+          title: "cv",
+          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
         },{id: "news-attending-corl-2025",
           title: 'Attending CoRL-2025',
           description: "",
@@ -63,7 +70,10 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20260121/";
-            },},{
+            },},{id: "news-the-camera-ready-version-of-our-aamas-paper-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-is-now-available-on-arxiv",
+          title: 'The camera-ready version of our AAMAS paper “Memory Retention Is Not Enough to...',
+          description: "",
+          section: "News",},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
