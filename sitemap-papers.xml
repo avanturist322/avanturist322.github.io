@@ -6,7 +6,7 @@ permalink: /sitemap-papers.xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{{ site.url }}/KAGEBench/</loc>
-    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+    <lastmod>{{ site.time | date: '%Y-%m-%dT%H:%M:%S+00:00' }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -243,6 +243,12 @@ defaults:
     values:
       sitemap: false
 
+# jekyll-sitemap configuration
+sitemap:
+  lastmod: true
+  changefreq: weekly
+  priority: 0.5
+
 sass:
   style: compressed
 
