@@ -10,7 +10,7 @@ last_name: Cherepanov
 #   "cherepanovegor2018[at]gmail[dot]com"
 # the ">" symbol means to ignore newlines until "footer_text:"
 description: >
-  ""
+  Research Scientist studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
 # <i class="fas fa-envelope"></i> [Email](mailto:cherepanovegor2018[at]gmail[dot]com)
 # <i class="ai ai-google-scholar"></i> [Google Scholar](https://scholar.google.com/...)
 # <i class="fab fa-github"></i> [GitHub](https://github.com/avanturist322)
@@ -68,8 +68,8 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
