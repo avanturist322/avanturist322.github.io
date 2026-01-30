@@ -73,7 +73,12 @@ ninja.data = [{
             },},{id: "news-the-camera-ready-version-of-our-aamas-paper-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-is-now-available-on-arxiv",
           title: 'The camera-ready version of our AAMAS paper “Memory Retention Is Not Enough to...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "news-️-️-️-️-four-papers-accepted-to-iclr-2026",
+          title: '⭐️⭐️⭐️⭐️ Four papers accepted to ICLR 2026',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260125/";
+            },},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
