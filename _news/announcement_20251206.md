@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Memory-Rewrite has been accepted to AAMAS-2026
+title: ⭐️ Memory-Rewrite has been accepted to AAMAS-2026
 date: 2025-12-06
 inline: true
 related_posts: false
