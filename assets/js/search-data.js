@@ -78,6 +78,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20260125/";
+            },},{id: "news-️-marl-gpt-paper-accepted-to-aamas-2026",
+          title: '⭐️ MARL-GPT paper accepted to AAMAS-2026',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260212/";
             },},{
         id: 'social-github',
         title: 'GitHub',
