@@ -16,12 +16,24 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %} {% if site.enable_snowflakes %}snowflakes-enabled{% endif %}">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %} {% if site.enable_effects %}effect-off{% endif %}">
+    {% if site.enable_effects %}
+      <script>
+        (function () {
+          try {
+            var stored = localStorage.getItem("site-effect");
+            var mode = stored === "off" || stored === "snow" || stored === "fireflies" ? stored : "off";
+            document.body.classList.remove("effect-fireflies", "effect-snow", "effect-off");
+            document.body.classList.add("effect-" + mode);
+          } catch (e) {}
+        })();
+      </script>
+    {% endif %}
     <!-- Header -->
     {% include header.liquid %}
 
-    <!-- Snowflakes Effect -->
-    {% if site.enable_snowflakes %}
+    {% if site.enable_effects %}
+      <!-- Snowflakes Effect -->
       <div class="snowflake-area">
         {% for i in (1..15) %}
           <div class="snowflake _{{ i }}">❄️</div>
@@ -31,6 +43,13 @@
         {% endfor %}
         {% for i in (1..5) %}
           <div class="snowflake _lg _lg-{{ i }}">❄️</div>
+        {% endfor %}
+      </div>
+
+      <!-- Fireflies Effect -->
+      <div class="firefly-area">
+        {% for i in (1..40) %}
+          <div class="firefly _{{ i }}"></div>
         {% endfor %}
       </div>
     {% endif %}

@@ -6,4 +6,3 @@ Disallow:
 
 Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml
 Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap-papers.xml
-Sitemap: {{ site.baseurl | prepend: site.url }}/KAGEBench/sitemap.xml

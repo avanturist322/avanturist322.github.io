@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 # subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
-subtitle: Research Scientist (RL, Robotics)
+subtitle: Research Scientist (RL, VLA, Robotics)
 tabs: true
 
 profile:
@@ -29,6 +29,12 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
+
+<!-- Current status (edit the text inside the span; leave the wrapper as-is) -->
+<div class="current-status" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; margin-bottom: 1.25rem; background-color: var(--global-news-bg-color); border-radius: 999px; border-left: 3px solid var(--global-theme-color); font-size: 0.9rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+  <span style="font-weight: 600; color: var(--global-text-color-light); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem;">Currently</span>
+  <span style="color: var(--global-text-color);">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span>
+</div>
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
 
@@ -127,6 +133,7 @@ Hello! I am a PhD researcher studying memory mechanisms in reinforcement learnin
 
 | Date       | Language | Venue   | Title                                                                                              | Link                                                                    |
 | ---------- | -------- | ------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 22.03.2026 | Russian  | Offline | [ROS Meetup '26](https://rosmeetup.ru/) talk on "Memory mechanisms in VLA models"                                           | TBA                                   |
 | 26.12.2025 | Russian  | Online  | Embodied AI Reading Club talk on VLA models with memory                                            | TBA                                                                     |
 | 04.12.2025 | Russian  | Online  | AIRI "ИИшнница" talk on my papers, accepted to NeurIPS-2025: RATE and "Memory, Benchmark & Robots" | [YouTube](https://www.youtube.com/live/frxpTdPPucg)                     |
 | 21.11.2025 | Russian  | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots"                                     | TBA                                                                     |

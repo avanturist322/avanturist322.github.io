@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
-  <rect width="1200" height="675" fill="#0b1220"/>
-  <rect x="70" y="70" width="1060" height="535" rx="24" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
-  <text x="120" y="210" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="68" font-weight="800" fill="#ffffff">Teaser</text>
-  <text x="120" y="290" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="30" fill="rgba(255,255,255,0.78)">Replace this with a teaser video or figure</text>
-</svg>
-

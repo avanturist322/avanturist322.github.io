@@ -285,3 +285,28 @@ let initTheme = () => {
     applyTheme();
   });
 };
+
+// Background effect cycle: fireflies → snow → off → fireflies.
+document.addEventListener("DOMContentLoaded", function () {
+  const effect_toggle = document.getElementById("effect-toggle");
+  if (!effect_toggle) return;
+
+  const order = ["fireflies", "snow", "off"];
+  const classes = order.map((m) => "effect-" + m);
+
+  const currentMode = () => {
+    for (const m of order) {
+      if (document.body.classList.contains("effect-" + m)) return m;
+    }
+    return "fireflies";
+  };
+
+  effect_toggle.addEventListener("click", function () {
+    const next = order[(order.indexOf(currentMode()) + 1) % order.length];
+    document.body.classList.remove(...classes);
+    document.body.classList.add("effect-" + next);
+    try {
+      localStorage.setItem("site-effect", next);
+    } catch (e) {}
+  });
+});

@@ -138,6 +138,16 @@
               </button>
             </li>
           {% endif %}
+          {% if site.enable_effects %}
+            <!-- Cycle background effect: fireflies → snow → off -->
+            <li class="toggle-container">
+              <button id="effect-toggle" title="Change background effect" aria-label="Change background effect">
+                <i class="ti ti-sparkles" id="effect-toggle-fireflies"></i>
+                <i class="ti ti-snowflake" id="effect-toggle-snow"></i>
+                <i class="ti ti-point-off" id="effect-toggle-off"></i>
+              </button>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>
