@@ -83,6 +83,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20260212/";
+            },},{id: "news-presenting-our-papers-at-iclr-2026-in-rio-de-janeiro",
+          title: '🇧🇷 Presenting our papers at ICLR 2026 in Rio de Janeiro',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260422/";
             },},{
         id: 'social-github',
         title: 'GitHub',
