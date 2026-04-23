@@ -30,10 +30,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-<!-- Current status (edit the text inside the span; leave the wrapper as-is) -->
-<div class="current-status" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; margin-bottom: 1.25rem; background-color: var(--global-news-bg-color); border-radius: 999px; border-left: 3px solid var(--global-theme-color); font-size: 0.9rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
-  <span style="font-weight: 600; color: var(--global-text-color-light); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem;">Currently</span>
-  <span style="color: var(--global-text-color);">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span>
+<!-- Current status — edit the text inside .current-status__text; remove whole block to hide. -->
+<div class="current-status">
+  <span class="current-status__label">Currently</span>
+  <span class="current-status__text">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span>
 </div>
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
@@ -45,14 +45,14 @@ Hello! I am a PhD researcher studying memory mechanisms in reinforcement learnin
 </div>
 
 <!-- Mini News Section -->
-<div class="mini-news-section" style="margin: -3rem 0 2rem 0; padding: 1.5rem; background-color: var(--global-news-bg-color); border-radius: 8px; border-left: 4px solid var(--global-news-border-color); max-width: 600px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  <h3 style="margin-top: 0; color: var(--global-text-color); font-size: 1.2rem;">📰 Latest Updates</h3>
-  <div class="mini-news-container" style="max-height: 250px; overflow-y: auto;">
+<div class="mini-news-section">
+  <h3>📰 Latest Updates</h3>
+  <div class="mini-news-container">
     {% if site.news != blank %}
       {% assign news = site.news | reverse %}
       {% for item in news %}
-        <div class="mini-news-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--global-divider-color);">
-          <div class="mini-news-date" style="font-size: 0.85rem; color: var(--global-text-color-light); font-weight: 500; margin-bottom: 0.5rem;">
+        <div class="mini-news-item">
+          <div class="mini-news-date">
             {% if item.start_date and item.end_date %}
               {% assign start_date = item.start_date | date: '%b %d' %}
               {% assign end_date = item.end_date | date: '%b %d, %Y' %}
@@ -61,24 +61,24 @@ Hello! I am a PhD researcher studying memory mechanisms in reinforcement learnin
               {{ item.date | date: '%b %d, %Y' }}
             {% endif %}
           </div>
-          <div class="mini-news-content" style="font-size: 0.9rem; line-height: 1.4; color: var(--global-text-color);">
+          <div class="mini-news-content">
             {% if item.inline %}
               {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
             {% else %}
-              <a href="{{ item.url | relative_url }}" style="text-decoration: none; color: var(--global-theme-color);">{{ item.title }}</a>
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
             {% endif %}
             {% if item.location %}
-              <br><small style="color: var(--global-text-color-light); font-size: 0.75rem;">{{ item.location }}</small>
+              <br><small>{{ item.location }}</small>
             {% endif %}
           </div>
         </div>
       {% endfor %}
     {% else %}
-      <p style="font-size: 0.9rem; color: var(--global-text-color-light); font-style: italic;">No news updates yet...</p>
+      <p style="font-style: italic; color: var(--global-text-color-light);">No news updates yet...</p>
     {% endif %}
   </div>
-  <div style="margin-top: 0.05rem; margin-bottom: -1rem; text-align: right;">
-    <a href="/news/" style="font-size: 0.85rem; color: var(--global-theme-color); text-decoration: none;">View all news →</a>
+  <div class="mini-news-footer">
+    <a href="/news/">View all news →</a>
   </div>
 </div>
 

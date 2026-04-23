@@ -41,6 +41,15 @@
 
 .post-title {
   font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+/* Profile image — rounder, softer shadow for a less clinical look */
+.profile img {
+  border-radius: 16px;
 }
 
 .email-contact {
@@ -155,22 +164,22 @@
 
 .email-reveal {
   display: inline-block;
-  padding: 0.25rem 0.5rem;
-  background-color: var(--global-bg-color);
-  border: 1px dashed var(--global-theme-color);
-  border-radius: 0.25rem;
-  color: var(--global-theme-color);
+  padding: 0.3rem 0.85rem;
+  background-color: var(--global-news-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  color: var(--global-text-color-light);
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   transition: all 0.2s ease;
   user-select: none;
 }
 
 .email-reveal:hover {
-  background-color: var(--global-theme-color);
-  color: var(--global-bg-color);
-  border-color: var(--global-text-color);
+  color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
 }
 
 .email-reveal.revealed {
@@ -180,10 +189,131 @@
   cursor: pointer;
   text-decoration: none;
   padding: 0;
+  font-weight: 400;
 }
 
 .email-reveal.revealed:hover {
   text-decoration: underline;
+}
+
+/* Current status pill — editable in about.md */
+.current-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  margin: 0.75rem 0 1.25rem;
+  background-color: var(--global-news-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.current-status::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #6ece6e;
+  box-shadow: 0 0 0 3px rgba(110, 206, 110, 0.2);
+  flex-shrink: 0;
+  animation: current-status-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes current-status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(110, 206, 110, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(110, 206, 110, 0.05);
+  }
+}
+
+.current-status__label {
+  font-weight: 600;
+  color: var(--global-text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.current-status__text {
+  color: var(--global-text-color);
+}
+
+/* Mini news card on about page */
+.mini-news-section {
+  margin: -2.5rem 0 2rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--global-news-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.mini-news-section h3 {
+  margin: 0 0 0.9rem;
+  color: var(--global-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.mini-news-container {
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.mini-news-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.mini-news-item:last-child {
+  border-bottom: none;
+}
+
+.mini-news-date {
+  font-size: 0.78rem;
+  color: var(--global-text-color-light);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.mini-news-content {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--global-text-color);
+}
+
+.mini-news-content a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.mini-news-content a:hover {
+  text-decoration: underline;
+}
+
+.mini-news-footer {
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+.mini-news-footer a {
+  font-size: 0.82rem;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.mini-news-footer a:hover {
+  color: var(--global-theme-color);
 }
 
 /* Copy feedback animation */

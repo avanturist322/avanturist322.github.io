@@ -7,7 +7,7 @@
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
           {% if site.data.venues[entry.abbr].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="--badge-color:' | append: '"' %}
           {%- endif -%}
           <abbr
             class="badge rounded w-100"
@@ -219,27 +219,34 @@
           {% assign tags_list = entry.tags | split: ',' %}
           {% for tag in tags_list %}
             {% assign tag_trimmed = tag | strip %}
-            {% assign tag_color = 'var(--global-theme-color)' %}
+            {%- comment -%}
+              Unified palette: every color at HSL saturation ~32%, lightness ~50%.
+              Hues distributed across the wheel so tags stay distinguishable but
+              belong to the same visual family.
+            {%- endcomment -%}
+            {% assign tag_color = '#6b7280' %}
             {% if tag_trimmed contains 'RL' %}
-              {% assign tag_color = '#FF6B6B' %}
+              {% assign tag_color = '#a55a5a' %}
             {% elsif tag_trimmed contains 'Memory' %}
-              {% assign tag_color = '#4ECDC4' %}
+              {% assign tag_color = '#4e9890' %}
             {% elsif tag_trimmed contains 'POMDP' %}
-              {% assign tag_color = '#45B7D1' %}
+              {% assign tag_color = '#5a84b0' %}
             {% elsif tag_trimmed contains 'VLA' %}
-              {% assign tag_color = '#FFA07A' %}
+              {% assign tag_color = '#a57952' %}
             {% elsif tag_trimmed contains 'MARL' %}
-              {% assign tag_color = '#E91E63' %}
+              {% assign tag_color = '#a55e89' %}
             {% elsif tag_trimmed contains 'Transformers' %}
-              {% assign tag_color = '#8E44AD' %}
+              {% assign tag_color = '#7a5da5' %}
             {% elsif tag_trimmed contains 'Theory' %}
-              {% assign tag_color = '#E74C3C' %}
+              {% assign tag_color = '#a55e6e' %}
             {% elsif tag_trimmed contains 'Benchmark' %}
-              {% assign tag_color = '#27AE60' %}
+              {% assign tag_color = '#52a070' %}
             {% elsif tag_trimmed contains 'IL' %}
-              {% assign tag_color = '#F39C12' %}
+              {% assign tag_color = '#a5895a' %}
+            {% elsif tag_trimmed contains 'Generalization' %}
+              {% assign tag_color = '#52a088' %}
             {% endif %}
-            <span class="paper-tag" style="background-color: {{ tag_color }};">#{{ tag_trimmed -}}</span>
+            <span class="paper-tag" style="--tag-color: {{ tag_color }};">#{{ tag_trimmed -}}</span>
           {% endfor %}
         {% endif %}
       </div>
@@ -271,7 +278,7 @@
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
       {% if entry.webpage %}
-        <a href="{{ entry.webpage }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #007bff; color: white;">Webpage</a>
+        <a href="{{ entry.webpage }}" class="btn btn-sm z-depth-0" role="button">Webpage</a>
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
@@ -282,15 +289,9 @@
       {% endif %}
       {% if entry.openreview %}
         {% if entry.openreview contains '://' %}
-          <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button" style="background-color: #8c1b13; color: white;">OpenReview</a>
+          <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button">OpenReview</a>
         {% else %}
-          <a
-            href="{{ entry.openreview | prepend: '/assets/pdf/' | relative_url }}"
-            class="btn btn-sm z-depth-0"
-            role="button"
-            style="background-color: #8c1b13; color: white;"
-            >OpenReview</a
-          >
+          <a href="{{ entry.openreview | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">OpenReview</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
