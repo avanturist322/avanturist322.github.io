@@ -33,7 +33,8 @@ latest_posts:
 <!-- Current status — edit the text inside .current-status__text; remove whole block to hide. -->
 <div class="current-status">
   <span class="current-status__label">Currently</span>
-  <span class="current-status__text">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span>
+  <!-- <span class="current-status__text">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span> -->
+  <span class="current-status__text">Preparing to NeurIPS</span>  
 </div>
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
