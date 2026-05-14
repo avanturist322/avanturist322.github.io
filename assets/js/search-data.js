@@ -88,7 +88,13 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_20260422/";
-            },},{
+            },},{id: "news-kage-bench-fast-known-axis-visual-generalization-evaluation-for-reinforcement-learning-has-been-accepted-to-icml-2026",
+          title: '⭐ KAGE-Bench: Fast Known-Axis Visual Generalization Evaluation for Reinforcement Learning has been accepted...',
+          description: "",
+          section: "News",},{id: "news-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-has-been-accepted-to-reinforcement-learning-conference-rlc-2026",
+          title: '🧠 Memory Retention Is Not Enough to Master Memory Tasks in Reinforcement Learning...',
+          description: "",
+          section: "News",},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
