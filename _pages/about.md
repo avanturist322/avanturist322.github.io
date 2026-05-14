@@ -34,7 +34,7 @@ latest_posts:
 <div class="current-status">
   <span class="current-status__label">Currently</span>
   <!-- <span class="current-status__text">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span> -->
-  <span class="current-status__text">Preparing to NeurIPS</span>  
+  <span class="current-status__text">Preparing to CoRL 2026</span>
 </div>
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
@@ -134,7 +134,7 @@ Hello! I am a PhD researcher studying memory mechanisms in reinforcement learnin
 
 | Date       | Language | Venue   | Title                                                                                              | Link                                                                    |
 | ---------- | -------- | ------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| 22.03.2026 | Russian  | Offline | [ROS Meetup '26](https://rosmeetup.ru/) talk on "Memory mechanisms in VLA models"                                           | TBA                                   |
+| 22.03.2026 | Russian  | Offline | [ROS Meetup '26](https://rosmeetup.ru/) talk on "Memory mechanisms in VLA models"                  | TBA                                                                     |
 | 26.12.2025 | Russian  | Online  | Embodied AI Reading Club talk on VLA models with memory                                            | TBA                                                                     |
 | 04.12.2025 | Russian  | Online  | AIRI "ИИшнница" talk on my papers, accepted to NeurIPS-2025: RATE and "Memory, Benchmark & Robots" | [YouTube](https://www.youtube.com/live/frxpTdPPucg)                     |
 | 21.11.2025 | Russian  | Offline | AIJ-2025 Deep Dive live talk on "Memory, Benchmark & ​​Robots"                                     | TBA                                                                     |

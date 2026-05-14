@@ -11,10 +11,12 @@ description: >-
 ## Description
 
 Use this skill when the user wants to add a new project website page like:
+
 - `https://avanturist322.github.io/mikasa-robo/`
 - `https://avanturist322.github.io/KAGEBench/`
 
 Project pages in this repo are organized as:
+
 - source page: `project-websites/<slug>/index.html`
 - local assets: `project-websites/<slug>/static/*` and optionally `project-websites/<slug>/assets/*`
 - public route: `/<slug>/` (set via front matter in `index.html`)
@@ -54,6 +56,7 @@ rg -n '/project-websites/website_1/' project-websites/website_1/index.html
 ## Examples
 
 Create a new page and copy media:
+
 ```bash
 bin/new-project-website.sh website_2
 mkdir -p project-websites/website_2/assets/images
@@ -61,6 +64,7 @@ cp /path/to/fig1.png project-websites/website_2/assets/images/
 ```
 
 Add page to sitemap:
+
 ```bash
 # edit sitemap-papers.xml and add:
 # <loc>{{ site.url }}/website_2/</loc>
@@ -77,6 +81,7 @@ Add page to sitemap:
 ## Configuration
 
 Current workflow files:
+
 - generator: `bin/new-project-website.sh`
 - template source: `project-websites/template/index.html`
 - workflow docs: `project-websites/README.md`

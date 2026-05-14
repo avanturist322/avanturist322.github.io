@@ -21,10 +21,10 @@
       <script>
         (function () {
           try {
-            var stored = localStorage.getItem("site-effect");
-            var mode = stored === "off" || stored === "snow" || stored === "fireflies" ? stored : "off";
-            document.body.classList.remove("effect-fireflies", "effect-snow", "effect-off");
-            document.body.classList.add("effect-" + mode);
+            var stored = localStorage.getItem('site-effect');
+            var mode = stored === 'off' || stored === 'snow' || stored === 'fireflies' ? stored : 'off';
+            document.body.classList.remove('effect-fireflies', 'effect-snow', 'effect-off');
+            document.body.classList.add('effect-' + mode);
           } catch (e) {}
         })();
       </script>
