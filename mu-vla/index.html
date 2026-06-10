@@ -1,0 +1,549 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="robots" content="index, follow"> <meta name="googlebot" content="index, follow"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>μVLA: On Recurrent Memory for Partially Observable Manipulation in VLA Models</title> <link rel="canonical" href="https://avanturist322.github.io/mu-vla/"> <meta name="description" content="muVLA: a controlled isolation study of recurrence in a strong pretrained VLA backbone. Learnable memory tokens carried across timesteps and trained with TBPTT improve manipulation under partial observability on MIKASA-Robo and LIBERO."> <meta name="keywords" content="vision-language-action, VLA, recurrent memory, partial observability, robotic manipulation, OpenVLA, memory tokens, TBPTT, MIKASA-Robo, LIBERO"> <meta name="author" content="Egor Cherepanov, Nikita Kachaev, Daniil Zelezetsky, Aydar Bulatov, Artem Pshenitsyn, Yuri Kuratov, Alexey Skrynnik, Aleksandr I. Panov, Alexey K. Kovalev"> <meta name="language" content="English"> <meta property="og:type" content="article"> <meta property="og:url" content="https://avanturist322.github.io/mu-vla/"> <meta property="og:title" content="μVLA: On Recurrent Memory for Partially Observable Manipulation in VLA Models"> <meta property="og:description" content="A controlled isolation study of recurrence in a strong pretrained VLA backbone: learnable memory tokens carried across timesteps improve manipulation under partial observability."> <meta property="og:image" content="https://avanturist322.github.io/project-websites/mu-vla/figures/visual_abstract_v5.png"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="μVLA: On Recurrent Memory for Partially Observable Manipulation in VLA Models"> <meta name="twitter:description" content="A controlled isolation study of recurrence in a strong pretrained VLA backbone: learnable memory tokens carried across timesteps improve manipulation under partial observability."> <meta name="twitter:image" content="https://avanturist322.github.io/project-websites/mu-vla/figures/visual_abstract_v5.png"> <style>:root{--fg:#1e2430;--muted:#5e6778;--border:#d8dee9;--accent:#175ea8;--accent-soft:#e9f2fd;--bg-soft:#f5f7fb;--card:#fff;--shadow:0 10px 30px rgba(17,38,68,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth}::selection{background:var(--accent-soft);color:var(--fg)}:where(a,button,select,input,summary):focus-visible{outline:2px solid var(--accent);outline-offset:2px}body{max-width:1000px;margin:50px auto;padding:0 22px;font-family:"IBM Plex Sans","Avenir Next","Segoe UI","Helvetica Neue",sans-serif;line-height:1.6;color:var(--fg);background:radial-gradient(1000px 260px at 8% 0%,#eaf3ff 0%,rgba(234,243,255,0) 65%),radial-gradient(900px 220px at 92% 0%,#eef9f1 0%,rgba(238,249,241,0) 65%),#f9fbff}.hero{max-width:760px;margin:0 auto 34px;padding:16px 22px 18px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,#fff 0%,#f9fbff 100%);box-shadow:var(--shadow);text-align:center}h1{font-family:"Avenir Next Condensed","Avenir Next","IBM Plex Sans",sans-serif;letter-spacing:.01em;font-size:32px;line-height:1.2;margin:0 0 10px}h2{font-size:23px;margin-top:48px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);position:relative;scroll-margin-top:24px}h2::after{content:"";position:absolute;left:0;bottom:-1px;width:52px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--accent) 0%,#2f7d32 100%)}h3{font-size:17px;margin-top:26px;margin-bottom:8px}.authors{color:#4a556a;margin:0 0 4px;font-weight:500}.authors sup{font-weight:400;color:#7a8394}.authors a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}.authors a:hover{color:var(--accent);border-bottom-color:var(--accent)}.affiliations{color:#7a8394;font-size:14px;margin:0 0 4px}.venue{color:#7a8394;font-size:14px;margin:0}.hero-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:16px 0 2px}.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:linear-gradient(180deg,#2b3443 0%,#1e2430 100%);color:#f4f7fb;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.07);box-shadow:0 4px 14px rgba(16,34,60,.18);transition:transform .15s ease,box-shadow .15s ease,filter .15s ease}.hero-btn:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(16,34,60,.28);filter:brightness(1.12);color:#fff}.hero-btn:active{transform:translateY(0)}.hero-btn svg{width:18px;height:18px;display:block;flex:none}.hero-btn .ico-arxiv{color:#d6453b}.hero-btn .emoji{font-size:18px;line-height:1}.hero-btn .tba{opacity:.6;font-weight:500;font-size:13px;margin-left:5px}figure{margin:18px 0;text-align:center}figure img{max-width:100%;height:auto;border:1px solid var(--border);border-radius:10px;background:white;box-shadow:0 6px 18px rgba(16,34,60,.06)}figcaption{color:var(--muted);font-size:14px;margin-top:8px;text-align:left}.architecture-figure img{max-width:86%}.architecture-figure figcaption{max-width:86%;margin-left:auto;margin-right:auto}.method-row{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;align-items:start}.method-row figure{margin:0}.note{color:#888;font-size:14px}.page-footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--border);text-align:center}.page-footer p{margin:0;color:var(--muted);font-size:13px}.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}.tab-btn{font:inherit;font-size:13px;padding:7px 13px;border:1px solid var(--border);background:#fff;color:var(--fg);border-radius:999px;cursor:pointer;transition:all .15s ease}.tab-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}.tab-btn.active{background:var(--accent);color:white;border-color:var(--accent)}.tab-panel{display:none}.tab-panel.active{display:block}.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin:14px 0;background:var(--card);box-shadow:0 5px 18px rgba(20,38,65,.05)}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:6px 9px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap}th{background:var(--bg-soft);font-weight:600}td:first-child,th:first-child{text-align:left;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;position:sticky;left:0;z-index:1;background:var(--card);box-shadow:1px 0 0 var(--border)}th:first-child{z-index:2;background:var(--bg-soft)}tr.section-row td:first-child{background:#f8fbff}tr.avg-row td:first-child{background:#fbfbfb}tr.section-row td{background:#f8fbff;font-style:italic;color:var(--muted);text-align:left}tr.avg-row td{font-weight:700;background:#fbfbfb}tr.bold-row td{font-weight:700}.best{background:#e3f0fb;font-weight:600}.col-ours{background:#fff4e0}.col-ours-star{background:#ffe6bf}
+.col-oracle{background:#eaf5ea}th.col-ours,th.col-oracle{font-weight:700}.col-ours.best{background:#ffd9a8}.col-ours-star.best{background:#ffc98a}.col-oracle.best{background:#c8e6c8}.col-tag{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}.col-tag.ours{color:#b6651a}.col-tag.oracle{color:#2f7d32}.table-caption{color:var(--muted);font-size:13px;margin:6px 2px 14px}.instruction-note{margin:6px 2px 10px;color:#3f3f3f;font-size:13px;line-height:1.45;padding:8px 10px;border-left:3px solid #c4d4e8;background:#f6f9fd;border-radius:8px}.grid-4{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch}.grid-4>div{display:flex;flex-direction:column;text-align:center;min-width:0}.grid-4 img{display:block;width:100%;max-width:100%;height:220px;object-fit:contain;border:1px solid var(--border);border-radius:4px}.grid-4 .label{font-size:12px;color:var(--muted);margin-top:4px}.rollout-row{margin-bottom:10px;text-align:center}.rollout-row img{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px}.grid-4 .heatmap-cell{grid-column:auto!important}.attn-stack>div{margin-bottom:12px;text-align:center}.attn-stack img{width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px}.attn-stack .label{font-size:12px;color:var(--muted);margin-top:4px;text-align:left}.attn-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;align-items:end;padding:12px;margin:14px 0 16px;border:1px solid var(--border);border-radius:10px;background:linear-gradient(180deg,#f8fafe 0%,#f1f5fb 100%);box-shadow:0 4px 14px rgba(18,40,70,.05)}#attn-videos-controls{grid-template-columns:minmax(220px,1fr)}.attn-control label{display:block;margin-bottom:4px;color:var(--muted);font-size:12px;font-weight:600}.attn-control select,.attn-control button{width:100%;min-height:34px;padding:6px 9px;border:1px solid var(--border);border-radius:8px;background:white;color:var(--fg);font:inherit;font-size:13px}.attn-control button{cursor:pointer;background:var(--accent);color:white;border-color:var(--accent)}.attn-rollout-row{margin-bottom:16px;text-align:center}#attn-video-stack{padding-left:96px}.attn-rollout-row.with-slider{position:relative}.attn-slider-side{position:absolute;left:-96px;top:50%;height:108px;transform:translateY(-50%);width:86px}.attn-slider-value{display:none}.attn-layer-slider{position:absolute;left:62%;top:50%;width:92px;height:20px;transform:translate(-50%,-50%) rotate(-90deg);transform-origin:center;cursor:pointer}.attn-slider-hint{position:absolute;left:0;width:34px;font-size:10px;color:var(--muted);line-height:1;text-align:right}.attn-slider-hint.top{top:0}.attn-slider-hint.middle{top:38px}.attn-slider-hint.bottom{bottom:0}.attn-row-main{min-width:0}.attn-rollout-row img{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px;background:white}.attn-rollout-row .label{margin-top:5px;color:var(--muted);font-size:12px;text-align:left}.attn-video-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.attn-video-card{min-width:0;border:1px solid var(--border);border-radius:10px;padding:8px;background:#fff;box-shadow:0 4px 14px rgba(18,36,61,.06)}.attn-video-card.mikasa{border-color:#8bb6e1;background:#f5faff}.attn-video-card.libero{border-color:#9cd3ad;background:#f6fdf8}.dataset-tag{display:inline-block;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:999px}.dataset-tag.mikasa{color:#1d5f9c;background:#dcecff}.dataset-tag.libero{color:#1f6a37;background:#dcf5e4}.attn-video-card video{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:4px;background:#000}.attn-video-card .label{margin-top:5px;color:var(--muted);font-size:12px;text-align:left}.dual-section-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:6px}.dual-section-card h2{margin-top:0}.dual-section-lead{min-height:176px;margin-bottom:10px}.dual-section-card>.tabs{min-height:86px;align-content:flex-start}.magnifier-lens{position:fixed;display:none;width:396px;height:396px;z-index:29;pointer-events:none;border:2px solid white;border-radius:8px;background-repeat:no-repeat;background-color:white;box-shadow:0 8px 28px rgba(0,0,0,.28)}.rollout-row img,.attn-rollout-row img{cursor:zoom-in;-webkit-user-drag:none;user-select:none}@media(max-width:700px){.grid-4{grid-template-columns:1fr}.grid-4 img{height:auto}.architecture-figure img,.architecture-figure figcaption{max-width:100%}.method-row{grid-template-columns:1fr}.attn-controls{grid-template-columns:1fr}#attn-video-stack{padding-left:0}.attn-rollout-row.with-slider{padding-left:0}.attn-slider-side{position:static;width:auto;margin-bottom:8px;min-height:0;height:auto;transform:none;display:grid;grid-template-columns:auto 160px auto auto;gap:8px;align-items:center;justify-content:start}
+.attn-layer-slider{position:static;width:160px;height:20px;transform:none}.attn-slider-hint,.attn-slider-value{position:static;text-align:left}.attn-slider-value{display:none}.attn-video-grid{grid-template-columns:1fr}.dual-section-row{grid-template-columns:1fr}.dual-section-lead{min-height:0}.dual-section-card>.tabs{min-height:0}.magnifier-lens{width:286px;height:286px}}</style> </head> <body> <div class="magnifier-lens" id="magnifier-lens" aria-hidden="true"></div> <header class="hero"> <h1>μVLA: On Recurrent Memory for Partially Observable Manipulation in VLA Models</h1> <p class="authors"> <a href="https://avanturist322.github.io/" target="_blank" rel="noopener">Egor Cherepanov</a><sup>1,2</sup>, <a href="https://scholar.google.com/citations?user=GdG_BDsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Nikita Kachaev</a><sup>1,2</sup>, <a href="https://scholar.google.com/citations?user=6OY6gWcAAAAJ&amp;hl=en" target="_blank" rel="noopener">Daniil Zelezetsky</a><sup>2</sup>, <a href="https://scholar.google.com/citations?user=UvN4mlEAAAAJ" target="_blank" rel="noopener">Aydar Bulatov</a><sup>1,2</sup>, <a href="https://scholar.google.com/citations?user=tGfUmsoAAAAJ&amp;hl=en" target="_blank" rel="noopener">Artem Pshenitsyn</a><sup>1,2</sup>, <a href="https://scholar.google.com/citations?user=BsDK7zIAAAAJ" target="_blank" rel="noopener">Yuri Kuratov</a><sup>1,2</sup>, <a href="https://tviskaron.github.io/" target="_blank" rel="noopener">Alexey Skrynnik</a><sup>1,2</sup>, <a href="https://grafft.github.io/" target="_blank" rel="noopener">Aleksandr I. Panov</a><sup>1,2</sup>, <a href="https://scholar.google.com/citations?user=N1zWb74AAAAJ" target="_blank" rel="noopener">Alexey K. Kovalev</a><sup>1,2</sup> </p> <p class="affiliations"><sup>1</sup>CogAI Lab, Moscow, Russia    <sup>2</sup>MIRAI, Moscow, Russia</p> <nav class="hero-buttons"> <a class="hero-btn" href="https://google.com" target="_blank" rel="noopener" aria-label="Paper on arXiv"> <svg class="ico-arxiv" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line><line x1="9" y1="9" x2="11" y2="9"></line></svg> <span>arXiv</span> </a> <a class="hero-btn" href="https://github.com/CognitiveAISystems/muVLA" target="_blank" rel="noopener" aria-label="Code on GitHub"> <svg viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.36-1.33-1.73-1.33-1.73-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.21 1.84 1.21 1.07 1.79 2.81 1.27 3.49.97.11-.76.42-1.27.76-1.56-2.67-.3-5.47-1.31-5.47-5.83 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 3-.39c1.02 0 2.05.13 3 .39 2.29-1.53 3.3-1.21 3.3-1.21.66 1.66.24 2.88.12 3.18.77.83 1.24 1.88 1.24 3.17 0 4.53-2.81 5.53-5.49 5.82.43.36.81 1.08.81 2.18 0 1.58-.01 2.85-.01 3.24 0 .31.21.69.83.56A12.04 12.04 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"></path></svg> <span>Code</span> </a> <a class="hero-btn" href="https://google.com" target="_blank" rel="noopener" aria-label="Models on Hugging Face (to be announced)"> <span class="emoji" aria-hidden="true">🤗</span> <span>Hugging Face<span class="tba">(TBA)</span></span> </a> </nav> </header> <figure class="architecture-figure"> <img src="/project-websites/mu-vla/figures/visual_abstract_v5.png" alt="Architecture of muVLA, a memory-augmented VLA model."> <figcaption><b>Architecture of μVLA — a memory-augmented VLA model.</b> At each timestep <i>t</i>, the model takes as input a BOS token, two ViT-encoded camera views (top and wrist), a proprioceptive vector, memory tokens from the previous timestep, a language instruction, empty action embeddings, and a STOP token. The model produces updated memory tokens that are recurrently passed to <i>t</i>+1.</figcaption> </figure> <h2 id="attention-videos">Attention overlay videos</h2> <p class="table-caption">Top row shows all overlays at once: MIKASA-Robo memory → vision, MIKASA-Robo action → vision, LIBERO memory → vision, LIBERO action → vision.</p> <div class="attn-controls"> <div class="attn-control"> <label for="attn-video-env">MIKASA-Robo environment</label> <select id="attn-video-env"></select> </div> <div class="attn-control"> <label for="libero-suite">LIBERO suite</label> <select id="libero-suite"></select> </div> <div class="attn-control"> <label for="libero-task">LIBERO task</label> <select id="libero-task"></select> </div> <div class="attn-control"> <label for="libero-episode">LIBERO episode</label> <select id="libero-episode"></select> </div> </div> <div class="instruction-note" id="attn-video-env-instruction"></div> <div class="instruction-note" id="libero-task-instruction"></div> <div class="attn-video-grid"> <div class="attn-video-card mikasa"> <div class="dataset-tag mikasa">MIKASA-Robo</div> <video id="attn-memory-video" controls autoplay loop muted playsinline preload="auto" src="/project-websites/mu-vla/videos/muVLA/RememberColor5-VLA-v0/seed_4242424243/memory_to_vision/attn_overlay.mp4"></video> <div class="label" id="attn-memory-video-label">RememberColor5: memory → vision</div> </div> <div class="attn-video-card mikasa"> <div class="dataset-tag mikasa">MIKASA-Robo</div> <video id="attn-action-video" controls autoplay loop muted playsinline preload="auto" src="/project-websites/mu-vla/videos/muVLA/RememberColor5-VLA-v0/seed_4242424243/action_first_to_vision/attn_overlay.mp4"></video> <div class="label" id="attn-action-video-label">RememberColor5: action → vision</div> </div> <div class="attn-video-card libero"> <div class="dataset-tag libero">LIBERO</div> <video id="libero-memory-video" controls autoplay loop muted playsinline preload="auto" src="/project-websites/mu-vla/videos/muVLA/libero_goal/task_00_open_the_middle_drawer_of_the_cabinet/episode_00/memory_to_vision/attn_overlay.mp4"></video> <div class="label" id="libero-memory-video-label">memory → vision overlay</div> </div> <div class="attn-video-card libero"> <div class="dataset-tag libero">LIBERO</div> <video id="libero-action-video" controls autoplay loop muted playsinline preload="auto" src="/project-websites/mu-vla/videos/muVLA/libero_goal/task_00_open_the_middle_drawer_of_the_cabinet/episode_00/action_first_to_vision/attn_overlay.mp4"></video> <div class="label" id="libero-action-video-label">action → vision overlay</div> </div> </div> <figure> <img src="/project-websites/mu-vla/figures/cosine_rollout.png" alt="Cosine distance with rollout overlay on RememberColor5."> <figcaption><b>Cosine distance M<sub>t</sub> vs. M<sub>t−1</sub> on RememberColor5 (<i>K</i>=2, <i>m</i>=64).</b> Pale blue lines: individual memory tokens; dark grey: mean over all 64. The episode contains two phase transitions: at <i>t</i>=5 the cue cube disappears and the agent observes an empty table until <i>t</i>=9, while at <i>t</i>=10 the candidate cubes appear and the task switches from memory maintenance to retrieval and action execution. Both transitions produce clear spikes in memory change.</figcaption> </figure> <h2 id="abstract">Abstract</h2> <p>Vision-language-action (VLA) models predict chunks of future actions from the current observation, an assumption that fails under partial observability, where decisions depend on information no longer visible. Existing memory-augmented VLAs simultaneously introduce recurrence, retrieval, compression modules, auxiliary objectives, hierarchical memory, or task-specific architectural changes, so the contribution of recurrence itself remains entangled with surrounding machinery.</p> <p>We present a controlled isolation study of recurrence in a strong pretrained VLA backbone. Our formulation augments the transformer with a small set of learnable memory tokens carried across timesteps and updated through self-attention, trained end to end with truncated backpropagation through time, with no auxiliary losses and no architectural changes. We instantiate this as <b>μVLA</b>, a family of OpenVLA-OFT variants parameterized by memory width <i>m</i>, TBPTT length <i>K</i>, and the memory update rule (cross-step gradients or a detached EMA), so that recurrence is the only varying factor.</p> <p>On MIKASA-Robo, μVLA improves average success rate on five training tasks from 0.42 to 0.84 at the strongest setting and reaches 0.23 on held-out tasks with the same memory structure versus 0.07 for the memoryless baseline. On tasks requiring different memory structure, performance remains near baseline. On LIBERO, the strongest recurrent variant achieves 96.2% average success, indicating no regression under full observability.</p> <h2 id="method">Method</h2> <div class="method-row"> <figure> <img src="/project-websites/mu-vla/figures/method_v3.png" alt="muVLA method overview: TBPTT training with memory tokens carried across timesteps."> <figcaption><b>Method.</b> A small bank of learnable memory tokens is carried across timesteps inside the backbone self-attention and updated end-to-end with TBPTT — no auxiliary losses, no architectural additions.</figcaption> </figure> <figure> <img src="/project-websites/mu-vla/figures/attention_v1.png" alt="Attention visualization for muVLA."> <figcaption><b>Attention mask with the memory-action guard.</b> Memory tokens attend only to observations, proprioception, language, and previous memory state, but cannot read action tokens. This prevents the recurrent state from trivially copying demonstrated actions and encourages encoding of task-relevant observations instead.</figcaption> </figure> </div> <h2 id="attention-to-vision">Action / memory attention to vision</h2> <p>Successful rollouts with attention projected onto visual patches. By default the attention maps are aggregated as mean over layers and heads. Per-layer mode keeps the same rollout but replaces either lower row independently with mean-over-heads attention from a selected transformer layer.</p> <div class="attn-controls" id="attn-videos-controls"> <div class="attn-control"> <label for="attn-env">MIKASA-Robo environment</label> <select id="attn-env"></select> </div> </div> <div class="instruction-note" id="attn-env-instruction"></div> <div id="attn-video-stack"> <div class="attn-rollout-row"> <img id="attn-plain-img" src="/project-websites/mu-vla/videos/muVLA/RememberColor5-VLA-v0/seed_4242424243/rollout_plain.png" alt="Plain rollout"> <div class="label" id="attn-plain-label">plain rollout</div> </div> <div class="attn-rollout-row with-slider"> <div class="attn-slider-side"> <div class="attn-slider-hint top">L31</div> <input id="attn-memory-layer-slider" class="attn-layer-slider" type="range" min="0" max="32" step="1" value="0" aria-label="memory to vision layer slider"> <div class="attn-slider-hint middle">L0</div> <div class="attn-slider-hint bottom">mean</div> <div class="attn-slider-value" id="attn-memory-layer-value">mean</div> </div> <div class="attn-row-main"> <img id="attn-memory-img" src="/project-websites/mu-vla/videos/muVLA/RememberColor5-VLA-v0/seed_4242424243/memory_to_vision/rollout_attn.png" alt="memory to vision attention rollout"> <div class="label" id="attn-memory-label">memory → vision, aggregated over layers and heads</div> </div> </div> <div class="attn-rollout-row with-slider"> <div class="attn-slider-side"> <div class="attn-slider-hint top">L31</div> <input id="attn-action-layer-slider" class="attn-layer-slider" type="range" min="0" max="32" step="1" value="0" aria-label="action to vision layer slider"> <div class="attn-slider-hint middle">L0</div> <div class="attn-slider-hint bottom">mean</div> <div class="attn-slider-value" id="attn-action-layer-value">mean</div> </div> <div class="attn-row-main"> <img id="attn-action-img" src="/project-websites/mu-vla/videos/muVLA/RememberColor5-VLA-v0/seed_4242424243/action_first_to_vision/rollout_attn.png" alt="action to vision attention rollout"> <div class="label" id="attn-action-label">action → vision, aggregated over layers and heads</div> </div> </div> </div> <h2 id="libero-rollouts">LIBERO attention rollouts</h2> <p>Aggregated attention rollouts and frame-by-frame overlays for successful LIBERO episodes. Choose a suite, task, and episode; attention maps are mean over layers and heads.</p> <div class="attn-controls"> <div class="attn-control"> <label for="libero-rollout-suite">LIBERO suite</label> <select id="libero-rollout-suite"></select> </div> <div class="attn-control"> <label for="libero-rollout-task">LIBERO task</label> <select id="libero-rollout-task"></select> </div> <div class="attn-control"> <label for="libero-rollout-episode">LIBERO episode</label> <select id="libero-rollout-episode"></select> </div> </div> <div id="libero-rollout-stack"> <div class="attn-rollout-row"> <img id="libero-plain-img" src="/project-websites/mu-vla/videos/muVLA/libero_goal/task_00_open_the_middle_drawer_of_the_cabinet/episode_00/rollout_plain.png" alt="LIBERO-GOAL plain rollout"> <div class="label" id="libero-plain-label">Task 00, episode 00: plain rollout</div> </div> <div class="attn-rollout-row"> <img id="libero-memory-img" src="/project-websites/mu-vla/videos/muVLA/libero_goal/task_00_open_the_middle_drawer_of_the_cabinet/episode_00/memory_to_vision/rollout_attn.png" alt="LIBERO-GOAL memory to vision attention rollout"> <div class="label" id="libero-memory-label">memory → vision, aggregated over layers and heads</div> </div> <div class="attn-rollout-row"> <img id="libero-action-img" src="/project-websites/mu-vla/videos/muVLA/libero_goal/task_00_open_the_middle_drawer_of_the_cabinet/episode_00/action_first_to_vision/rollout_attn.png" alt="LIBERO-GOAL action to vision attention rollout"> <div class="label" id="libero-action-label">action → vision, aggregated over layers and heads</div> </div> </div> <h2 id="results">Results</h2> <h3>Per-environment success rate on MIKASA-Robo (23 environments)</h3> <p class="table-caption">100 deterministic episodes per environment; mean reported. OpenVLA-OFT† uses the episodic dataloader. The (+1st obs.) column appends the first observation at every timestep and acts as an oracle-style upper bound for first-frame cue tasks. μVLA columns use <i>m</i>=64 unless marked <i>m</i>=1.</p> <div class="table-wrap"> <table> <thead> <tr> <th>Environment</th> <th>π<sub>0.5</sub> </th> <th>OpenVLA<br>-OFT</th> <th>OpenVLA<br>-OFT†</th> <th class="col-ours">m=1<br>K=8<span class="col-tag ours">Ours</span> </th> <th class="col-ours">m=64<br>K=8<span class="col-tag ours">Ours</span> </th> <th class="col-ours col-ours-star">K=2<span class="col-tag ours">Ours</span> </th> <th class="col-ours">K=1<span class="col-tag ours">Ours</span> </th> <th class="col-ours">EMA<span class="col-tag ours">Ours</span> </th> <th class="col-ours">EMA<br>full mask<span class="col-tag ours">Ours</span> </th> <th class="col-ours">single-task<br>RC5<span class="col-tag ours">Ours</span> </th> <th class="col-oracle">OpenVLA-OFT<br>(+1st obs.)<span class="col-tag oracle">Oracle</span> </th> </tr> </thead> <tbody> <tr class="section-row"><td colspan="12">Training tasks (in-distribution)</td></tr> <tr> <td>ShellGamePush</td> <td>0.86</td> <td>0.83</td> <td>0.90</td> <td class="col-ours">0.91</td> <td class="col-ours">0.83</td> <td class="col-ours col-ours-star">0.95</td> <td class="col-ours">0.93</td> <td class="col-ours">0.77</td> <td class="col-ours">0.94</td> <td class="col-ours">0.13</td> <td class="best col-oracle">0.99</td> </tr> <tr> <td>InterceptMedium</td> <td>0.40</td> <td>0.36</td> <td>0.39</td> <td class="col-ours">0.49</td> <td class="col-ours">0.55</td> <td class="col-ours col-ours-star">0.47</td> <td class="col-ours">0.44</td> <td class="col-ours">0.55</td> <td class="best col-ours">0.56</td> <td class="col-ours">0.01</td> <td class="col-oracle">0.45</td> </tr> <tr> <td>TakeItBack</td> <td>0.85</td> <td>0.83</td> <td>0.87</td> <td class="col-ours">0.97</td> <td class="col-ours">0.98</td> <td class="best col-ours col-ours-star">0.99</td> <td class="best col-ours">0.99</td> <td class="best col-ours">0.99</td> <td class="best col-ours">0.99</td> <td class="col-ours">0.00</td> <td class="col-oracle">0.94</td> </tr> <tr> <td>RememberColor5</td> <td>0.12</td> <td>0.04</td> <td>0.09</td> <td class="col-ours">0.24</td> <td class="col-ours">0.35</td> <td class="col-ours col-ours-star">0.93</td> <td class="col-ours">0.40</td> <td class="col-ours">0.44</td> <td class="col-ours">0.25</td> <td class="col-ours">0.16</td> <td class="best col-oracle">0.96</td> </tr> <tr> <td>RememberShapeAndColor3x3</td> <td>0.10</td> <td>0.03</td> <td>0.13</td> <td class="col-ours">0.08</td> <td class="col-ours">0.12</td> <td class="col-ours col-ours-star">0.86</td> <td class="col-ours">0.09</td> <td class="col-ours">0.09</td> <td class="col-ours">0.10</td> <td class="col-ours">0.05</td> <td class="best col-oracle">0.91</td> </tr> <tr class="avg-row"> <td>Average (5 envs)</td> <td>0.46</td> <td>0.42</td> <td>0.48</td> <td class="col-ours">0.54</td> <td class="col-ours">0.57</td> <td class="col-ours col-ours-star">0.84</td> <td class="col-ours">0.57</td> <td class="col-ours">0.57</td> <td class="col-ours">0.57</td> <td class="col-ours">0.07</td> <td class="best col-oracle">0.85</td> </tr> <tr class="section-row"><td colspan="12">Held-out, matched memory semantics</td></tr> <tr> <td>ShellGameTouch</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="best col-ours">0.07</td> <td class="col-oracle">0.00</td> </tr> <tr> <td>ShellGamePick</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.01</td> <td class="col-ours">0.00</td> <td class="col-ours">0.01</td> <td class="col-ours">0.00</td> <td class="best col-oracle">0.01</td> </tr> <tr> <td>InterceptSlow</td> <td>0.05</td> <td>0.05</td> <td>0.04</td> <td class="col-ours">0.05</td> <td class="col-ours">0.06</td> <td class="best col-ours col-ours-star">0.07</td> <td class="col-ours">0.06</td> <td class="col-ours">0.05</td> <td class="col-ours">0.06</td> <td class="col-ours">0.02</td> <td class="col-oracle">0.04</td> </tr> <tr> <td>InterceptFast</td> <td>0.10</td> <td>0.00</td> <td>0.33</td> <td class="col-ours">0.21</td> <td class="col-ours">0.28</td> <td class="col-ours col-ours-star">0.27</td> <td class="col-ours">0.19</td> <td class="col-ours">0.28</td> <td class="best col-ours">0.35</td> <td class="col-ours">0.00</td> <td class="col-oracle">0.31</td> </tr> <tr> <td>InterceptGrabSlow</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-oracle">0.00</td> </tr> <tr> <td>InterceptGrabMedium</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-oracle">0.00</td> </tr> <tr> <td>InterceptGrabFast</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.00</td> <td class="col-oracle">0.00</td> </tr> <tr> <td>RememberColor3</td> <td>0.07</td> <td>0.00</td> <td>0.19</td> <td class="col-ours">0.30</td> <td class="col-ours">0.41</td> <td class="col-ours col-ours-star">0.92</td> <td class="col-ours">0.38</td> <td class="col-ours">0.37</td> <td class="col-ours">0.28</td> <td class="col-ours">0.30</td> <td class="best col-oracle">0.91</td> </tr> <tr> <td>RememberColor9</td> <td>0.05</td> <td>0.03</td> <td>0.11</td> <td class="col-ours">0.08</td> <td class="col-ours">0.11</td> <td class="col-ours col-ours-star">0.41</td> <td class="col-ours">0.09</td> <td class="col-ours">0.11</td> <td class="col-ours">0.11</td> <td class="col-ours">0.05</td> <td class="best col-oracle">0.47</td> </tr> <tr> <td>RememberShapeAndColor3x2</td> <td>0.07</td> <td>0.03</td> <td>0.09</td> <td class="col-ours">0.06</td> <td class="col-ours">0.11</td> <td class="col-ours col-ours-star">0.59</td> <td class="col-ours">0.11</td> <td class="col-ours">0.12</td> <td class="col-ours">0.04</td> <td class="col-ours">0.11</td> <td class="best col-oracle">0.62</td> </tr> <tr> <td>RememberShapeAndColor5x3</td> <td>0.04</td> <td>0.01</td> <td>0.06</td> <td class="col-ours">0.12</td> <td class="col-ours">0.04</td> <td class="col-ours col-ours-star">0.28</td> <td class="col-ours">0.15</td> <td class="col-ours">0.08</td> <td class="col-ours">0.07</td> <td class="col-ours">0.09</td> <td class="best col-oracle">0.29</td> </tr> <tr class="avg-row"> <td>Average (11 envs)</td> <td>0.03</td> <td>0.01</td> <td>0.07</td> <td class="col-ours">0.07</td> <td class="col-ours">0.09</td> <td class="col-ours col-ours-star">0.23</td> <td class="col-ours">0.09</td> <td class="col-ours">0.09</td> <td class="col-ours">0.08</td> <td class="col-ours">0.06</td> <td class="best col-oracle">0.24</td> </tr> <tr class="section-row"><td colspan="12">Held-out, novel memory semantics</td></tr> <tr> <td>RememberShape3</td> <td>0.05</td> <td>0.00</td> <td>0.08</td> <td class="col-ours">0.21</td> <td class="col-ours">0.27</td> <td class="col-ours col-ours-star">0.35</td> <td class="col-ours">0.35</td> <td class="col-ours">0.28</td> <td class="col-ours">0.22</td> <td class="col-ours">0.29</td> <td class="best col-oracle">0.46</td> </tr> <tr> <td>RememberShape5</td> <td>0.04</td> <td>0.00</td> <td>0.11</td> <td class="col-ours">0.20</td> <td class="col-ours">0.21</td> <td class="best col-ours col-ours-star">0.46</td> <td class="col-ours">0.20</td> <td class="col-ours">0.20</td> <td class="col-ours">0.20</td> <td class="col-ours">0.16</td> <td class="col-oracle">0.40</td> </tr> <tr> <td>RememberShape9</td> <td>0.00</td> <td>0.00</td> <td>0.11</td> <td class="col-ours">0.14</td> <td class="col-ours">0.11</td> <td class="best col-ours col-ours-star">0.30</td> <td class="col-ours">0.09</td> <td class="col-ours">0.11</td> <td class="col-ours">0.13</td> <td class="col-ours">0.06</td> <td class="col-oracle">0.29</td> </tr> <tr> <td>RotateLenientPos</td> <td>0.01</td> <td class="best">0.06</td> <td>0.04</td> <td class="col-ours">0.00</td> <td class="col-ours">0.01</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.00</td> <td class="col-ours">0.01</td> <td class="col-ours">0.01</td> <td class="col-ours">0.02</td> <td class="col-oracle">0.02</td> </tr> <tr> <td>RotateLenientPosNeg</td> <td>0.00</td> <td>0.03</td> <td>0.08</td> <td class="col-ours">0.01</td> <td class="col-ours">0.03</td> <td class="col-ours col-ours-star">0.02</td> <td class="col-ours">0.06</td> <td class="col-ours">0.00</td> <td class="best col-ours">0.10</td> <td class="col-ours">0.02</td> <td class="col-oracle">0.07</td> </tr> <tr> <td>RotateStrictPos</td> <td>0.00</td> <td>0.00</td> <td>0.04</td> <td class="col-ours">0.03</td> <td class="col-ours">0.02</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.04</td> <td class="col-ours">0.00</td> <td class="col-ours">0.02</td> <td class="col-ours">0.02</td> <td class="best col-oracle">0.05</td> </tr> <tr> <td>RotateStrictPosNeg</td> <td>0.00</td> <td>0.00</td> <td>0.03</td> <td class="col-ours">0.01</td> <td class="col-ours">0.01</td> <td class="col-ours col-ours-star">0.00</td> <td class="col-ours">0.06</td> <td class="col-ours">0.00</td> <td class="col-ours">0.03</td> <td class="col-ours">0.04</td> <td class="best col-oracle">0.04</td> </tr> <tr class="avg-row"> <td>Average (7 envs)</td> <td>0.00</td> <td>0.01</td> <td>0.07</td> <td class="col-ours">0.09</td> <td class="col-ours">0.09</td> <td class="col-ours col-ours-star">0.16</td> <td class="col-ours">0.11</td> <td class="col-ours">0.09</td> <td class="col-ours">0.10</td> <td class="col-ours">0.09</td> <td class="best col-oracle">0.19</td> </tr> <tr class="bold-row"> <td>Avg. over 23 environments</td> <td>0.10</td> <td>0.10</td> <td>0.16</td> <td class="col-ours">0.18</td> <td class="col-ours">0.20</td> <td class="col-ours col-ours-star">0.34</td> <td class="col-ours">0.20</td> <td class="col-ours">0.19</td> <td class="col-ours">0.19</td> <td class="col-ours">0.07</td> <td class="best col-oracle">0.36</td> </tr> </tbody> </table> </div> <h3>Memoryless vs. memory-augmented VLAs on MIKASA-Robo</h3> <p class="table-caption">Success rates are reported per task. CronusVLA and MemoryVLA results are from the MemoryVLA paper; memory-augmented models are shaded in the paper.</p> <div class="table-wrap"> <table> <thead> <tr> <th>Model</th> <th>InterceptMedium</th> <th>RememberColor3</th> <th>RememberColor5</th> <th>RememberColor9</th> <th>Avg.</th> </tr> </thead> <tbody> <tr> <td>SpatialVLA</td> <td>0.27</td> <td>0.27</td> <td>0.17</td> <td>0.11</td> <td>0.21</td> </tr> <tr> <td>OpenVLA-OFT</td> <td>0.14</td> <td>0.59</td> <td>0.16</td> <td>0.06</td> <td>0.24</td> </tr> <tr> <td>π<sub>0</sub> </td> <td>0.42</td> <td>0.35</td> <td>0.22</td> <td>0.15</td> <td>0.29</td> </tr> <tr> <td>CronusVLA</td> <td>0.05</td> <td>0.31</td> <td>0.13</td> <td>0.09</td> <td>0.15</td> </tr> <tr> <td>MemoryVLA</td> <td>0.24</td> <td>0.44</td> <td>0.30</td> <td>0.20</td> <td>0.30</td> </tr> <tr class="bold-row"> <td>μVLA (ours)</td> <td class="best">0.56</td> <td class="best">0.92</td> <td class="best">0.93</td> <td class="best">0.41</td> <td class="best">0.71</td> </tr> </tbody> </table> </div> <h3>Performance comparison on LIBERO (Franka robot)</h3> <p class="table-caption">Success rates (%) are reported for the four LIBERO suites and their average. * denotes memory-augmented VLA models.</p> <div class="table-wrap"> <table> <thead> <tr> <th>Method</th> <th>Spatial</th> <th>Object</th> <th>Goal</th> <th>Long-10</th> <th>Avg.</th> </tr> </thead> <tbody> <tr> <td>Diffusion Policy</td> <td>78.3</td> <td>92.5</td> <td>68.3</td> <td>50.5</td> <td>72.4</td> </tr> <tr> <td>Octo</td> <td>78.9</td> <td>85.7</td> <td>84.6</td> <td>51.1</td> <td>75.1</td> </tr> <tr> <td>OpenVLA</td> <td>84.7</td> <td>88.4</td> <td>79.2</td> <td>53.7</td> <td>75.9</td> </tr> <tr> <td>SpatialVLA</td> <td>88.2</td> <td>89.9</td> <td>78.6</td> <td>55.5</td> <td>71.7</td> </tr> <tr> <td>UniACT</td> <td>77.0</td> <td>87.0</td> <td>77.0</td> <td>70.0</td> <td>76.8</td> </tr> <tr> <td>π<sub>0</sub> </td> <td>96.8</td> <td>98.8</td> <td>95.8</td> <td>85.2</td> <td>94.2</td> </tr> <tr> <td>π<sub>0</sub>-FAST</td> <td>96.4</td> <td>96.8</td> <td>88.6</td> <td>60.2</td> <td>85.0</td> </tr> <tr> <td>CogACT</td> <td>97.2</td> <td>98.0</td> <td>90.2</td> <td>88.8</td> <td>93.2</td> </tr> <tr> <td>OpenVLA-OFT</td> <td class="best">97.6</td> <td>98.4</td> <td class="best">97.9</td> <td>94.5</td> <td class="best">97.1</td> </tr> <tr> <td>CronusVLA*</td> <td>90.1</td> <td>94.7</td> <td>91.3</td> <td>68.7</td> <td>86.2</td> </tr> <tr> <td>MemoryVLA*</td> <td>98.4</td> <td>98.4</td> <td>96.4</td> <td>93.4</td> <td>96.5</td> </tr> <tr class="bold-row"> <td>μVLA (m=64, K=8, ours)</td> <td>93.0</td> <td class="best">99.4</td> <td>96.6</td> <td class="best">95.8</td> <td>96.2</td> </tr> <tr> <td>μVLA (m=64, EMA, ours)</td> <td>70.8</td> <td>64.4</td> <td>6.6</td> <td>37.2</td> <td>44.8</td> </tr> </tbody> </table> </div> <h2 id="memory-dynamics">Memory representation dynamics</h2> <p>Per-token L2 norms, cosine-distance-to-previous, and rollout for a successful episode at <i>K</i>=2, <i>m</i>=64. Cue-recall tasks show a single dominant write event followed by a secondary bump aligned with the cue-removal window.</p> <div class="tabs" data-group="memdyn"> <button class="tab-btn active" data-target="memdyn-rc5">RememberColor5</button> <button class="tab-btn" data-target="memdyn-rsac">RememberShapeAndColor3x3</button> <button class="tab-btn" data-target="memdyn-sgp">ShellGamePush</button> <button class="tab-btn" data-target="memdyn-tib">TakeItBack</button> <button class="tab-btn" data-target="memdyn-im">InterceptMedium</button> </div> <div id="memdyn-rc5" class="tab-panel active"> <div class="rollout-row"><img src="/project-websites/mu-vla/figures/mem_dynamics/RememberColor5-VLA-v0/rollout.png" alt="RC5 rollout"></div> <div class="grid-4"> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberColor5-VLA-v0/norms.png"><div class="label">Per-token L2 norms</div> </div> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberColor5-VLA-v0/cosine.png"><div class="label">1 − cos(M<sub>t</sub>, M<sub>t−1</sub>)</div> </div> <div class="heatmap-cell"> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberColor5-VLA-v0/norms_heatmap.png"><div class="label">Per-token norm heatmap</div> </div> </div> </div> <div id="memdyn-rsac" class="tab-panel"> <div class="rollout-row"><img src="/project-websites/mu-vla/figures/mem_dynamics/RememberShapeAndColor3x3-VLA-v0/rollout.png"></div> <div class="grid-4"> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberShapeAndColor3x3-VLA-v0/norms.png"><div class="label">Per-token L2 norms</div> </div> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberShapeAndColor3x3-VLA-v0/cosine.png"><div class="label">Cosine distance</div> </div> <div class="heatmap-cell"> <img src="/project-websites/mu-vla/figures/mem_dynamics/RememberShapeAndColor3x3-VLA-v0/norms_heatmap.png"><div class="label">Per-token norm heatmap</div> </div> </div> </div> <div id="memdyn-sgp" class="tab-panel"> <div class="rollout-row"><img src="/project-websites/mu-vla/figures/mem_dynamics/ShellGamePush-VLA-v0/rollout.png"></div> <div class="grid-4"> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/ShellGamePush-VLA-v0/norms.png"><div class="label">Per-token L2 norms</div> </div> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/ShellGamePush-VLA-v0/cosine.png"><div class="label">Cosine distance</div> </div> <div class="heatmap-cell"> <img src="/project-websites/mu-vla/figures/mem_dynamics/ShellGamePush-VLA-v0/norms_heatmap.png"><div class="label">Per-token norm heatmap</div> </div> </div> </div> <div id="memdyn-tib" class="tab-panel"> <div class="rollout-row"><img src="/project-websites/mu-vla/figures/mem_dynamics/TakeItBack-VLA-v0/rollout.png"></div> <div class="grid-4"> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/TakeItBack-VLA-v0/norms.png"><div class="label">Per-token L2 norms</div> </div> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/TakeItBack-VLA-v0/cosine.png"><div class="label">Cosine distance</div> </div> <div class="heatmap-cell"> <img src="/project-websites/mu-vla/figures/mem_dynamics/TakeItBack-VLA-v0/norms_heatmap.png"><div class="label">Per-token norm heatmap</div> </div> </div> </div> <div id="memdyn-im" class="tab-panel"> <div class="rollout-row"><img src="/project-websites/mu-vla/figures/mem_dynamics/InterceptMedium-VLA-v0/rollout.png"></div> <div class="grid-4"> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/InterceptMedium-VLA-v0/norms.png"><div class="label">Per-token L2 norms</div> </div> <div> <img src="/project-websites/mu-vla/figures/mem_dynamics/InterceptMedium-VLA-v0/cosine.png"><div class="label">Cosine distance</div> </div> <div class="heatmap-cell"> <img src="/project-websites/mu-vla/figures/mem_dynamics/InterceptMedium-VLA-v0/norms_heatmap.png"><div class="label">Per-token norm heatmap</div> </div> </div> </div> <h2 id="causal-intervention">Causal memory intervention</h2> <p>Success rate at 100 episodes under <b>baseline</b> (clean memory), <b>noise</b> (M<sub>t</sub> replaced with i.i.d. Gaussian noise before every forward), and <b>freeze_first</b> (memory locked to M<sub>1</sub>). The noise condition drops SR sharply on every cell with a non-trivial baseline, confirming that the recurrent channel is functionally read at inference.</p> <div class="tabs" data-group="interv"> <button class="tab-btn active" data-target="interv-rc5">RememberColor5</button> <button class="tab-btn" data-target="interv-rsac">RememberShapeAndColor3x3</button> <button class="tab-btn" data-target="interv-sgp">ShellGamePush</button> <button class="tab-btn" data-target="interv-tib">TakeItBack</button> <button class="tab-btn" data-target="interv-im">InterceptMedium</button> </div> <div id="interv-rc5" class="tab-panel active"><figure><img src="/project-websites/mu-vla/figures/ablations/intervention_combined4.png"></figure></div> <div id="interv-rsac" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/intervention_combined3.png"></figure></div> <div id="interv-sgp" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/intervention_combined2.png"></figure></div> <div id="interv-tib" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/intervention_combined1.png"></figure></div> <div id="interv-im" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/intervention_combined5.png"></figure></div> <div class="dual-section-row"> <section class="dual-section-card"> <h2 id="chunk-length">Chunk-length sweep</h2> <p class="dual-section-lead">For each carrier (<i>K</i>=8, EMA, <i>K</i>=2) we report SR at chunk lengths {1, 2, 4, 8, 16} with the memory channel active (solid) and zeroed at inference (dashed). The with-memory minus no-memory gap is largest at chunk=1 on cue-recall tasks; long-chunk inference partially bypasses the recurrent channel.</p> <div class="tabs" data-group="chunk"> <button class="tab-btn active" data-target="chunk-rc5">RememberColor5</button> <button class="tab-btn" data-target="chunk-rsac">RememberShapeAndColor3x3</button> <button class="tab-btn" data-target="chunk-sgp">ShellGamePush</button> <button class="tab-btn" data-target="chunk-tib">TakeItBack</button> <button class="tab-btn" data-target="chunk-im">InterceptMedium</button> </div> <div id="chunk-rc5" class="tab-panel active"><figure><img src="/project-websites/mu-vla/figures/ablations/chunk_sweep_combined4.png"></figure></div> <div id="chunk-rsac" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/chunk_sweep_combined3.png"></figure></div> <div id="chunk-sgp" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/chunk_sweep_combined2.png"></figure></div> <div id="chunk-tib" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/chunk_sweep_combined1.png"></figure></div> <div id="chunk-im" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/chunk_sweep_combined5.png"></figure></div> </section> <section class="dual-section-card"> <h2 id="generalization">Generalization probes (RememberColor5)</h2> <p class="dual-section-lead">(a) Both task phases fixed to N∈{3, 5, 10, 20, 50, 100} steps; training covers N∈{1,…,5} per phase. (b) 1–5 in-distribution colors replaced with the OOD palette {Pink, Orange, Purple, Brown, White}. <i>K</i>=2 dominates in-distribution and remains most robust to color swap, but degrades fastest with phase length; <i>K</i>=8 is flat-but-low; EMA collapses with phase length.</p> <div class="tabs" data-group="rc5gen"> <button class="tab-btn active" data-target="rc5gen-phase">Phase-length sweep</button> <button class="tab-btn" data-target="rc5gen-color">Color-swap sweep</button> </div> <div id="rc5gen-phase" class="tab-panel active"><figure><img src="/project-websites/mu-vla/figures/ablations/phase_length_combined.png"></figure></div> <div id="rc5gen-color" class="tab-panel"><figure><img src="/project-websites/mu-vla/figures/ablations/color_swap_combined.png"></figure></div> </section> </div> <footer class="page-footer"> <p>Code and videos will be released upon publication.</p> </footer> <script>
+    document.querySelectorAll('.tabs').forEach(tabs => {
+      const group = tabs.dataset.group;
+      tabs.addEventListener('click', e => {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        const target = btn.dataset.target;
+        tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+        // hide siblings of the same group: panels referenced by buttons in this tab bar
+        const targets = Array.from(tabs.querySelectorAll('.tab-btn')).map(b => b.dataset.target);
+        targets.forEach(id => {
+          const panel = document.getElementById(id);
+          if (panel) panel.classList.toggle('active', id === target);
+        });
+      });
+    });
+
+    const attnRuns = [
+      { env: 'InterceptMedium-VLA-v0', seed: 'seed_4242424242', label: 'InterceptMedium', instruction: 'Intercept the rolling ball by moving to its path and deflecting it toward the target.' },
+      { env: 'RememberColor5-VLA-v0', seed: 'seed_4242424243', label: 'RememberColor5', instruction: "Observe the cube's color, wait, then touch the cube of the same color." },
+      { env: 'RememberShapeAndColor3x3-VLA-v0', seed: 'seed_4242424242', label: 'RememberShapeAndColor3x3', instruction: "Observe the object's shape and color, wait, then touch the object of the same shape and color." },
+      { env: 'ShellGamePush-VLA-v0', seed: 'seed_4242424242', label: 'ShellGamePush', instruction: 'Observe which cup hides the ball, wait, then push that cup forward.' },
+      { env: 'TakeItBack-VLA-v0', seed: 'seed_4242424243', label: 'TakeItBack', instruction: 'Push the cube onto the red target, and when the target changes color, return the cube to its original position.' }
+    ];
+    const attnLayerCount = 32;
+    const attnState = {
+      env: 'RememberColor5-VLA-v0',
+      memoryLayer: 'mean',
+      actionLayer: 'mean'
+    };
+
+    function attnBasePath(run) {
+      return `/project-websites/mu-vla/videos/muVLA/${run.env}/${run.seed}`;
+    }
+
+    function attnImagePath(run, group, layer) {
+      const base = attnBasePath(run);
+      if (layer === 'mean') return `${base}/${group}/rollout_attn.png`;
+      return `${base}/${group}/per_layer/layer${layer}_rollout_attn.png`;
+    }
+
+    function attnLayerLabel(groupName, layer) {
+      if (layer === 'mean') return `${groupName}, aggregated over layers and heads`;
+      return `${groupName}, layer ${Number(layer)} mean over heads`;
+    }
+
+    function autoplayVideo(video) {
+      if (!video) return;
+      video.muted = true;
+      video.loop = true;
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    }
+
+    function sliderValueToLayer(value) {
+      const n = Number(value);
+      if (n <= 0) return 'mean';
+      return String(n - 1).padStart(2, '0');
+    }
+
+    function layerToSliderValue(layer) {
+      if (layer === 'mean') return 0;
+      return Number(layer) + 1;
+    }
+
+    function sliderValueLabel(value) {
+      const n = Number(value);
+      if (n <= 0) return 'mean';
+      return `L${n - 1}`;
+    }
+
+    function bindLayerSlider(slider, valueEl, onLayerChange, onLayerCommit) {
+      let commitFrame = null;
+      const scheduleCommit = () => {
+        if (commitFrame !== null) return;
+        commitFrame = window.requestAnimationFrame(() => {
+          commitFrame = null;
+          onLayerCommit();
+        });
+      };
+      slider.addEventListener('input', () => {
+        const layer = sliderValueToLayer(slider.value);
+        if (valueEl) valueEl.textContent = sliderValueLabel(slider.value);
+        onLayerChange(layer);
+        scheduleCommit();
+      });
+      slider.addEventListener('change', () => {
+        if (commitFrame !== null) {
+          window.cancelAnimationFrame(commitFrame);
+          commitFrame = null;
+        }
+        onLayerCommit();
+      });
+    }
+
+    function updateAttentionVideos() {
+      const run = attnRuns.find(item => item.env === attnState.env) || attnRuns[0];
+      const plainImg = document.getElementById('attn-plain-img');
+      const memoryImg = document.getElementById('attn-memory-img');
+      const actionImg = document.getElementById('attn-action-img');
+      const plainLabel = document.getElementById('attn-plain-label');
+      const memoryLabel = document.getElementById('attn-memory-label');
+      const actionLabel = document.getElementById('attn-action-label');
+      const attnInstruction = document.getElementById('attn-env-instruction');
+      const attnVideoInstruction = document.getElementById('attn-video-env-instruction');
+
+      plainImg.src = `${attnBasePath(run)}/rollout_plain.png`;
+      plainImg.alt = `${run.label} plain rollout`;
+      memoryImg.src = attnImagePath(run, 'memory_to_vision', attnState.memoryLayer);
+      memoryImg.alt = `${run.label} memory to vision attention rollout`;
+      actionImg.src = attnImagePath(run, 'action_first_to_vision', attnState.actionLayer);
+      actionImg.alt = `${run.label} action to vision attention rollout`;
+
+      plainLabel.textContent = `${run.label}: plain rollout`;
+      memoryLabel.textContent = attnLayerLabel('memory -> vision', attnState.memoryLayer);
+      actionLabel.textContent = attnLayerLabel('action -> vision', attnState.actionLayer);
+      if (attnInstruction) attnInstruction.textContent = `MIKASA-Robo instruction: ${run.instruction}`;
+      if (attnVideoInstruction) attnVideoInstruction.textContent = `MIKASA-Robo instruction: ${run.instruction}`;
+    }
+
+    const attnEnvSelect = document.getElementById('attn-env');
+    const attnVideoEnvSelect = document.getElementById('attn-video-env');
+    const attnMemoryLayerSlider = document.getElementById('attn-memory-layer-slider');
+    const attnActionLayerSlider = document.getElementById('attn-action-layer-slider');
+    const attnMemoryLayerValue = document.getElementById('attn-memory-layer-value');
+    const attnActionLayerValue = document.getElementById('attn-action-layer-value');
+    const attnMemoryVideo = document.getElementById('attn-memory-video');
+    const attnActionVideo = document.getElementById('attn-action-video');
+    const attnMemoryVideoLabel = document.getElementById('attn-memory-video-label');
+    const attnActionVideoLabel = document.getElementById('attn-action-video-label');
+
+    function updateAttentionOverlayVideos() {
+      if (!attnMemoryVideo || !attnActionVideo || !attnMemoryVideoLabel || !attnActionVideoLabel) return;
+      const run = attnRuns.find(item => item.env === attnState.env) || attnRuns[0];
+      const base = attnBasePath(run);
+
+      attnMemoryVideo.src = `${base}/memory_to_vision/attn_overlay.mp4`;
+      attnActionVideo.src = `${base}/action_first_to_vision/attn_overlay.mp4`;
+      attnMemoryVideo.load();
+      attnActionVideo.load();
+      autoplayVideo(attnMemoryVideo);
+      autoplayVideo(attnActionVideo);
+
+      attnMemoryVideoLabel.textContent = `${run.label}: memory -> vision`;
+      attnActionVideoLabel.textContent = `${run.label}: action -> vision`;
+    }
+
+    function syncAttnEnvSelects() {
+      if (attnEnvSelect) attnEnvSelect.value = attnState.env;
+      if (attnVideoEnvSelect) attnVideoEnvSelect.value = attnState.env;
+    }
+
+    if (attnEnvSelect && attnMemoryLayerSlider && attnActionLayerSlider) {
+      attnRuns.forEach(run => {
+        const option = document.createElement('option');
+        option.value = run.env;
+        option.textContent = run.env;
+        option.selected = run.env === attnState.env;
+        attnEnvSelect.appendChild(option);
+      });
+      if (attnVideoEnvSelect) {
+        attnRuns.forEach(run => {
+          const option = document.createElement('option');
+          option.value = run.env;
+          option.textContent = run.env;
+          option.selected = run.env === attnState.env;
+          attnVideoEnvSelect.appendChild(option);
+        });
+      }
+
+      attnMemoryLayerSlider.min = '0';
+      attnMemoryLayerSlider.max = String(attnLayerCount);
+      attnMemoryLayerSlider.step = '1';
+      attnActionLayerSlider.min = '0';
+      attnActionLayerSlider.max = String(attnLayerCount);
+      attnActionLayerSlider.step = '1';
+      attnMemoryLayerSlider.value = String(layerToSliderValue(attnState.memoryLayer));
+      attnActionLayerSlider.value = String(layerToSliderValue(attnState.actionLayer));
+      if (attnMemoryLayerValue) attnMemoryLayerValue.textContent = sliderValueLabel(attnMemoryLayerSlider.value);
+      if (attnActionLayerValue) attnActionLayerValue.textContent = sliderValueLabel(attnActionLayerSlider.value);
+
+      attnEnvSelect.addEventListener('change', () => {
+        attnState.env = attnEnvSelect.value;
+        syncAttnEnvSelects();
+        updateAttentionVideos();
+        updateAttentionOverlayVideos();
+      });
+      if (attnVideoEnvSelect) {
+        attnVideoEnvSelect.addEventListener('change', () => {
+          attnState.env = attnVideoEnvSelect.value;
+          syncAttnEnvSelects();
+          updateAttentionVideos();
+          updateAttentionOverlayVideos();
+        });
+      }
+      bindLayerSlider(attnMemoryLayerSlider, attnMemoryLayerValue, layer => {
+        attnState.memoryLayer = layer;
+      }, updateAttentionVideos);
+      bindLayerSlider(attnActionLayerSlider, attnActionLayerValue, layer => {
+        attnState.actionLayer = layer;
+      }, updateAttentionVideos);
+      syncAttnEnvSelects();
+      updateAttentionVideos();
+      updateAttentionOverlayVideos();
+    }
+
+    const liberoSuites = [
+      { id: 'libero_spatial', label: 'libero_spatial' },
+      { id: 'libero_object', label: 'libero_object' },
+      { id: 'libero_goal', label: 'libero_goal' },
+      { id: 'libero_10', label: 'libero_10' }
+    ];
+    let liberoRuns = [
+      { taskId: 0, episode: 0, description: 'open the middle drawer of the cabinet', score: '0.9800 (49/50)', dir: 'task_00_open_the_middle_drawer_of_the_cabinet/episode_00', steps: 120 },
+      { taskId: 0, episode: 1, description: 'open the middle drawer of the cabinet', score: '0.9800 (49/50)', dir: 'task_00_open_the_middle_drawer_of_the_cabinet/episode_01', steps: 115 },
+      { taskId: 0, episode: 2, description: 'open the middle drawer of the cabinet', score: '0.9800 (49/50)', dir: 'task_00_open_the_middle_drawer_of_the_cabinet/episode_02', steps: 111 },
+      { taskId: 1, episode: 0, description: 'put the bowl on the stove', score: '0.9600 (48/50)', dir: 'task_01_put_the_bowl_on_the_stove/episode_00', steps: 84 },
+      { taskId: 1, episode: 1, description: 'put the bowl on the stove', score: '0.9600 (48/50)', dir: 'task_01_put_the_bowl_on_the_stove/episode_01', steps: 85 },
+      { taskId: 1, episode: 3, description: 'put the bowl on the stove', score: '0.9600 (48/50)', dir: 'task_01_put_the_bowl_on_the_stove/episode_03', steps: 89 },
+      { taskId: 2, episode: 0, description: 'put the wine bottle on top of the cabinet', score: '0.8600 (43/50)', dir: 'task_02_put_the_wine_bottle_on_top_of_the_cabinet/episode_00', steps: 77 },
+      { taskId: 2, episode: 1, description: 'put the wine bottle on top of the cabinet', score: '0.8600 (43/50)', dir: 'task_02_put_the_wine_bottle_on_top_of_the_cabinet/episode_01', steps: 81 },
+      { taskId: 2, episode: 2, description: 'put the wine bottle on top of the cabinet', score: '0.8600 (43/50)', dir: 'task_02_put_the_wine_bottle_on_top_of_the_cabinet/episode_02', steps: 91 },
+      { taskId: 3, episode: 0, description: 'open the top drawer and put the bowl inside', score: '0.9800 (49/50)', dir: 'task_03_open_the_top_drawer_and_put_the_bowl_inside/episode_00', steps: 177 },
+      { taskId: 3, episode: 1, description: 'open the top drawer and put the bowl inside', score: '0.9800 (49/50)', dir: 'task_03_open_the_top_drawer_and_put_the_bowl_inside/episode_01', steps: 173 },
+      { taskId: 3, episode: 2, description: 'open the top drawer and put the bowl inside', score: '0.9800 (49/50)', dir: 'task_03_open_the_top_drawer_and_put_the_bowl_inside/episode_02', steps: 174 },
+      { taskId: 4, episode: 0, description: 'put the bowl on top of the cabinet', score: '0.9800 (49/50)', dir: 'task_04_put_the_bowl_on_top_of_the_cabinet/episode_00', steps: 84 },
+      { taskId: 4, episode: 1, description: 'put the bowl on top of the cabinet', score: '0.9800 (49/50)', dir: 'task_04_put_the_bowl_on_top_of_the_cabinet/episode_01', steps: 87 },
+      { taskId: 4, episode: 2, description: 'put the bowl on top of the cabinet', score: '0.9800 (49/50)', dir: 'task_04_put_the_bowl_on_top_of_the_cabinet/episode_02', steps: 84 },
+      { taskId: 5, episode: 0, description: 'push the plate to the front of the stove', score: '1.0000 (50/50)', dir: 'task_05_push_the_plate_to_the_front_of_the_stove/episode_00', steps: 141 },
+      { taskId: 5, episode: 1, description: 'push the plate to the front of the stove', score: '1.0000 (50/50)', dir: 'task_05_push_the_plate_to_the_front_of_the_stove/episode_01', steps: 155 },
+      { taskId: 5, episode: 2, description: 'push the plate to the front of the stove', score: '1.0000 (50/50)', dir: 'task_05_push_the_plate_to_the_front_of_the_stove/episode_02', steps: 132 },
+      { taskId: 6, episode: 0, description: 'put the cream cheese in the bowl', score: '1.0000 (50/50)', dir: 'task_06_put_the_cream_cheese_in_the_bowl/episode_00', steps: 88 },
+      { taskId: 6, episode: 1, description: 'put the cream cheese in the bowl', score: '1.0000 (50/50)', dir: 'task_06_put_the_cream_cheese_in_the_bowl/episode_01', steps: 89 },
+      { taskId: 6, episode: 2, description: 'put the cream cheese in the bowl', score: '1.0000 (50/50)', dir: 'task_06_put_the_cream_cheese_in_the_bowl/episode_02', steps: 92 },
+      { taskId: 7, episode: 0, description: 'turn on the stove', score: '1.0000 (50/50)', dir: 'task_07_turn_on_the_stove/episode_00', steps: 85 },
+      { taskId: 7, episode: 1, description: 'turn on the stove', score: '1.0000 (50/50)', dir: 'task_07_turn_on_the_stove/episode_01', steps: 80 },
+      { taskId: 7, episode: 2, description: 'turn on the stove', score: '1.0000 (50/50)', dir: 'task_07_turn_on_the_stove/episode_02', steps: 77 },
+      { taskId: 8, episode: 0, description: 'put the bowl on the plate', score: '0.9800 (49/50)', dir: 'task_08_put_the_bowl_on_the_plate/episode_00', steps: 75 },
+      { taskId: 8, episode: 1, description: 'put the bowl on the plate', score: '0.9800 (49/50)', dir: 'task_08_put_the_bowl_on_the_plate/episode_01', steps: 78 },
+      { taskId: 8, episode: 2, description: 'put the bowl on the plate', score: '0.9800 (49/50)', dir: 'task_08_put_the_bowl_on_the_plate/episode_02', steps: 73 },
+      { taskId: 9, episode: 0, description: 'put the wine bottle on the rack', score: '0.9600 (48/50)', dir: 'task_09_put_the_wine_bottle_on_the_rack/episode_00', steps: 136 },
+      { taskId: 9, episode: 1, description: 'put the wine bottle on the rack', score: '0.9600 (48/50)', dir: 'task_09_put_the_wine_bottle_on_the_rack/episode_01', steps: 123 },
+      { taskId: 9, episode: 2, description: 'put the wine bottle on the rack', score: '0.9600 (48/50)', dir: 'task_09_put_the_wine_bottle_on_the_rack/episode_02', steps: 123 }
+    ];
+    liberoRuns = liberoRuns.map(run => ({ ...run, suite: 'libero_goal' }));
+    const liberoState = {
+      suite: 'libero_goal',
+      taskId: 0,
+      episode: 0
+    };
+
+    function liberoBasePath(run) {
+      return `/project-websites/mu-vla/videos/muVLA/${run.suite || liberoState.suite}/${run.dir}`;
+    }
+
+    function currentLiberoRun() {
+      return liberoRuns.find(run => (run.suite || liberoState.suite) === liberoState.suite && run.taskId === liberoState.taskId && run.episode === liberoState.episode) || liberoRuns.find(run => (run.suite || liberoState.suite) === liberoState.suite) || liberoRuns[0];
+    }
+
+    function taskLabel(run) {
+      return `Task ${String(run.taskId).padStart(2, '0')}: ${run.description}`;
+    }
+
+    function runsForCurrentSuite() {
+      return liberoRuns.filter(run => (run.suite || liberoState.suite) === liberoState.suite);
+    }
+
+    function normalizeLiberoSummary(suite, item) {
+      return {
+        suite,
+        taskId: item.task_id,
+        episode: item.episode_idx,
+        description: item.task_description,
+        dir: item.task_dir,
+        steps: item.steps
+      };
+    }
+
+    async function loadAllLiberoRuns() {
+      const loaded = [];
+      for (const suite of liberoSuites) {
+        const response = await fetch(`/project-websites/mu-vla/videos/muVLA/${suite.id}/all_summaries.json`);
+        if (!response.ok) throw new Error(`Failed to load ${suite.id}`);
+        const summaries = await response.json();
+        summaries.forEach(item => loaded.push(normalizeLiberoSummary(suite.id, item)));
+      }
+      if (loaded.length) {
+        liberoRuns = loaded;
+      }
+    }
+
+    function populateLiberoSuites() {
+      const suiteSelects = [
+        document.getElementById('libero-suite'),
+        document.getElementById('libero-rollout-suite')
+      ].filter(Boolean);
+      suiteSelects.forEach(select => {
+        select.innerHTML = '';
+        liberoSuites.forEach(suite => {
+          const option = document.createElement('option');
+          option.value = suite.id;
+          option.textContent = suite.label;
+          option.selected = suite.id === liberoState.suite;
+          select.appendChild(option);
+        });
+      });
+    }
+
+    function populateLiberoTasks() {
+      const taskSelects = [
+        document.getElementById('libero-task'),
+        document.getElementById('libero-rollout-task')
+      ].filter(Boolean);
+      const tasks = Array.from(new Map(runsForCurrentSuite().map(run => [run.taskId, run])).values());
+      taskSelects.forEach(taskSelect => {
+        taskSelect.innerHTML = '';
+        tasks.forEach(run => {
+          const option = document.createElement('option');
+          option.value = String(run.taskId);
+          option.textContent = taskLabel(run);
+          option.selected = run.taskId === liberoState.taskId;
+          taskSelect.appendChild(option);
+        });
+      });
+    }
+
+    function populateLiberoEpisodes() {
+      const episodeSelects = [
+        document.getElementById('libero-episode'),
+        document.getElementById('libero-rollout-episode')
+      ].filter(Boolean);
+      const episodes = runsForCurrentSuite().filter(run => run.taskId === liberoState.taskId);
+      episodeSelects.forEach(episodeSelect => {
+        episodeSelect.innerHTML = '';
+        episodes.forEach(run => {
+          const option = document.createElement('option');
+          option.value = String(run.episode);
+          option.textContent = `Episode ${String(run.episode).padStart(2, '0')} (${run.steps} steps)`;
+          option.selected = run.episode === liberoState.episode;
+          episodeSelect.appendChild(option);
+        });
+      });
+    }
+
+    function syncLiberoSelects() {
+      const suiteSelects = [
+        document.getElementById('libero-suite'),
+        document.getElementById('libero-rollout-suite')
+      ].filter(Boolean);
+      const taskSelects = [
+        document.getElementById('libero-task'),
+        document.getElementById('libero-rollout-task')
+      ].filter(Boolean);
+      const episodeSelects = [
+        document.getElementById('libero-episode'),
+        document.getElementById('libero-rollout-episode')
+      ].filter(Boolean);
+
+      suiteSelects.forEach(select => { select.value = liberoState.suite; });
+      taskSelects.forEach(select => { select.value = String(liberoState.taskId); });
+      episodeSelects.forEach(select => { select.value = String(liberoState.episode); });
+    }
+
+    function updateLiberoViewer() {
+      const run = currentLiberoRun();
+      const base = liberoBasePath(run);
+      const title = `${taskLabel(run)}, episode ${String(run.episode).padStart(2, '0')}`;
+      const plainImg = document.getElementById('libero-plain-img');
+      const memoryImg = document.getElementById('libero-memory-img');
+      const actionImg = document.getElementById('libero-action-img');
+      const plainLabel = document.getElementById('libero-plain-label');
+      const memoryLabel = document.getElementById('libero-memory-label');
+      const actionLabel = document.getElementById('libero-action-label');
+      const memoryVideo = document.getElementById('libero-memory-video');
+      const actionVideo = document.getElementById('libero-action-video');
+      const memoryVideoLabel = document.getElementById('libero-memory-video-label');
+      const actionVideoLabel = document.getElementById('libero-action-video-label');
+      const liberoInstruction = document.getElementById('libero-task-instruction');
+
+      if (!plainImg || !memoryImg || !actionImg || !memoryVideo || !actionVideo) return;
+      plainImg.src = `${base}/rollout_plain.png`;
+      memoryImg.src = `${base}/memory_to_vision/rollout_attn.png`;
+      actionImg.src = `${base}/action_first_to_vision/rollout_attn.png`;
+      plainImg.alt = `${title}: plain rollout`;
+      memoryImg.alt = `${title}: memory to vision attention rollout`;
+      actionImg.alt = `${title}: action to vision attention rollout`;
+
+      memoryVideo.src = `${base}/memory_to_vision/attn_overlay.mp4`;
+      actionVideo.src = `${base}/action_first_to_vision/attn_overlay.mp4`;
+      memoryVideo.load();
+      actionVideo.load();
+      autoplayVideo(memoryVideo);
+      autoplayVideo(actionVideo);
+
+      if (plainLabel) plainLabel.textContent = `${title}: plain rollout`;
+      if (memoryLabel) memoryLabel.textContent = 'memory -> vision, aggregated over layers and heads';
+      if (actionLabel) actionLabel.textContent = 'action -> vision, aggregated over layers and heads';
+      if (memoryVideoLabel) memoryVideoLabel.textContent = `${title}: memory -> vision overlay`;
+      if (actionVideoLabel) actionVideoLabel.textContent = `${title}: action -> vision overlay`;
+      if (liberoInstruction) liberoInstruction.textContent = `LIBERO suite: ${run.suite || liberoState.suite} | Instruction: ${run.description}${run.score ? ` | Per-task SR: ${run.score}` : ''}`;
+    }
+
+    const liberoSuiteSelect = document.getElementById('libero-suite');
+    const liberoTaskSelect = document.getElementById('libero-task');
+    const liberoEpisodeSelect = document.getElementById('libero-episode');
+    const liberoRolloutSuiteSelect = document.getElementById('libero-rollout-suite');
+    const liberoRolloutTaskSelect = document.getElementById('libero-rollout-task');
+    const liberoRolloutEpisodeSelect = document.getElementById('libero-rollout-episode');
+
+    function setLiberoSuite(suite) {
+      liberoState.suite = suite;
+      const firstRun = runsForCurrentSuite()[0] || liberoRuns[0];
+      if (firstRun) {
+        liberoState.taskId = firstRun.taskId;
+        liberoState.episode = firstRun.episode;
+      }
+      populateLiberoTasks();
+      populateLiberoEpisodes();
+      syncLiberoSelects();
+      updateLiberoViewer();
+    }
+
+    function setLiberoTask(taskId) {
+      liberoState.taskId = Number(taskId);
+      const firstEpisode = runsForCurrentSuite().find(run => run.taskId === liberoState.taskId);
+      liberoState.episode = firstEpisode ? firstEpisode.episode : 0;
+      populateLiberoEpisodes();
+      syncLiberoSelects();
+      updateLiberoViewer();
+    }
+
+    function setLiberoEpisode(episode) {
+      liberoState.episode = Number(episode);
+      syncLiberoSelects();
+      updateLiberoViewer();
+    }
+
+    if (liberoTaskSelect && liberoEpisodeSelect) {
+      populateLiberoSuites();
+      populateLiberoTasks();
+      populateLiberoEpisodes();
+
+      [liberoSuiteSelect, liberoRolloutSuiteSelect].filter(Boolean).forEach(suiteSelect => {
+        suiteSelect.addEventListener('change', () => setLiberoSuite(suiteSelect.value));
+      });
+      [liberoTaskSelect, liberoRolloutTaskSelect].filter(Boolean).forEach(taskSelect => {
+        taskSelect.addEventListener('change', () => setLiberoTask(taskSelect.value));
+      });
+      [liberoEpisodeSelect, liberoRolloutEpisodeSelect].filter(Boolean).forEach(episodeSelect => {
+        episodeSelect.addEventListener('change', () => setLiberoEpisode(episodeSelect.value));
+      });
+      syncLiberoSelects();
+      updateLiberoViewer();
+      loadAllLiberoRuns().then(() => {
+        const currentRun = currentLiberoRun();
+        if (!currentRun || (currentRun.suite || liberoState.suite) !== liberoState.suite) {
+          const firstRun = runsForCurrentSuite()[0] || liberoRuns[0];
+          if (firstRun) {
+            liberoState.suite = firstRun.suite || liberoState.suite;
+            liberoState.taskId = firstRun.taskId;
+            liberoState.episode = firstRun.episode;
+          }
+        }
+        populateLiberoSuites();
+        populateLiberoTasks();
+        populateLiberoEpisodes();
+        syncLiberoSelects();
+        updateLiberoViewer();
+      }).catch(() => {});
+    }
+
+    const magnifierLens = document.getElementById('magnifier-lens');
+    const magnifierZoom = 5.5;
+    const magnifierTargets = '.rollout-row img, .attn-rollout-row img';
+    let magnifierImage = null;
+
+    function hideMagnifierLens() {
+      if (magnifierLens) magnifierLens.style.display = 'none';
+      magnifierImage = null;
+    }
+
+    function moveMagnifierLens(event, img) {
+      if (!magnifierLens) return;
+      const rect = img.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = Math.max(0, Math.min(event.clientX - rect.left, rect.width));
+      const y = Math.max(0, Math.min(event.clientY - rect.top, rect.height));
+      const lensWidth = magnifierLens.offsetWidth;
+      const lensHeight = magnifierLens.offsetHeight;
+      const margin = 18;
+      let left = event.clientX + margin;
+      let top = event.clientY + margin;
+
+      if (left + lensWidth > window.innerWidth - margin) {
+        left = event.clientX - lensWidth - margin;
+      }
+      if (top + lensHeight > window.innerHeight - margin) {
+        top = event.clientY - lensHeight - margin;
+      }
+      left = Math.max(margin, left);
+      top = Math.max(margin, top);
+
+      if (magnifierImage !== img) {
+        magnifierImage = img;
+        magnifierLens.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+      }
+      magnifierLens.style.display = 'block';
+      magnifierLens.style.left = `${left}px`;
+      magnifierLens.style.top = `${top}px`;
+      magnifierLens.style.backgroundSize = `${rect.width * magnifierZoom}px ${rect.height * magnifierZoom}px`;
+      magnifierLens.style.backgroundPosition = `${-(x * magnifierZoom - lensWidth / 2)}px ${-(y * magnifierZoom - lensHeight / 2)}px`;
+    }
+
+    if (magnifierLens) {
+      document.querySelectorAll(magnifierTargets).forEach(img => {
+        img.draggable = false;
+      });
+      document.addEventListener('dragstart', event => {
+        if (event.target.closest && event.target.closest(magnifierTargets)) {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('pointerdown', event => {
+        if (event.target.closest && event.target.closest(magnifierTargets)) {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('click', event => {
+        if (event.target.closest && event.target.closest(magnifierTargets)) {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('pointermove', event => {
+        const img = event.target.closest ? event.target.closest(magnifierTargets) : null;
+        if (!img) {
+          if (magnifierImage) hideMagnifierLens();
+          return;
+        }
+        moveMagnifierLens(event, img);
+      });
+      document.addEventListener('pointerleave', hideMagnifierLens);
+      window.addEventListener('blur', hideMagnifierLens);
+      window.addEventListener('scroll', hideMagnifierLens, { passive: true });
+    }
+  </script> </body> </html>
