@@ -1,0 +1,29 @@
+{
+  "task_id": 8,
+  "task_description": "put both moka pots on the stove",
+  "episode_idx": 1,
+  "success": true,
+  "steps": 374,
+  "patches_per_camera": 256,
+  "num_cameras": 2,
+  "patch_grid_hw": [
+    16,
+    16
+  ],
+  "num_layers": 32,
+  "aggregation": "mean over layers + heads (per_layer dump skipped)",
+  "query_groups": [
+    {
+      "name": "vision_to_vision",
+      "steps_used": 374
+    },
+    {
+      "name": "action_first_to_vision",
+      "steps_used": 374
+    },
+    {
+      "name": "memory_to_vision",
+      "steps_used": 374
+    }
+  ]
+}

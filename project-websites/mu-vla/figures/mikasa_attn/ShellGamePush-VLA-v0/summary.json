@@ -1,0 +1,34 @@
+{
+  "env_id": "ShellGamePush-VLA-v0",
+  "success": true,
+  "steps": 15,
+  "patches_per_camera": 256,
+  "num_cameras": 2,
+  "patch_grid_hw": [
+    16,
+    16
+  ],
+  "num_layers": 32,
+  "aggregation_main": "mean over layers + heads",
+  "aggregation_per_layer": "mean over heads only (one PNG per layer)",
+  "query_groups": [
+    {
+      "name": "action_first_to_vision",
+      "steps_used": 15,
+      "skipped": 0,
+      "num_layers": 32
+    },
+    {
+      "name": "memory_to_vision",
+      "steps_used": 15,
+      "skipped": 0,
+      "num_layers": 32
+    },
+    {
+      "name": "vision_to_vision",
+      "steps_used": 15,
+      "skipped": 0,
+      "num_layers": 32
+    }
+  ]
+}

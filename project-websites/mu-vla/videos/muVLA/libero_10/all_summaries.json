@@ -1,0 +1,902 @@
+[
+  {
+    "task_id": 0,
+    "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 260,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 260
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 260
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 260
+      }
+    ],
+    "task_dir": "task_00_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_baske/episode_00"
+  },
+  {
+    "task_id": 0,
+    "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 264,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 264
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 264
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 264
+      }
+    ],
+    "task_dir": "task_00_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_baske/episode_01"
+  },
+  {
+    "task_id": 0,
+    "task_description": "put both the alphabet soup and the tomato sauce in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 253,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 253
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 253
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 253
+      }
+    ],
+    "task_dir": "task_00_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_baske/episode_02"
+  },
+  {
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 244,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 244
+      }
+    ],
+    "task_dir": "task_01_put_both_the_cream_cheese_box_and_the_butter_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 245,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 245
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 245
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 245
+      }
+    ],
+    "task_dir": "task_01_put_both_the_cream_cheese_box_and_the_butter_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 239,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 239
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 239
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 239
+      }
+    ],
+    "task_dir": "task_01_put_both_the_cream_cheese_box_and_the_butter_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 2,
+    "task_description": "turn on the stove and put the moka pot on it",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 247,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 247
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 247
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 247
+      }
+    ],
+    "task_dir": "task_02_turn_on_the_stove_and_put_the_moka_pot_on_it/episode_00"
+  },
+  {
+    "task_id": 2,
+    "task_description": "turn on the stove and put the moka pot on it",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 256,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 256
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 256
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 256
+      }
+    ],
+    "task_dir": "task_02_turn_on_the_stove_and_put_the_moka_pot_on_it/episode_01"
+  },
+  {
+    "task_id": 2,
+    "task_description": "turn on the stove and put the moka pot on it",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 258,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 258
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 258
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 258
+      }
+    ],
+    "task_dir": "task_02_turn_on_the_stove_and_put_the_moka_pot_on_it/episode_02"
+  },
+  {
+    "task_id": 3,
+    "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 221,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 221
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 221
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 221
+      }
+    ],
+    "task_dir": "task_03_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_c/episode_00"
+  },
+  {
+    "task_id": 3,
+    "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 351,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 351
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 351
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 351
+      }
+    ],
+    "task_dir": "task_03_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_c/episode_02"
+  },
+  {
+    "task_id": 3,
+    "task_description": "put the black bowl in the bottom drawer of the cabinet and close it",
+    "episode_idx": 3,
+    "success": true,
+    "steps": 216,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 216
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 216
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 216
+      }
+    ],
+    "task_dir": "task_03_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_c/episode_03"
+  },
+  {
+    "task_id": 4,
+    "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 215,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 215
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 215
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 215
+      }
+    ],
+    "task_dir": "task_04_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_w/episode_00"
+  },
+  {
+    "task_id": 4,
+    "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 223,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 223
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 223
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 223
+      }
+    ],
+    "task_dir": "task_04_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_w/episode_01"
+  },
+  {
+    "task_id": 4,
+    "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 210,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 210
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 210
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 210
+      }
+    ],
+    "task_dir": "task_04_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_w/episode_02"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the book and place it in the back compartment of the caddy",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 170,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 170
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 170
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 170
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_book_and_place_it_in_the_back_compartment_of_the/episode_00"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the book and place it in the back compartment of the caddy",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 183,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 183
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 183
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 183
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_book_and_place_it_in_the_back_compartment_of_the/episode_01"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the book and place it in the back compartment of the caddy",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 152,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 152
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 152
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 152
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_book_and_place_it_in_the_back_compartment_of_the/episode_02"
+  },
+  {
+    "task_id": 6,
+    "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 218,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 218
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 218
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 218
+      }
+    ],
+    "task_dir": "task_06_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding/episode_00"
+  },
+  {
+    "task_id": 6,
+    "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 204,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 204
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 204
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 204
+      }
+    ],
+    "task_dir": "task_06_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding/episode_01"
+  },
+  {
+    "task_id": 6,
+    "task_description": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 213,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 213
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 213
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 213
+      }
+    ],
+    "task_dir": "task_06_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding/episode_02"
+  },
+  {
+    "task_id": 7,
+    "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 244,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 244
+      }
+    ],
+    "task_dir": "task_07_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_b/episode_00"
+  },
+  {
+    "task_id": 7,
+    "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 242,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 242
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 242
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 242
+      }
+    ],
+    "task_dir": "task_07_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_b/episode_02"
+  },
+  {
+    "task_id": 7,
+    "task_description": "put both the alphabet soup and the cream cheese box in the basket",
+    "episode_idx": 3,
+    "success": true,
+    "steps": 260,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 260
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 260
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 260
+      }
+    ],
+    "task_dir": "task_07_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_b/episode_03"
+  },
+  {
+    "task_id": 8,
+    "task_description": "put both moka pots on the stove",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 366,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 366
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 366
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 366
+      }
+    ],
+    "task_dir": "task_08_put_both_moka_pots_on_the_stove/episode_00"
+  },
+  {
+    "task_id": 8,
+    "task_description": "put both moka pots on the stove",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 374,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 374
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 374
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 374
+      }
+    ],
+    "task_dir": "task_08_put_both_moka_pots_on_the_stove/episode_01"
+  },
+  {
+    "task_id": 8,
+    "task_description": "put both moka pots on the stove",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 382,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 382
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 382
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 382
+      }
+    ],
+    "task_dir": "task_08_put_both_moka_pots_on_the_stove/episode_02"
+  },
+  {
+    "task_id": 9,
+    "task_description": "put the yellow and white mug in the microwave and close it",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 235,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 235
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 235
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 235
+      }
+    ],
+    "task_dir": "task_09_put_the_yellow_and_white_mug_in_the_microwave_and_close_it/episode_00"
+  },
+  {
+    "task_id": 9,
+    "task_description": "put the yellow and white mug in the microwave and close it",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 244,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 244
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 244
+      }
+    ],
+    "task_dir": "task_09_put_the_yellow_and_white_mug_in_the_microwave_and_close_it/episode_01"
+  },
+  {
+    "task_id": 9,
+    "task_description": "put the yellow and white mug in the microwave and close it",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 243,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 243
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 243
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 243
+      }
+    ],
+    "task_dir": "task_09_put_the_yellow_and_white_mug_in_the_microwave_and_close_it/episode_02"
+  }
+]

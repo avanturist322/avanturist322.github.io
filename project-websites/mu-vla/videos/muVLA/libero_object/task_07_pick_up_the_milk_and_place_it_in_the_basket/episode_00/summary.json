@@ -1,0 +1,29 @@
+{
+  "task_id": 7,
+  "task_description": "pick up the milk and place it in the basket",
+  "episode_idx": 0,
+  "success": true,
+  "steps": 132,
+  "patches_per_camera": 256,
+  "num_cameras": 2,
+  "patch_grid_hw": [
+    16,
+    16
+  ],
+  "num_layers": 32,
+  "aggregation": "mean over layers + heads (per_layer dump skipped)",
+  "query_groups": [
+    {
+      "name": "vision_to_vision",
+      "steps_used": 132
+    },
+    {
+      "name": "action_first_to_vision",
+      "steps_used": 132
+    },
+    {
+      "name": "memory_to_vision",
+      "steps_used": 132
+    }
+  ]
+}

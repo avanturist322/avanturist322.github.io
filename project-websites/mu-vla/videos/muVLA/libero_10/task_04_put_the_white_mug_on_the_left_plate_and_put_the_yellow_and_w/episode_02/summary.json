@@ -1,0 +1,29 @@
+{
+  "task_id": 4,
+  "task_description": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+  "episode_idx": 2,
+  "success": true,
+  "steps": 210,
+  "patches_per_camera": 256,
+  "num_cameras": 2,
+  "patch_grid_hw": [
+    16,
+    16
+  ],
+  "num_layers": 32,
+  "aggregation": "mean over layers + heads (per_layer dump skipped)",
+  "query_groups": [
+    {
+      "name": "vision_to_vision",
+      "steps_used": 210
+    },
+    {
+      "name": "action_first_to_vision",
+      "steps_used": 210
+    },
+    {
+      "name": "memory_to_vision",
+      "steps_used": 210
+    }
+  ]
+}

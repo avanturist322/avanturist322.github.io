@@ -1,0 +1,902 @@
+[
+  {
+    "task_id": 0,
+    "task_description": "pick up the alphabet soup and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 127,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 127
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 127
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 127
+      }
+    ],
+    "task_dir": "task_00_pick_up_the_alphabet_soup_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 0,
+    "task_description": "pick up the alphabet soup and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 129,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 129
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 129
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 129
+      }
+    ],
+    "task_dir": "task_00_pick_up_the_alphabet_soup_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 0,
+    "task_description": "pick up the alphabet soup and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 132,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 132
+      }
+    ],
+    "task_dir": "task_00_pick_up_the_alphabet_soup_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 1,
+    "task_description": "pick up the cream cheese and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 124,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 124
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 124
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 124
+      }
+    ],
+    "task_dir": "task_01_pick_up_the_cream_cheese_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 1,
+    "task_description": "pick up the cream cheese and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 126,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 126
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 126
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 126
+      }
+    ],
+    "task_dir": "task_01_pick_up_the_cream_cheese_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 1,
+    "task_description": "pick up the cream cheese and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 125,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 125
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 125
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 125
+      }
+    ],
+    "task_dir": "task_01_pick_up_the_cream_cheese_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 2,
+    "task_description": "pick up the salad dressing and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 117,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 117
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 117
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 117
+      }
+    ],
+    "task_dir": "task_02_pick_up_the_salad_dressing_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 2,
+    "task_description": "pick up the salad dressing and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 120,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 120
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 120
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 120
+      }
+    ],
+    "task_dir": "task_02_pick_up_the_salad_dressing_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 2,
+    "task_description": "pick up the salad dressing and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 114,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 114
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 114
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 114
+      }
+    ],
+    "task_dir": "task_02_pick_up_the_salad_dressing_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 3,
+    "task_description": "pick up the bbq sauce and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 122,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 122
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 122
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 122
+      }
+    ],
+    "task_dir": "task_03_pick_up_the_bbq_sauce_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 3,
+    "task_description": "pick up the bbq sauce and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 123,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 123
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 123
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 123
+      }
+    ],
+    "task_dir": "task_03_pick_up_the_bbq_sauce_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 3,
+    "task_description": "pick up the bbq sauce and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 132,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 132
+      }
+    ],
+    "task_dir": "task_03_pick_up_the_bbq_sauce_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 4,
+    "task_description": "pick up the ketchup and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 143,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 143
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 143
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 143
+      }
+    ],
+    "task_dir": "task_04_pick_up_the_ketchup_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 4,
+    "task_description": "pick up the ketchup and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 143,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 143
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 143
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 143
+      }
+    ],
+    "task_dir": "task_04_pick_up_the_ketchup_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 4,
+    "task_description": "pick up the ketchup and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 133,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 133
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 133
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 133
+      }
+    ],
+    "task_dir": "task_04_pick_up_the_ketchup_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the tomato sauce and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 133,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 133
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 133
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 133
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_tomato_sauce_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the tomato sauce and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 120,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 120
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 120
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 120
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_tomato_sauce_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 5,
+    "task_description": "pick up the tomato sauce and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 118,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 118
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 118
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 118
+      }
+    ],
+    "task_dir": "task_05_pick_up_the_tomato_sauce_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 6,
+    "task_description": "pick up the butter and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 138,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 138
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 138
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 138
+      }
+    ],
+    "task_dir": "task_06_pick_up_the_butter_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 6,
+    "task_description": "pick up the butter and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 146,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 146
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 146
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 146
+      }
+    ],
+    "task_dir": "task_06_pick_up_the_butter_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 6,
+    "task_description": "pick up the butter and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 150,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 150
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 150
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 150
+      }
+    ],
+    "task_dir": "task_06_pick_up_the_butter_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 7,
+    "task_description": "pick up the milk and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 132,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 132
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 132
+      }
+    ],
+    "task_dir": "task_07_pick_up_the_milk_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 7,
+    "task_description": "pick up the milk and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 127,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 127
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 127
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 127
+      }
+    ],
+    "task_dir": "task_07_pick_up_the_milk_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 7,
+    "task_description": "pick up the milk and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 148,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 148
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 148
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 148
+      }
+    ],
+    "task_dir": "task_07_pick_up_the_milk_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 8,
+    "task_description": "pick up the chocolate pudding and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 145,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 145
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 145
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 145
+      }
+    ],
+    "task_dir": "task_08_pick_up_the_chocolate_pudding_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 8,
+    "task_description": "pick up the chocolate pudding and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 157,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 157
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 157
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 157
+      }
+    ],
+    "task_dir": "task_08_pick_up_the_chocolate_pudding_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 8,
+    "task_description": "pick up the chocolate pudding and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 149,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 149
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 149
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 149
+      }
+    ],
+    "task_dir": "task_08_pick_up_the_chocolate_pudding_and_place_it_in_the_basket/episode_02"
+  },
+  {
+    "task_id": 9,
+    "task_description": "pick up the orange juice and place it in the basket",
+    "episode_idx": 0,
+    "success": true,
+    "steps": 115,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 115
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 115
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 115
+      }
+    ],
+    "task_dir": "task_09_pick_up_the_orange_juice_and_place_it_in_the_basket/episode_00"
+  },
+  {
+    "task_id": 9,
+    "task_description": "pick up the orange juice and place it in the basket",
+    "episode_idx": 1,
+    "success": true,
+    "steps": 113,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 113
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 113
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 113
+      }
+    ],
+    "task_dir": "task_09_pick_up_the_orange_juice_and_place_it_in_the_basket/episode_01"
+  },
+  {
+    "task_id": 9,
+    "task_description": "pick up the orange juice and place it in the basket",
+    "episode_idx": 2,
+    "success": true,
+    "steps": 122,
+    "patches_per_camera": 256,
+    "num_cameras": 2,
+    "patch_grid_hw": [
+      16,
+      16
+    ],
+    "num_layers": 32,
+    "aggregation": "mean over layers + heads (per_layer dump skipped)",
+    "query_groups": [
+      {
+        "name": "vision_to_vision",
+        "steps_used": 122
+      },
+      {
+        "name": "action_first_to_vision",
+        "steps_used": 122
+      },
+      {
+        "name": "memory_to_vision",
+        "steps_used": 122
+      }
+    ],
+    "task_dir": "task_09_pick_up_the_orange_juice_and_place_it_in_the_basket/episode_02"
+  }
+]
