@@ -34,7 +34,7 @@ latest_posts:
 <div class="current-status">
   <span class="current-status__label">Currently</span>
   <!-- <span class="current-status__text">🇧🇷 Attending ICLR 2026 in Rio de Janeiro</span> -->
-  <span class="current-status__text">Preparing to CoRL 2026</span>
+  <span class="current-status__text">Preparing to ICML 2026</span>
 </div>
 
 Hello! I am a PhD researcher studying memory mechanisms in reinforcement learning and embodied robotics, with a focus on transformer-based sequence models for long-horizon, partially observable tasks.
