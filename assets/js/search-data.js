@@ -94,7 +94,17 @@ ninja.data = [{
           section: "News",},{id: "news-memory-retention-is-not-enough-to-master-memory-tasks-in-reinforcement-learning-has-been-accepted-to-reinforcement-learning-conference-rlc-2026",
           title: '🧠 Memory Retention Is Not Enough to Master Memory Tasks in Reinforcement Learning...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "news-mikasa-robo-major-update-now-supports-vla-research",
+          title: 'MIKASA-Robo major update — now supports VLA research',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260620/";
+            },},{id: "news-μvla-preprint-published",
+          title: 'μVLA preprint published',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_20260627/";
+            },},{
         id: 'social-github',
         title: 'GitHub',
         section: 'Socials',
